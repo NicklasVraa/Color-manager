@@ -17,7 +17,7 @@ Simply submit a feature request containing the following:
 - A saturation value.
 - An intensity/lightness offset.
 
-Use [this tool](https://https://www.w3schools.com/colors/colors_hsl.asp) as a reference.
+Use any HSL color chooser as a reference.
 
 ---
 **Legal Notice**: This repository, including any and all of its forks and derivatives, may NOT be used in the development or training of any machine learning model of any kind, without the explicit permission of the owner of the original repository.
