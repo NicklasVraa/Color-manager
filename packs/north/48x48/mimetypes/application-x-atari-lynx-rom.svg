@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg18"
+   sodipodi:docname="application-x-atari-lynx-rom.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs22" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="16.881356"
+     inkscape:cy="24"
+     inkscape:current-layer="svg18" />
+  <path
+     d="m10 5c-1.108 0-2 0.892-2 2v36c0 1.108 0.892 2 2 2h28c1.108 0 2-0.892 2-2v-26l-11-1-1-11z"
+     style="opacity:.2"
+     id="path2" />
+  <path
+     inkscape:connector-curvature="0"
+     d="m 10,4.0000002 c -1.108,0 -2,0.892 -2,2 V 42 c 0,1.108 0.892,2 2,2 h 28 c 1.108,0 2,-0.892 2,-2 V 16 L 29,15 28,4.0000002 Z"
+     id="path4"
+     style="fill:#4c566a;fill-opacity:1" />
+  <path
+     d="m10 4c-1.108 0-2 0.892-2 2v1c0-1.108 0.892-2 2-2h18l11 11h1l-12-12z"
+     fill="#fff"
+     style="opacity:.1"
+     id="path6" />
+  <path
+     d="m28 5v10c0 1.1046 0.89543 2 2 2h10z"
+     style="opacity:.2"
+     id="path8" />
+  <path
+     d="m12 26 10 6 2-1 4 2h4l-12-7h-8zm16 0-3 2 4 2 7-4h-8zm-13 5 12 7h9l-12-6-2 1-3-2h-4zm3 3-6 4h7l3-2-4-2z"
+     style="opacity:.2"
+     id="path12" />
+  <path
+     d="m12 25 10 6 2-1 4 2h4l-12-7zm6 8-6 4h7l3-2z"
+     style="fill:#eaeaea;fill-opacity:1"
+     id="path14" />
+  <path
+     d="m28 25-3 2 4 2 7-4h-8zm-13 5 12 7h9l-12-6-2 1-3-2h-4z"
+     style="fill:#8591a7;fill-opacity:1"
+     id="path16" />
+  <path
+     inkscape:connector-curvature="0"
+     d="m 28,4 v 10 c 0,1.1046 0.89543,2 2,2 h 10 z"
+     id="path10"
+     style="fill:#5f697d;fill-opacity:1" />
+</svg>

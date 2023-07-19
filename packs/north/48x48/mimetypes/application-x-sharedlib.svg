@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg20"
+   sodipodi:docname="application-gnunet-directory.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata26">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs24" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview22"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="-15.661017"
+     inkscape:cy="24"
+     inkscape:current-layer="svg20" />
+  <path
+     style="opacity:0.2"
+     d="M 10,5 C 8.892,5 8,5.892 8,7 v 36 c 0,1.108 0.892,2 2,2 h 28 c 1.108,0 2,-0.892 2,-2 V 17 L 29,16 28,5 Z"
+     id="path2" />
+  <path
+     style="fill:#4c566a;fill-opacity:1"
+     d="M 10,4 C 8.892,4 8,4.892 8,6 v 36 c 0,1.108 0.892,2 2,2 h 28 c 1.108,0 2,-0.892 2,-2 V 16 L 29,15 28,4 Z"
+     id="path4" />
+  <path
+     fill="#ffffff"
+     style="opacity:0.1"
+     d="M 10,4 C 8.892,4 8,4.892 8,6 V 7 C 8,5.892 8.892,5 10,5 h 18 l 11,11 h 1 L 28,4 Z"
+     id="path6" />
+  <path
+     style="opacity:0.2"
+     d="m 28,5 v 10 c 0,1.1046 0.89543,2 2,2 h 10 z"
+     id="path8" />
+  <path
+     style="fill:#5f697d;fill-opacity:1"
+     d="m 28,4 v 10 c 0,1.1046 0.89543,2 2,2 h 10 z"
+     id="path10" />
+  <rect
+     style="opacity:0.2"
+     width="10"
+     height="10"
+     x="13"
+     y="20"
+     ry="2"
+     id="rect12" />
+  <rect
+     style="fill:#ffffff"
+     width="10"
+     height="10"
+     x="13"
+     y="19"
+     ry="2"
+     id="rect14" />
+  <rect
+     style="opacity:0.2"
+     width="10"
+     height="10"
+     x="25"
+     y="32"
+     ry="2"
+     id="rect16" />
+  <rect
+     style="fill:#ffffff"
+     width="10"
+     height="10"
+     x="25"
+     y="31"
+     ry="2"
+     id="rect18" />
+</svg>

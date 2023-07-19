@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="wsw.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg14" />
+  <circle
+     style="opacity:0.2"
+     cx="24"
+     cy="25"
+     r="20"
+     id="circle2" />
+  <circle
+     style="fill:#4c566a;fill-opacity:1"
+     cx="24"
+     cy="24"
+     r="20"
+     id="circle4" />
+  <path
+     style="fill:#5f697d;fill-opacity:1"
+     d="M 24 4 A 20 20 0 0 0 4 24 A 20 20 0 0 0 8.0644531 36 L 14 36 C 15.310483 36 16.415663 35.16665 16.826172 34 L 28 34 C 29.662 34 31 32.662 31 31 L 31 24 C 31 22.338 29.662 21 28 21 L 17 21 L 17 12 L 39.998047 12 A 20 20 0 0 0 24 4 z"
+     id="path6" />
+  <path
+     style="opacity:0.2;fill:#ffffff"
+     d="M 24,4 A 20,20 0 0 0 4,24 20,20 0 0 0 4.0215,24.582 20,20 0 0 1 24,5 20,20 0 0 1 43.979,24.418 20,20 0 0 0 44,24 20,20 0 0 0 24,4 Z"
+     id="path8" />
+  <path
+     style="opacity:0.2"
+     d="m 27,23 h -5 l -1,4 h 5 z M 44,11 43,16 H 19 l 2,3 h 14 l -3,9 4,3 -3,8 H 4 L 5,34 H 29 L 27,31 H 13 l 4,-9 -5,-3 3,-8 z"
+     id="path10" />
+  <path
+     fill="#ffffff"
+     d="m 27,22 h -5 l -1,4 h 5 z M 44,10 43,15 H 19 l 2,3 h 14 l -3,9 4,3 -3,8 H 4 L 5,33 H 29 L 27,30 H 13 l 4,-9 -5,-3 3,-8 z"
+     id="path12" />
+</svg>

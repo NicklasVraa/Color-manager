@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="rest.insomnia.Insomnia.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="765"
+     inkscape:window-height="480"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <path
+     style="opacity:0.2"
+     d="M 24,5 A 20,20 0 0 0 4,25 20,20 0 0 0 24,45 20,20 0 0 0 44,25 20,20 0 0 0 24,5 Z"
+     id="path2" />
+  <path
+     style="fill:#4c566a;fill-opacity:1"
+     d="m24 4a20 20 0 0 0 -20 20 20 20 0 0 0 20 20 20 20 0 0 0 20 -20 20 20 0 0 0 -20 -20z"
+     id="path4" />
+  <path
+     fill="#ffffff"
+     opacity=".2"
+     d="m24 4a20 20 0 0 0 -19.859 17.852 20 19 0 0 1 19.859 -16.852 20 19 0 0 1 19.922 17.447 20 20 0 0 0 -19.922 -18.447zm19.922 18.447a20 20 0 0 1 0.078 1.553 20 19 0 0 0 -0.078 -1.553zm-39.781-0.595a20 19 0 0 0 -0.0488 0.392 20 20 0 0 1 0.0488 -0.392zm-0.0488 0.392a20 20 0 0 0 -0.0918 1.756 20 19 0 0 1 0.0918 -1.756z"
+     id="path6" />
+  <path
+     style="opacity:0.1"
+     d="M 24,10 A 15,15 0 0 0 20.548828,10.421875 8,8 0 0 1 24,17 8,8 0 0 1 16,25 8,8 0 0 1 9.421875,21.537109 15,15 0 0 0 9,25 15,15 0 0 0 24,40 15,15 0 0 0 39,25 15,15 0 0 0 24,10 Z"
+     id="path8" />
+  <path
+     style="fill:#ffffff;fill-opacity:1"
+     d="M 24 9 A 15 15 0 0 0 20.548828 9.421875 A 8 8 0 0 1 24 16 A 8 8 0 0 1 16 24 A 8 8 0 0 1 9.421875 20.537109 A 15 15 0 0 0 9 24 A 15 15 0 0 0 24 39 A 15 15 0 0 0 39 24 A 15 15 0 0 0 24 9 z"
+     id="path10" />
+</svg>

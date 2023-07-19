@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="com.github.rkoesters.xkcd-gtk.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="23.678105"
+     inkscape:cy="37.625791"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g12" />
+  <g
+     transform="translate(0,-1004.3622)"
+     id="g12">
+    <circle
+       style="opacity:0.2"
+       cx="24"
+       cy="1029.362"
+       r="20"
+       id="circle2" />
+    <circle
+       style="fill:#4c566a;fill-opacity:1"
+       cx="24"
+       cy="1028.362"
+       r="20"
+       id="circle4" />
+    <path
+       style="fill:#ffffff;fill-opacity:1"
+       transform="translate(0,1004.3622)"
+       d="M 43.443359 19.412109 L 5.5410156 31.652344 A 20.000004 20.000004 0 0 0 5.9511719 32.570312 L 43.662109 20.392578 A 20.000004 20.000004 0 0 0 43.443359 19.412109 z"
+       id="path6" />
+    <path
+       style="fill:#fcfcfc;fill-opacity:1"
+       d="m 31.600512,1021.3622 -19.140727,6.2278 0.100503,0.3065 1.820773,5.5981 19.140725,-6.2262 -1.921274,-5.9062 z"
+       id="path8" />
+    <path
+       style="fill:#ffffff;opacity:0.2"
+       transform="translate(0,1004.3622)"
+       d="M 24 4 A 20.000004 20.000004 0 0 0 4 24 A 20.000004 20.000004 0 0 0 4.0214844 24.582031 A 20.000004 20.000004 0 0 1 24 5 A 20.000004 20.000004 0 0 1 43.978516 24.417969 A 20.000004 20.000004 0 0 0 44 24 A 20.000004 20.000004 0 0 0 24 4 z"
+       id="path10" />
+  </g>
+</svg>

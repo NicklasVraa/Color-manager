@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg32"
+   sodipodi:docname="adventures-of-shuggy.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs36" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview34"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g30" />
+  <g
+     transform="matrix(2,0,0,2,2,2)"
+     id="g30">
+    <path
+       d="m4 15.5-1-3-1 1-1-7s4 4 10 4 10-4 10-4l-1 7-1-1-1 3-2-3h-10z"
+       style="opacity:.2"
+       id="path2" />
+    <path
+       d="m4 15-1-3-1 1-1-7s4 4 10 4 10-4 10-4l-1 7-1-1-1 3-2-3h-10z"
+       style="fill:#5f697d;fill-opacity:1"
+       id="path4" />
+    <path
+       d="M 1,6 1.082031,6.5703125 C 1.3008924,6.7844858 5.1701426,10.5 11,10.5 c 5.829857,0 9.699108,-3.7155142 9.917969,-3.9296875 L 21,6 C 21,6 17,10 11,10 5,10 1,6 1,6 Z"
+       style="fill:#ffffff;opacity:.1"
+       id="path6" />
+    <path
+       d="m6 17.5 2 4 3-3 3 3 2-4v-1h-10z"
+       style="opacity:.2"
+       id="path8" />
+    <path
+       d="m6 17 2 4 3-3 3 3 2-4v-1h-10z"
+       style="fill:#e4e4e4"
+       id="path10" />
+    <path
+       d="m5 1.5v16s2 1 6 1 6-1 6-1v-16l-4 5h-4z"
+       style="opacity:.1"
+       id="path12" />
+    <path
+       d="m5 1v16s2 1 6 1 6-1 6-1v-16l-4 5h-4z"
+       style="fill:#4c566a;fill-opacity:1"
+       id="path14" />
+    <circle
+       cx="8.5"
+       cy="14"
+       r="2.5"
+       style="opacity:.2"
+       id="circle16" />
+    <circle
+       cx="8.5"
+       cy="13.5"
+       r="2.5"
+       style="fill:#ffffff;fill-opacity:1"
+       id="circle18" />
+    <circle
+       cx="13.5"
+       cy="14"
+       r="2.5"
+       style="opacity:.2"
+       id="circle20" />
+    <circle
+       cx="13.5"
+       cy="13.5"
+       r="2.5"
+       style="fill:#ffffff;fill-opacity:1"
+       id="circle22" />
+    <path
+       d="M 8.5,11 A 2.5,2.5 0 0 0 6,13.5 2.5,2.5 0 0 0 6.0136719,13.738281 2.5,2.5 0 0 1 8.5,11.5 2.5,2.5 0 0 1 10.986328,13.761719 2.5,2.5 0 0 0 11,13.5 2.5,2.5 0 0 0 8.5,11 Z"
+       style="fill:#ffffff;opacity:.2"
+       id="path24" />
+    <path
+       d="M 13.5,11 A 2.5,2.5 0 0 0 11,13.5 2.5,2.5 0 0 0 11.013672,13.738281 2.5,2.5 0 0 1 13.5,11.5 2.5,2.5 0 0 1 15.986328,13.761719 2.5,2.5 0 0 0 16,13.5 2.5,2.5 0 0 0 13.5,11 Z"
+       style="fill:#ffffff;opacity:.2"
+       id="path26" />
+    <path
+       d="m5 1v0.5l4 5h4l4-5v-0.5l-4 5h-4z"
+       style="fill:#ffffff;opacity:.2"
+       id="path28" />
+  </g>
+</svg>

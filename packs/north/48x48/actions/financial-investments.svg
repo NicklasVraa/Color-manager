@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="financial-investments.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <circle
+     style="opacity:0.2"
+     cx="24"
+     cy="25"
+     r="20"
+     id="circle2" />
+  <circle
+     style="fill:#4c566a;fill-opacity:1"
+     cx="24"
+     cy="24"
+     r="20"
+     id="circle4" />
+  <path
+     style="fill:#ffffff;opacity:0.2"
+     d="M 24 4 A 20 20 0 0 0 4 24 A 20 20 0 0 0 4.0214844 24.582031 A 20 20 0 0 1 24 5 A 20 20 0 0 1 43.978516 24.417969 A 20 20 0 0 0 44 24 A 20 20 0 0 0 24 4 z"
+     id="path6" />
+  <path
+     style="opacity:0.2"
+     d="M 34.333984,14 A 1.3346487,1.2831598 0 0 0 33.177734,15.923828 L 35.347656,19.535156 30.140625,22.427734 29.841797,21.830078 A 1.50015,1.50015 0 0 0 27.78125,21.183594 L 18.146484,26.439453 17.841797,25.830078 A 1.50015,1.50015 0 0 0 15.830078,25.158203 L 7.8300781,29.158203 A 1.5001746,1.5001746 0 1 0 9.171875,31.841797 L 15.828125,28.513672 16.158203,29.171875 A 1.50015,1.50015 0 0 0 18.21875,29.816406 L 27.853516,24.560547 28.158203,25.171875 A 1.50015,1.50015 0 0 0 30.228516,25.8125 L 36.892578,22.109375 38.84375,25.359375 A 1.3346487,1.2831598 0 0 0 41.154297,25.359375 L 43.988281,20.642578 46.820312,15.923828 A 1.3346487,1.2831598 0 0 0 46.785156,14.582031 1.3346487,1.2831598 0 0 0 45.664062,14 H 40 Z"
+     id="path8" />
+  <path
+     style="fill:#ffffff"
+     d="M 34.333984 13 A 1.3346487 1.2831598 0 0 0 33.177734 14.923828 L 35.347656 18.535156 L 30.140625 21.427734 L 29.841797 20.830078 A 1.50015 1.50015 0 0 0 27.78125 20.183594 L 18.146484 25.439453 L 17.841797 24.830078 A 1.50015 1.50015 0 0 0 15.830078 24.158203 L 7.8300781 28.158203 A 1.5001746 1.5001746 0 1 0 9.171875 30.841797 L 15.828125 27.513672 L 16.158203 28.171875 A 1.50015 1.50015 0 0 0 18.21875 28.816406 L 27.853516 23.560547 L 28.158203 24.171875 A 1.50015 1.50015 0 0 0 30.228516 24.8125 L 36.892578 21.109375 L 38.84375 24.359375 A 1.3346487 1.2831598 0 0 0 41.154297 24.359375 L 43.988281 19.642578 L 46.820312 14.923828 A 1.3346487 1.2831598 0 0 0 46.785156 13.582031 A 1.3346487 1.2831598 0 0 0 45.664062 13 L 40 13 L 34.333984 13 z"
+     id="path10" />
+</svg>

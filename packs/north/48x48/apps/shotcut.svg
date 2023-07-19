@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg16"
+   sodipodi:docname="shotcut.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg16" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="40"
+     height="40"
+     x="4"
+     y="4"
+     rx="2"
+     ry="2"
+     id="rect2" />
+  <path
+     style="opacity:0.3"
+     d="M 6 4 C 4.892 4 4 4.892 4 6 L 4 42 C 4 43.108 4.892 44 6 44 L 18 44 L 18 4 L 6 4 z"
+     id="path4" />
+  <path
+     style="opacity:0.1;fill:#ffffff"
+     d="M 6,4 C 4.892,4 4,4.892 4,6 V 7 C 4,5.892 4.892,5 6,5 h 36 c 1.108,0 2,0.892 2,2 V 6 C 44,4.892 43.108,4 42,4 Z"
+     id="path6" />
+  <path
+     style="opacity:0.2"
+     d="M 6,45 C 4.892,45 4,44.108 4,43 v -1 c 0,1.108 0.892,2 2,2 h 36 c 1.108,0 2,-0.892 2,-2 v 1 c 0,1.108 -0.892,2 -2,2 z"
+     id="path8" />
+  <rect
+     style="opacity:0.2"
+     width="4"
+     height="44"
+     x="16"
+     y="3"
+     rx="1"
+     ry="1"
+     id="rect10" />
+  <rect
+     style="fill:#e4e4e4"
+     width="4"
+     height="44"
+     x="16"
+     y="2"
+     rx="1"
+     ry="1"
+     id="rect12" />
+  <path
+     style="opacity:0.2;fill:#ffffff"
+     d="M 17 2 C 16.446 2 16 2.446 16 3 L 16 4 C 16 3.446 16.446 3 17 3 L 19 3 C 19.554 3 20 3.446 20 4 L 20 3 C 20 2.446 19.554 2 19 2 L 17 2 z"
+     id="path14" />
+</svg>

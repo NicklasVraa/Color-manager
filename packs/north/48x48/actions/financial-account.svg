@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg26"
+   sodipodi:docname="financial-account.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata32">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs30" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="960"
+     inkscape:window-height="498"
+     id="namedview28"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="21.712246"
+     inkscape:cy="30.612862"
+     inkscape:window-x="0"
+     inkscape:window-y="554"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg26" />
+  <path
+     style="fill:#4c566a;fill-opacity:1"
+     d="M 44,42 V 6 C 44,4.892 43.108,4 42,4 H 14 C 12.892,4 12,4.892 12,6 V 42 C 12,43.108 12.892,44 14,44 H 42 C 43.108,44 44,43.108 44,42 Z"
+     id="path2" />
+  <path
+     style="fill:#ffffff;fill-opacity:1"
+     d="M 17 11 L 17 13 L 29 13 L 29 11 L 17 11 z M 31 11 L 31 13 L 39 13 L 39 11 L 31 11 z"
+     id="path4" />
+  <path
+     style="fill:#ffffff;fill-opacity:1"
+     d="M 17 16 L 17 18 L 34 18 L 34 16 L 17 16 z M 36 16 L 36 18 L 39 18 L 39 16 L 36 16 z"
+     id="path6" />
+  <path
+     style="fill:#ffffff;fill-opacity:1"
+     d="M 17 21 L 17 23 L 25 23 L 25 21 L 17 21 z M 27 21 L 27 23 L 39 23 L 39 21 L 27 21 z"
+     id="path8" />
+  <path
+     style="opacity:0.2;fill:#ffffff"
+     d="M 14,4 C 12.892,4 12,4.892 12,6 V 7 C 12,5.892 12.892,5 14,5 H 42 C 43.108,5 44,5.892 44,7 V 6 C 44,4.892 43.108,4 42,4 Z"
+     id="path10" />
+  <path
+     style="opacity:0.2"
+     d="M 12,42 V 43 C 12,44.108 12.892,45 14,45 H 42 C 43.108,45 44,44.108 44,43 V 42 C 44,43.108 43.108,44 42,44 H 14 C 12.892,44 12,43.108 12,42 Z"
+     id="path12" />
+  <path
+     style="opacity:0.2"
+     d="M 6,25 C 4.892,25 4,25.892 4,27 V 38.115234 41.884766 43 C 4,44.108 4.892,45 6,45 H 34 C 35.108,45 36,44.108 36,43 V 27 C 36,25.892 35.108,25 34,25 Z"
+     id="path14" />
+  <path
+     style="fill:#5f697d;fill-opacity:1"
+     d="M 6,24 C 4.892,24 4,24.892 4,26 V 37.115234 40.884766 42 C 4,43.108 4.892,44 6,44 H 34 C 35.108,44 36,43.108 36,42 V 26 C 36,24.892 35.108,24 34,24 Z"
+     id="path16" />
+  <path
+     style="fill:#282828;fill-opacity:1"
+     d="M 4,26 H 36 V 30 H 4 Z"
+     id="path18" />
+  <path
+     style="opacity:0.2"
+     d="M 6.5,33 C 6.223,33 6,33.223 6,33.5 V 36.5 C 6,36.777 6.223,37 6.5,37 H 11.5 C 11.777,37 12,36.777 12,36.5 V 33.5 C 12,33.223 11.777,33 11.5,33 Z"
+     id="path20" />
+  <path
+     style="fill:#ffffff"
+     d="M 6.5,32 C 6.223,32 6,32.223 6,32.5 V 35.5 C 6,35.777 6.223,36 6.5,36 H 11.5 C 11.777,36 12,35.777 12,35.5 V 32.5 C 12,32.223 11.777,32 11.5,32 Z"
+     id="path22" />
+  <path
+     style="fill:#ffffff;fill-opacity:1"
+     d="M 11,39 V 40 H 15 V 39 Z M 16,39 V 40 H 20 V 39 Z M 21,39 V 40 H 25 V 39 Z M 26,39 V 40 H 30 V 39 Z"
+     id="path24" />
+</svg>

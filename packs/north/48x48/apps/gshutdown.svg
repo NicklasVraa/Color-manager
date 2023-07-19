@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg20"
+   sodipodi:docname="gshutdown.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata26">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs24" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview22"
+     showgrid="false"
+     inkscape:zoom="6.9532167"
+     inkscape:cx="29.993587"
+     inkscape:cy="23.712877"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg20" />
+  <circle
+     fill="#4f4f4f"
+     cx="24"
+     cy="24"
+     r="20"
+     id="circle2"
+     style="fill:#5f697d;fill-opacity:1" />
+  <circle
+     opacity=".2"
+     cx="24"
+     cy="25"
+     r="17"
+     id="circle4" />
+  <circle
+     fill="#cb4444"
+     cx="24"
+     cy="24"
+     r="17"
+     id="circle6"
+     style="fill:#4c566a;fill-opacity:1" />
+  <path
+     opacity=".2"
+     d="m24 14a11 11 0 0 0 -0.41016 0.019 11 11 0 0 1 0.59961 -0.014 11 11 0 0 0 -0.18945 0zm0.46484 0.016a11 11 0 0 1 0.625 0.049 11 11 0 0 0 -0.625 -0.049zm-1.4004 0.031a11 11 0 0 0 -0.5625 0.068 11 11 0 0 1 0.5625 -0.068zm2.5684 0.084a11 11 0 0 1 0.56055 0.1015 11 11 0 0 0 -0.56055 -0.1015zm-3.668 0.064a11 11 0 0 0 -0.51367 0.1172 11 11 0 0 1 0.51367 -0.1172zm4.7266 0.1485a11 11 0 0 1 0.56836 0.1621 11 11 0 0 0 -0.56836 -0.1621zm-5.8105 0.1152a11 11 0 0 0 -0.47852 0.1601 11 11 0 0 1 0.47852 -0.1601zm6.9375 0.2324a11 11 0 0 1 0.29688 0.1133 11 11 0 0 0 -0.29688 -0.1133zm-7.8145 0.072a11 11 0 0 0 -7.006 10.237 11 11 0 0 0 11 11 11 11 0 0 0 11 -11 11 11 0 0 0 -6.674 -10.1l-0.7832 1.8301a9 9 0 0 1 5.457 8.27 9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 5.7266 -8.3828l-0.72266-1.8535z"
+     id="path8" />
+  <path
+     fill="#fff"
+     d="m24 13a11 11 0 0 0 -0.41 0.02 11 11 0 0 1 0.599 -0.014 11 11 0 0 0 -0.189 -0.006zm0.46484 0.01563a11 11 0 0 1 0.625 0.04883 11 11 0 0 0 -0.625 -0.04883zm-1.4004 0.03125a11 11 0 0 0 -0.5625 0.06836 11 11 0 0 1 0.5625 -0.06836zm2.5684 0.08398a11 11 0 0 1 0.56055 0.10156 11 11 0 0 0 -0.56055 -0.10156zm-3.668 0.06445a11 11 0 0 0 -0.51367 0.11719 11 11 0 0 1 0.51367 -0.11719zm4.7266 0.14844a11 11 0 0 1 0.56836 0.16211 11 11 0 0 0 -0.56836 -0.16211zm-5.8105 0.11523a11 11 0 0 0 -0.47852 0.16016 11 11 0 0 1 0.47852 -0.16016zm6.9375 0.23242a11 11 0 0 1 0.29688 0.11328 11 11 0 0 0 -0.29688 -0.11328zm-7.8145 0.07227a11 11 0 0 0 -7.006 10.238 11 11 0 0 0 11 11 11 11 0 0 0 11 -11 11 11 0 0 0 -6.674 -10.1l-0.7832 1.8301a9 9 0 0 1 5.457 8.27 9 9 0 0 1 -9 9 9 9 0 0 1 -9 -9 9 9 0 0 1 5.7266 -8.3828l-0.72266-1.8535z"
+     id="path10" />
+  <rect
+     opacity=".2"
+     width="2"
+     height="9"
+     x="23"
+     y="11.5"
+     id="rect12" />
+  <rect
+     fill="#fff"
+     width="2"
+     height="9"
+     x="23"
+     y="11"
+     id="rect14" />
+  <path
+     fill="#fff"
+     opacity=".1"
+     d="m24 4a20 20 0 0 0 -19.859 17.852 20 19 0 0 1 19.859 -16.852 20 19 0 0 1 19.922 17.447 20 20 0 0 0 -19.922 -18.447zm19.922 18.447a20 20 0 0 1 0.078 1.553 20 19 0 0 0 -0.078 -1.553zm-39.781-0.595a20 19 0 0 0 -0.0488 0.392 20 20 0 0 1 0.0488 -0.392zm-0.0488 0.392a20 20 0 0 0 -0.0918 1.756 20 19 0 0 1 0.0918 -1.756z"
+     id="path16" />
+  <path
+     opacity=".2"
+     d="m24 45a20 20 0 0 1 -19.859 -17.852 20 19 0 0 0 19.859 16.852 20 19 0 0 0 19.922 -17.447 20 20 0 0 1 -19.922 18.447zm19.922-18.447a20 20 0 0 0 0.078 -1.553 20 19 0 0 1 -0.078 1.553zm-39.781 0.595a20 19 0 0 1 -0.0488 -0.392 20 20 0 0 0 0.0488 0.392zm-0.0488-0.392a20 20 0 0 1 -0.0918 -1.756 20 19 0 0 0 0.0918 1.756z"
+     id="path18" />
+</svg>

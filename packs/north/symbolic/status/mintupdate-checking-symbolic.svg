@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="16"
+   version="1.1"
+   style="enable-background:new"
+   id="svg7384"
+   height="16">
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Moka Symbolic Icon Theme</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title
+     id="title8473">Moka Symbolic Icon Theme</title>
+  <defs
+     id="defs7386">
+    <linearGradient
+       osb:paint="solid"
+       id="linearGradient5606">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5608" />
+    </linearGradient>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter7554">
+      <feBlend
+         mode="darken"
+         in2="BackgroundImage"
+         id="feBlend7556" />
+    </filter>
+  </defs>
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline;filter:url(#filter7554)"
+     id="layer10" />
+  <g
+     transform="translate(-278.00001,-248.98966)"
+     style="display:inline"
+     id="layer1" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="layer14" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="layer15" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="g71291" />
+  <g
+     transform="translate(-278.00001,-98.98966)"
+     style="display:inline"
+     id="layer2" />
+  <g
+     transform="translate(-278.00001,-98.98966)"
+     style="display:inline"
+     id="g6058" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="layer12" />
+  <path
+     style="display:block;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.00000012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+     d="M 7.8459822,0 C 4.7901002,2.1762286 0,3.5111607 0,3.5111607 1.2387135,13.559938 8,16 8,16 8,16 14.658057,13.463637 16,3.3660714 16,3.3660714 10.220169,1.3658515 7.8459822,0 Z m 0.04241,2.2857143 C 9.584241,3.2613225 13.714286,4.6897321 13.714286,4.6897321 12.755755,11.902279 8,13.714286 8,13.714286 c 0,0 -4.8294905,-1.741945 -5.7142857,-8.9196431 0,0 3.4199057,-0.9544797 5.6026779,-2.5089286 z"
+     id="path15651-4-5" />
+  <path
+     style="display:block;overflow:visible;visibility:visible;opacity:0.35;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.00000012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+     d="M 7.9121094 3.5 L 7.9121094 12.457031 C 7.9217123 12.46075 8 12.5 8 12.5 C 8 12.5 11.745156 11.072458 12.5 5.3925781 C 12.5 5.3925781 9.2475915 4.2682914 7.9121094 3.5 z M 5.3710938 10.361328 C 5.4724455 10.493646 5.5735199 10.622489 5.6757812 10.740234 C 5.5736984 10.623033 5.4724422 10.493547 5.3710938 10.361328 z M 7.3652344 12.177734 C 7.4084936 12.203572 7.4114977 12.202252 7.4511719 12.224609 C 7.4227081 12.208938 7.3958308 12.195352 7.3652344 12.177734 z "
+     id="path15651-4-7" />
+  <path
+     style="display:block;overflow:visible;visibility:visible;opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.00000012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+     d="M 7.912109,3.4990468 C 6.1931764,4.7231755 3.5,5.4756093 3.5,5.4756093 4.171602,10.923828 7.6559176,12.356866 7.912109,12.456078 Z"
+     id="path15651-4-7-3" />
+</svg>

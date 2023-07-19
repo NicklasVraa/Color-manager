@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg12"
+   sodipodi:docname="serviio.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="765"
+     inkscape:window-height="480"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <rect
+     style="opacity:0.2"
+     width="40"
+     height="40"
+     x="4"
+     y="5"
+     rx="12"
+     ry="12"
+     id="rect2" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="40"
+     height="40"
+     x="4"
+     y="4"
+     rx="12"
+     ry="12"
+     id="rect4" />
+  <path
+     style="opacity:0.1"
+     d="M 24,12 A 13,13 0 0 0 11.656,21 H 8 l 3,4 3,4 3,-4 3,-4 h -2.9062 a 8,8 0 0 1 6.906,-4 8,8 0 0 1 7.523,5.303 l 2.477,-3.303 2.785,3.713 A 13,13 0 0 0 23.9998,12 Z m 10,9 -3,4 -3,4 h 2.9062 a 8,8 0 0 1 -6.906,4 8,8 0 0 1 -7.523,-5.303 L 14.0002,31 11.2152,27.287 A 13,13 0 0 0 24.0002,38 13,13 0 0 0 36.3442,29 h 3.656 l -3,-4 -3,-4 z"
+     id="path6" />
+  <path
+     fill="#3f3f3f"
+     d="m24 11a13 13 0 0 0 -12.344 9h-3.656l3 4 3 4 3-4 3-4h-2.9062a8 8 0 0 1 6.906 -4 8 8 0 0 1 7.523 5.303l2.477-3.303 2.785 3.713a13 13 0 0 0 -12.785 -10.713zm10 9-3 4-3 4h2.9062a8 8 0 0 1 -6.906 4 8 8 0 0 1 -7.523 -5.303l-2.477 3.303-2.785-3.713a13 13 0 0 0 12.785 10.713 13 13 0 0 0 12.344 -9h3.656l-3-4-3-4z"
+     id="path8"
+     style="fill:#fefefe;fill-opacity:1" />
+  <path
+     style="fill:#ffffff;opacity:0.2"
+     d="M 16 4 C 9.352 4 4 9.352 4 16 L 4 17 C 4 10.352 9.352 5 16 5 L 32 5 C 38.648 5 44 10.352 44 17 L 44 16 C 44 9.352 38.648 4 32 4 L 16 4 z"
+     id="path10" />
+</svg>

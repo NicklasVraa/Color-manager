@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="zdoom.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="6.9532167"
+     inkscape:cx="18.167041"
+     inkscape:cy="26.90733"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg16" />
+  <circle
+     style="opacity:0.2"
+     cx="24"
+     cy="25"
+     r="20"
+     id="circle2" />
+  <circle
+     style="fill:#4c566a;fill-opacity:1"
+     cx="24"
+     cy="24"
+     r="20"
+     id="circle4" />
+  <path
+     style="opacity:0.1;fill:#ffffff"
+     d="M 24,4 A 20,20 0 0 0 4,24 20,20 0 0 0 4.0215,24.582 20,20 0 0 1 24,5 20,20 0 0 1 43.979,24.418 20,20 0 0 0 44,24 20,20 0 0 0 24,4 Z"
+     id="path6" />
+  <path
+     style="opacity:0.2;fill:none;stroke:#000000;stroke-width:4;stroke-linejoin:round"
+     d="m 24,20 h 9 c 0,0 2,2 2,5.5 0,3.5 -2,4.5 -2,4.5 h -7 v -5"
+     id="path8" />
+  <path
+     style="fill:none;stroke:#7d879b;stroke-width:4;stroke-linejoin:round;stroke-opacity:1"
+     d="m 24,19 h 9 c 0,0 2,2 2,5.5 0,3.5 -2,4.5 -2,4.5 h -7 v -5"
+     id="path10" />
+  <path
+     style="opacity:0.2;fill:none;stroke:#000000;stroke-width:4;stroke-linejoin:round"
+     d="M 12,20 H 24 L 14,30 h 12"
+     id="path12" />
+  <path
+     style="fill:none;stroke:#fefefe;stroke-width:4;stroke-linejoin:round"
+     d="M 12,19 H 24 L 14,29 h 12"
+     id="path14" />
+</svg>

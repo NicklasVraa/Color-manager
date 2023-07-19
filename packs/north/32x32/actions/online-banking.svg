@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   version="1"
+   id="svg12"
+   sodipodi:docname="online-banking.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="7.375"
+     inkscape:cx="16"
+     inkscape:cy="16"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <rect
+     style="opacity:0.2"
+     width="24"
+     height="24"
+     x="-31"
+     y="-28"
+     rx="1.286"
+     ry="1.286"
+     transform="matrix(0,-1,-1,0,0,0)"
+     id="rect2" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="24"
+     height="24"
+     x="-30"
+     y="-28"
+     rx="1.286"
+     ry="1.286"
+     transform="matrix(0,-1,-1,0,0,0)"
+     id="rect4" />
+  <path
+     style="fill:#ffffff;opacity:0.2"
+     d="M 5.2851562 6 C 4.5728705 6 4 6.5728705 4 7.2851562 L 4 8.2851562 C 4 7.5728705 4.5728705 7 5.2851562 7 L 26.714844 7 C 27.427129 7 28 7.5728705 28 8.2851562 L 28 7.2851562 C 28 6.5728705 27.427129 6 26.714844 6 L 5.2851562 6 z"
+     id="path6" />
+  <path
+     style="opacity:0.1"
+     d="M 14.572,23 C 14.17628,23 14,22.65662 14,22.23047 V 10.0001 h -3.00024 l 5,-7.0001 5,6.9999 H 18 v 12.23037 c 0,0.4256 -0.17764,0.769 -0.57264,0.769 z"
+     id="path8" />
+  <path
+     style="fill:#ffffff"
+     d="M 14.572,22 C 14.17628,22 14,21.65662 14,21.23047 V 9.0001 h -3.00024 l 5,-7.0001 5,6.9999 H 18 v 12.23037 c 0,0.4256 -0.17764,0.769 -0.57264,0.769 z"
+     id="path10" />
+</svg>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg16"
+   sodipodi:docname="hwinfo.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="19.666667"
+     inkscape:cx="12.813559"
+     inkscape:cy="3.6610169"
+     inkscape:current-layer="svg16" />
+  <rect
+     width="40"
+     height="40"
+     x="3.9491529"
+     y="3.9999995"
+     rx="2"
+     ry="2"
+     id="rect2"
+     style="fill:#4c566a;fill-opacity:1" />
+  <g
+     opacity=".2"
+     transform="matrix(2 0 0 -2 -1082 -669)"
+     id="g6">
+    <path
+       d="m552-354v10h2v-10h-2zm0 12v2h2v-2h-2z"
+       id="path4" />
+  </g>
+  <g
+     fill="#fff"
+     transform="matrix(2 0 0 -2 -1082 -670)"
+     id="g10">
+    <path
+       d="m552-354v10h2v-10h-2zm0 12v2h2v-2h-2z"
+       id="path8" />
+  </g>
+  <path
+     fill="#fff"
+     opacity=".2"
+     d="m6 4c-1.108 0-2 0.892-2 2v1c0-1.108 0.892-2 2-2h36c1.108 0 2 0.892 2 2v-1c0-1.108-0.892-2-2-2h-36z"
+     id="path12" />
+  <path
+     opacity=".2"
+     d="m6 45c-1.108 0-2-0.892-2-2v-1c0 1.108 0.892 2 2 2h36c1.108 0 2-0.892 2-2v1c0 1.108-0.892 2-2 2h-36z"
+     id="path14" />
+</svg>

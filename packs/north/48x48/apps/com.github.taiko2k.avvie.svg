@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="48"
+   width="48"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="com.github.taiko2k.avvie.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg14" />
+  <g
+     transform="matrix(2,0,0,2,2,2.0000006)"
+     id="g12"
+     style="fill:#4c566a;fill-opacity:1">
+    <rect
+       style="opacity:0.2;fill:#4c566a;fill-opacity:1"
+       rx="1"
+       ry="1"
+       height="18"
+       width="18"
+       y="2.5"
+       x="2"
+       id="rect2" />
+    <rect
+       style="fill:#4c566a;fill-opacity:1"
+       rx="1"
+       ry="1"
+       height="18"
+       width="18"
+       y="2"
+       x="2"
+       id="rect4" />
+    <path
+       style="opacity:0.2;fill:#4c566a;fill-opacity:1"
+       d="m3 2c-0.554 0-1 0.446-1 1v0.5c0-0.554 0.446-1 1-1h16c0.554 0 1 0.446 1 1v-0.5c0-0.554-0.446-1-1-1z"
+       id="path6" />
+    <path
+       style="opacity:0.2;fill:#4c566a;fill-opacity:1"
+       d="m13 1.4999997v1.9995235h6v4.9988086h2v-4.9988086c0-1.1077359-0.892-1.9995235-2-1.9995235zm-12 12.996903v4.998809c0 1.107736 0.8949948 2.080913 2 1.999523h6v-1.999523h-6v-4.998809z"
+       id="path8" />
+    <path
+       style="fill:#4c566a;fill-opacity:1"
+       d="m13 1.0000001v1.9995235h6v4.9988086h2v-4.9988086c0-1.1077359-0.892-1.9995235-2-1.9995235zm-12 13v4.995712c0 1.107736 0.8949948 2.080913 2 1.999523h6v-1.999523h-6v-4.995712z"
+       id="path10" />
+  </g>
+</svg>

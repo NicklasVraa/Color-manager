@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg7384"
+   height="16"
+   width="16"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="hicolor_status_scalable_screensaver-notification-symbolic.svg">
+  <defs
+     id="defs4146" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     id="namedview4144"
+     showgrid="false"
+     inkscape:zoom="36.018252"
+     inkscape:cx="4.3904058"
+     inkscape:cy="7.5801075"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7384" />
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Gnome Symbolic Icon Theme</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title
+     id="title9167">Gnome Symbolic Icon Theme</title>
+  <path
+     style="fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 2 3 C 1.4457191 3 1 3.4396402 1 3.9863281 L 1 12.013672 C 1 12.56036 1.4457191 13 2 13 L 3.9257812 13 L 3.6015625 15.263672 L 6.2558594 13 L 14 13 C 14.554281 13 15 12.56036 15 12.013672 L 15 3.9863281 C 15 3.4396402 14.554281 3 14 3 L 2 3 z M 7.5 4 L 8.5 4 C 8.777 4 9 4.223 9 4.5 L 9 8.5 C 9 8.777 8.777 9 8.5 9 L 7.5 9 C 7.223 9 7 8.777 7 8.5 L 7 4.5 C 7 4.223 7.223 4 7.5 4 z M 7.5 10 L 8.5 10 C 8.777 10 9 10.223 9 10.5 L 9 11.5 C 9 11.777 8.777 12 8.5 12 L 7.5 12 C 7.223 12 7 11.777 7 11.5 L 7 10.5 C 7 10.223 7.223 10 7.5 10 z "
+     id="rect4150" />
+</svg>

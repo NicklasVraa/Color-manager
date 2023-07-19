@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="com.github.alainm23.byte.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <circle
+     cx="24"
+     cy="25"
+     r="20"
+     style="opacity:.2"
+     id="circle2" />
+  <circle
+     cx="24"
+     cy="24"
+     r="20"
+     style="fill:#4c566a;fill-opacity:1"
+     id="circle4" />
+  <path
+     d="M 24,4 A 20,20 0 0 0 4,24 20,20 0 0 0 4.0196,24.586 20,20 0 0 1 24,5 20,20 0 0 1 43.98,24.414 20,20 0 0 0 44,24 20,20 0 0 0 24,4 Z"
+     style="fill:#ffffff;opacity:.2"
+     id="path6" />
+  <path
+     d="m24.984376 11.984375c-0.55229 0.008618-0.993018 0.463336-0.984376 1.015625v17c-4 0-6 2-6 4s2 4 4 4c3.970758 0 3.999788-3.943516 4-7.914062v-0.0156c8.24e-4 -0.02346 8.24e-4 -0.0469 0-0.07034v-11.999998s3.039944 2.000364 3 4c-0.0799 4-1 6-1 6s2-3.891814 2-6c0-2-1.28154-3.922309-2-5-0.955872-1.230128-1.544028-2.523715-2-3.96875 0.0088-0.564532-0.451092-1.055708-1.015624-1.046875z"
+     style="opacity:.2"
+     id="path8" />
+  <path
+     d="m24.984376 10.984375c-0.55229 0.008617-0.993018 0.463335-0.984376 1.015625v17c-4 0-6 2-6 4s2 4 4 4c3.970758 0 3.999788-3.943516 4-7.914062v-0.0156c8.24e-4 -0.02346 8.24e-4 -0.0469 0-0.07034v-11.999998s3.039944 2.000363 3 4c-0.0799 4-1 6-1 6s2-3.891814 2-6c0-2-1.28154-3.922309-2-5-0.955872-1.230128-1.544028-2.523716-2-3.96875 0.0088-0.564533-0.451092-1.055709-1.015624-1.046875z"
+     style="fill:#ffffff"
+     id="path10" />
+</svg>

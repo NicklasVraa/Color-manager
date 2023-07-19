@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   version="1.1"
+   id="svg66"
+   sodipodi:docname="device_mem.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata72">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs70" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview68"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="7.9957517"
+     inkscape:cy="4.5509318"
+     inkscape:current-layer="svg66"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0" />
+  <rect
+     style="opacity:0.2"
+     width="20"
+     height="12"
+     x="2"
+     y="6.5"
+     rx="1"
+     ry="1"
+     id="rect2" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="20"
+     height="12"
+     x="2"
+     y="6"
+     rx="1"
+     ry="1"
+     id="rect4" />
+  <g
+     style="opacity:0.2"
+     id="g14">
+    <rect
+       width="3"
+       height="6"
+       x="3"
+       y="9.5"
+       rx=".5"
+       ry=".5"
+       id="rect6" />
+    <rect
+       width="3"
+       height="6"
+       x="8"
+       y="9.5"
+       rx=".5"
+       ry=".5"
+       id="rect8" />
+    <rect
+       width="3"
+       height="6"
+       x="13"
+       y="9.5"
+       rx=".5"
+       ry=".5"
+       id="rect10" />
+    <rect
+       width="3"
+       height="6"
+       x="18"
+       y="9.5"
+       rx=".5"
+       ry=".5"
+       id="rect12" />
+  </g>
+  <g
+     style="fill:#37474f"
+     id="g24">
+    <rect
+       width="3"
+       height="6"
+       x="3"
+       y="9"
+       rx=".5"
+       ry=".5"
+       id="rect16" />
+    <rect
+       width="3"
+       height="6"
+       x="8"
+       y="9"
+       rx=".5"
+       ry=".5"
+       id="rect18" />
+    <rect
+       width="3"
+       height="6"
+       x="13"
+       y="9"
+       rx=".5"
+       ry=".5"
+       id="rect20" />
+    <rect
+       width="3"
+       height="6"
+       x="18"
+       y="9"
+       rx=".5"
+       ry=".5"
+       id="rect22" />
+  </g>
+  <path
+     style="fill:#ffffff;opacity:0.1"
+     d="M 3 6 C 2.446 6 2 6.446 2 7 L 2 7.5 C 2 6.946 2.446 6.5 3 6.5 L 21 6.5 C 21.554 6.5 22 6.946 22 7.5 L 22 7 C 22 6.446 21.554 6 21 6 L 3 6 z"
+     id="path26" />
+  <g
+     style="opacity:0.2"
+     id="g40">
+    <rect
+       width="2"
+       height="2"
+       x="3"
+       y="17.5"
+       id="rect28" />
+    <rect
+       width="2"
+       height="2"
+       x="6"
+       y="17.5"
+       id="rect30" />
+    <rect
+       width="2"
+       height="2"
+       x="9"
+       y="17.5"
+       id="rect32" />
+    <rect
+       width="2"
+       height="2"
+       x="13"
+       y="17.5"
+       id="rect34" />
+    <rect
+       width="2"
+       height="2"
+       x="16"
+       y="17.5"
+       id="rect36" />
+    <rect
+       width="2"
+       height="2"
+       x="19"
+       y="17.5"
+       id="rect38" />
+  </g>
+  <g
+     style="fill:#ffffff;fill-opacity:1"
+     id="g54">
+    <rect
+       width="2"
+       height="2"
+       x="3"
+       y="17"
+       id="rect42"
+       style="fill:#ffffff;fill-opacity:1" />
+    <rect
+       width="2"
+       height="2"
+       x="6"
+       y="17"
+       id="rect44"
+       style="fill:#ffffff;fill-opacity:1" />
+    <rect
+       width="2"
+       height="2"
+       x="9"
+       y="17"
+       id="rect46"
+       style="fill:#ffffff;fill-opacity:1" />
+    <rect
+       width="2"
+       height="2"
+       x="13"
+       y="17"
+       id="rect48"
+       style="fill:#ffffff;fill-opacity:1" />
+    <rect
+       width="2"
+       height="2"
+       x="16"
+       y="17"
+       id="rect50"
+       style="fill:#ffffff;fill-opacity:1" />
+    <rect
+       width="2"
+       height="2"
+       x="19"
+       y="17"
+       id="rect52"
+       style="fill:#ffffff;fill-opacity:1" />
+  </g>
+  <g
+     style="opacity:0.1;fill:#ffffff"
+     id="g64">
+    <path
+       d="M 3.5 9 C 3.223 9 3 9.223 3 9.5 L 3 10 C 3 9.723 3.223 9.5 3.5 9.5 L 5.5 9.5 C 5.777 9.5 6 9.723 6 10 L 6 9.5 C 6 9.223 5.777 9 5.5 9 L 3.5 9 z"
+       id="path56" />
+    <path
+       d="M 8.5,9 C 8.223,9 8,9.223 8,9.5 V 10 C 8,9.723 8.223,9.5 8.5,9.5 H 10.5 C 10.777,9.5 11,9.723 11,10 V 9.5 C 11,9.223 10.777,9 10.5,9 Z"
+       id="path58" />
+    <path
+       d="M 13.5,9 C 13.223,9 13,9.223 13,9.5 V 10 C 13,9.723 13.223,9.5 13.5,9.5 H 15.5 C 15.777,9.5 16,9.723 16,10 V 9.5 C 16,9.223 15.777,9 15.5,9 Z"
+       id="path60" />
+    <path
+       d="M 18.5,9 C 18.223,9 18,9.223 18,9.5 V 10 C 18,9.723 18.223,9.5 18.5,9.5 H 20.5 C 20.777,9.5 21,9.723 21,10 V 9.5 C 21,9.223 20.777,9 20.5,9 Z"
+       id="path62" />
+  </g>
+</svg>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg18"
+   sodipodi:docname="notification-audio-volume-muted.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs22" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="6.9532167"
+     inkscape:cx="30.540942"
+     inkscape:cy="20.989097"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
+  <path
+     fill="#e4e4e4"
+     d="m4 14v20h9.0912l10.909 10v-40l-10.909 10z"
+     id="path2" />
+  <path
+     opacity=".2"
+     d="m4 34v1h9.0918l10.908 10v-1l-10.908-10z"
+     id="path4" />
+  <path
+     fill="#fff"
+     opacity=".2"
+     d="m24 4-10.908 10h-9.092v1h9.092l10.908-10z"
+     id="path6" />
+  <circle
+     fill="#db3c30"
+     cx="28"
+     cy="36"
+     r="10"
+     id="circle8"
+     style="fill:#5f697d;fill-opacity:1" />
+  <path
+     opacity=".2"
+     d="m37.979 36.414a10 10 0 0 1 -9.979 9.586 10 10 0 0 1 -9.979 -9.414 10 10 0 0 0 -0.021 0.414 10 10 0 0 0 10 10 10 10 0 0 0 10 -10 10 10 0 0 0 -0.021 -0.586z"
+     id="path10" />
+  <g
+     fill="#fff"
+     transform="matrix(.70711 -.70711 .70711 .70711 -21.497 34.846)"
+     id="g16">
+    <rect
+       width="12"
+       height="2"
+       x="28"
+       y="35"
+       id="rect12" />
+    <rect
+       width="12"
+       height="2"
+       x="-42"
+       y="33"
+       transform="rotate(-90)"
+       id="rect14" />
+  </g>
+</svg>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg26"
+   sodipodi:docname="application-illustrator.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata32">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs30" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="952"
+     inkscape:window-height="499"
+     id="namedview28"
+     showgrid="false"
+     inkscape:zoom="6.9532167"
+     inkscape:cx="25.267811"
+     inkscape:cy="20.099032"
+     inkscape:current-layer="svg26"
+     inkscape:window-x="960"
+     inkscape:window-y="554"
+     inkscape:window-maximized="0" />
+  <rect
+     style="opacity:0.2"
+     width="40"
+     height="36"
+     x="4"
+     y="7"
+     rx="3"
+     ry="3"
+     id="rect2" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="40"
+     height="36"
+     x="4"
+     y="6"
+     rx="3"
+     ry="3"
+     id="rect4" />
+  <path
+     style="fill:#363636"
+     d="m 24,17 a 12,12 0 0 0 -12,12 12,12 0 0 0 0.04297,1 h 2.007812 A 10,10 0 0 1 14,29 10,10 0 0 1 23.980469,19 10,10 0 0 1 24,19 10,10 0 0 1 34,29 10,10 0 0 1 33.94922,30 h 2.007812 A 12,12 0 0 0 36,29 12,12 0 0 0 24,17 Z"
+     id="path6" />
+  <path
+     style="opacity:0.1"
+     d="M 11.951172,17 A 2,2 0 0 0 10,19 a 2,2 0 0 0 2,2 2,2 0 0 0 1.730469,-1 H 34.269531 A 2,2 0 0 0 36,21 2,2 0 0 0 38,19 2,2 0 0 0 36,17 2,2 0 0 0 34.269531,18 H 13.730469 A 2,2 0 0 0 12,17 a 2,2 0 0 0 -0.04883,0 z"
+     id="path8" />
+  <rect
+     style="fill:#7d879b;fill-opacity:1"
+     width="22"
+     height="2"
+     x="13"
+     y="17"
+     id="rect10" />
+  <path
+     style="opacity:0.1"
+     d="m 22,16 c -0.554,0 -1,0.446 -1,1 v 4 c 0,0.554 0.446,1 1,1 h 4 c 0.554,0 1,-0.446 1,-1 v -4 c 0,-0.554 -0.446,-1 -1,-1 z M 11,28 c -0.554,0 -1,0.446 -1,1 v 4 c 0,0.554 0.446,1 1,1 h 4 c 0.554,0 1,-0.446 1,-1 v -4 c 0,-0.554 -0.446,-1 -1,-1 z m 22,0 c -0.554,0 -1,0.446 -1,1 v 4 c 0,0.554 0.446,1 1,1 h 4 c 0.554,0 1,-0.446 1,-1 v -4 c 0,-0.554 -0.446,-1 -1,-1 z"
+     id="path12" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1"
+     width="6"
+     height="6"
+     x="10"
+     y="27"
+     rx="1"
+     ry="1"
+     id="rect14" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1"
+     width="6"
+     height="6"
+     x="32"
+     y="27"
+     rx="1"
+     ry="1"
+     id="rect16" />
+  <circle
+     style="fill:#7d879b;fill-opacity:1"
+     cx="36"
+     cy="18"
+     r="2"
+     id="circle18" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1"
+     width="6"
+     height="6"
+     x="21"
+     y="15"
+     rx="1"
+     ry="1"
+     id="rect20" />
+  <path
+     style="opacity:0.2;fill:#ffffff"
+     d="M 7 6 C 5.338 6 4 7.338 4 9 L 4 10 C 4 8.338 5.338 7 7 7 L 41 7 C 42.662 7 44 8.338 44 10 L 44 9 C 44 7.338 42.662 6 41 6 L 7 6 z"
+     id="path22" />
+  <circle
+     style="fill:#7d879b;fill-opacity:1"
+     cx="12"
+     cy="18"
+     r="2"
+     id="circle24" />
+</svg>

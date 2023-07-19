@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   version="1"
+   id="svg16"
+   sodipodi:docname="gnome-dev-ipod.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1592"
+     inkscape:window-height="845"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="-27.661017"
+     inkscape:cy="12"
+     inkscape:current-layer="svg16"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="16"
+     height="20"
+     x="-20"
+     y="2"
+     rx="1"
+     ry="1"
+     transform="scale(-1,1)"
+     id="rect2" />
+  <rect
+     style="fill:#374155;fill-opacity:1"
+     width="14"
+     height="8"
+     x="5"
+     y="3"
+     rx="0"
+     ry="0"
+     id="rect4" />
+  <path
+     style="opacity:0.1;fill:#ffffff"
+     d="M 5,2 C 4.446,2 4,2.446 4,3 l 0,0.5 c 0,-0.554 0.446,-1 1,-1 l 14,0 c 0.554,0 1,0.446 1,1 L 20,3 C 20,2.446 19.554,2 19,2 L 5,2 Z"
+     id="path6" />
+  <path
+     style="opacity:0.2"
+     d="m 4,21 0,0.5 c 0,0.554 0.446,1 1,1 l 14,0 c 0.554,0 1,-0.446 1,-1 L 20,21 c 0,0.554 -0.446,1 -1,1 L 5,22 C 4.446,22 4,21.554 4,21 Z"
+     id="path8" />
+  <circle
+     style="opacity:0.2"
+     cx="12"
+     cy="16.584745"
+     r="4"
+     id="circle10" />
+  <circle
+     style="fill:#9ea2aa;fill-opacity:0.78431373"
+     cx="12"
+     cy="16.084745"
+     r="4"
+     id="circle12" />
+  <circle
+     style="fill:#4c566a;fill-opacity:1"
+     cx="12"
+     cy="16.084745"
+     r="2"
+     id="circle14" />
+</svg>

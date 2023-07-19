@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   version="1"
+   id="svg9"
+   sodipodi:docname="kotatogram-attention-panel.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview11"
+     showgrid="false"
+     inkscape:zoom="14.75"
+     inkscape:cx="-5.220339"
+     inkscape:cy="8"
+     inkscape:current-layer="svg9" />
+  <defs
+     id="defs3">
+    <style
+       id="current-color-scheme"
+       type="text/css">
+   .ColorScheme-Text { color:#dfdfdf; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-NeutralText { color:#ff9800; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NegativeText { color:#f44336; }
+  </style>
+  </defs>
+  <circle
+     style="fill:#457697;fill-opacity:1"
+     class="ColorScheme-Highlight"
+     cx="14.5"
+     cy="1.5"
+     r="1.5"
+     id="circle5" />
+  <path
+     style="fill:currentColor"
+     class="ColorScheme-Text"
+     d="M 7,1 A 7,7 0 0 0 0,8 7,7 0 0 0 7,15 7,7 0 0 0 14,8 7,7 0 0 0 7,1 Z m 0,4.5 0.4941406,0.9160156 c 0,0 1.2193085,2.75 2.9335934,2.75 C 12.14202,9.1660156 13,7.3339844 13,7.3339844 13,7.3339844 12.999163,11 10.427734,11 8.7134491,11 7,10.083984 7,10.083984 7,10.083984 5.2865513,11 3.5722656,11 1.000837,11 1,7.3339844 1,7.3339844 c 0,0 0.8579799,1.8320312 2.5722656,1.8320312 1.7142857,0 2.9335938,-2.75 2.9335938,-2.75 z"
+     id="path7" />
+</svg>

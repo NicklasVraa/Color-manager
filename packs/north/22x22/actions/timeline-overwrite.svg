@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22"
+   height="22"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="timeline-overwrite.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview13"
+     showgrid="false"
+     inkscape:zoom="10.727273"
+     inkscape:cx="-7.1779661"
+     inkscape:cy="11"
+     inkscape:current-layer="svg11" />
+  <defs
+     id="defs3">
+    <style
+       id="current-color-scheme"
+       type="text/css">
+   .ColorScheme-Text { color:#dfdfdf; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-NeutralText { color:#ff9800; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NegativeText { color:#f44336; }
+  </style>
+  </defs>
+  <rect
+     style="fill:#bf616a;fill-opacity:1"
+     class="ColorScheme-NegativeText"
+     width="6"
+     height="6"
+     x="8"
+     y="8"
+     id="rect5" />
+  <path
+     style="fill:currentColor"
+     class="ColorScheme-Text"
+     d="M 3 12 L 3 16 L 7 16 L 15 16 L 16 16 L 19 16 L 19 12 L 15 12 L 15 15 L 7 15 L 7 12 L 3 12 z"
+     id="path7" />
+  <path
+     style="fill:#bf616a;fill-opacity:1"
+     class="ColorScheme-NegativeText"
+     transform="matrix(0.69282032,0,0,0.39999999,4.0717967,2.6000001)"
+     d="M 5.6698729,3.5000001 10,3.5 14.330127,3.4999999 12.165063,7.2500001 10,11 7.8349365,7.2499999 Z"
+     id="path9" />
+</svg>

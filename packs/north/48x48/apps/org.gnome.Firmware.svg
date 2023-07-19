@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg50"
+   sodipodi:docname="application-x-firmware.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata56">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs54" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="765"
+     inkscape:window-height="480"
+     id="namedview52"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg50" />
+  <g
+     style="opacity:0.2"
+     transform="translate(0,1)"
+     id="g12">
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="10"
+       id="rect2" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="16"
+       id="rect4" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="22"
+       id="rect6" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="28"
+       id="rect8" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="34"
+       id="rect10" />
+  </g>
+  <g
+     style="fill:#b7b7b7"
+     id="g24">
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="10"
+       id="rect14" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="16"
+       id="rect16" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="22"
+       id="rect18" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="28"
+       id="rect20" />
+    <rect
+       width="32"
+       height="4"
+       x="8"
+       y="34"
+       id="rect22" />
+  </g>
+  <rect
+     style="opacity:0.2"
+     width="28"
+     height="36"
+     x="10"
+     y="7"
+     rx="2"
+     ry="2"
+     id="rect26" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="28"
+     height="36"
+     x="10"
+     y="6"
+     rx="2"
+     ry="2"
+     id="rect28" />
+  <path
+     style="opacity:0.1;fill:#ffffff"
+     d="M 12 6 C 10.892 6 10 6.892 10 8 L 10 9 C 10 7.892 10.892 7 12 7 L 36 7 C 37.108 7 38 7.892 38 9 L 38 8 C 38 6.892 37.108 6 36 6 L 12 6 z"
+     id="path30" />
+  <g
+     style="fill:#ffffff;opacity:0.4"
+     id="g48">
+    <rect
+       width="2"
+       height="4"
+       x="17"
+       y="11"
+       id="rect32" />
+    <rect
+       width="2"
+       height="4"
+       x="17"
+       y="17"
+       id="rect34" />
+    <rect
+       width="2"
+       height="8"
+       x="17"
+       y="23"
+       id="rect36" />
+    <rect
+       width="2"
+       height="11"
+       x="23"
+       y="11"
+       id="rect38" />
+    <rect
+       width="2"
+       height="9"
+       x="29"
+       y="11"
+       id="rect40" />
+    <rect
+       width="2"
+       height="11"
+       x="23"
+       y="24"
+       id="rect42" />
+    <rect
+       width="2"
+       height="4"
+       x="29"
+       y="22"
+       id="rect44" />
+    <rect
+       width="2"
+       height="9"
+       x="29"
+       y="28"
+       id="rect46" />
+  </g>
+</svg>

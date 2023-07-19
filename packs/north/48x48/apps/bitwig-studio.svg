@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   version="1"
+   id="svg68"
+   sodipodi:docname="bitwig-studio.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata74">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs72" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview70"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:current-layer="svg68" />
+  <rect
+     style="opacity:0.2"
+     width="40"
+     height="40"
+     x="4"
+     y="5"
+     rx="20"
+     ry="20"
+     id="rect2" />
+  <rect
+     style="fill:#4c566a;fill-opacity:1"
+     width="40"
+     height="40"
+     x="4"
+     y="4"
+     rx="20"
+     ry="20"
+     id="rect4" />
+  <g
+     style="opacity:0.2"
+     id="g34">
+    <circle
+       cx="16"
+       cy="20"
+       r="2"
+       id="circle6" />
+    <circle
+       cx="21"
+       cy="20"
+       r="2"
+       id="circle8" />
+    <circle
+       cx="26"
+       cy="20"
+       r="2"
+       id="circle10" />
+    <circle
+       cx="31"
+       cy="20"
+       r="2"
+       id="circle12" />
+    <circle
+       cx="16"
+       cy="25"
+       r="2"
+       id="circle14" />
+    <circle
+       cx="21"
+       cy="25"
+       r="2"
+       id="circle16" />
+    <circle
+       cx="26"
+       cy="25"
+       r="2"
+       id="circle18" />
+    <circle
+       cx="31"
+       cy="25"
+       r="2"
+       id="circle20" />
+    <circle
+       cx="36"
+       cy="25"
+       r="2"
+       id="circle22" />
+    <circle
+       cx="11"
+       cy="25"
+       r="2"
+       id="circle24" />
+    <circle
+       cx="11"
+       cy="30"
+       r="2"
+       id="circle26" />
+    <circle
+       cx="16"
+       cy="30"
+       r="2"
+       id="circle28" />
+    <circle
+       cx="36"
+       cy="30"
+       r="2"
+       id="circle30" />
+    <circle
+       cx="31"
+       cy="30"
+       r="2"
+       id="circle32" />
+  </g>
+  <g
+     style="fill:#ffffff"
+     id="g64">
+    <circle
+       cx="16"
+       cy="19"
+       r="2"
+       id="circle36" />
+    <circle
+       cx="21"
+       cy="19"
+       r="2"
+       id="circle38" />
+    <circle
+       cx="26"
+       cy="19"
+       r="2"
+       id="circle40" />
+    <circle
+       cx="31"
+       cy="19"
+       r="2"
+       id="circle42" />
+    <circle
+       cx="16"
+       cy="24"
+       r="2"
+       id="circle44" />
+    <circle
+       cx="21"
+       cy="24"
+       r="2"
+       id="circle46" />
+    <circle
+       cx="26"
+       cy="24"
+       r="2"
+       id="circle48" />
+    <circle
+       cx="31"
+       cy="24"
+       r="2"
+       id="circle50" />
+    <circle
+       cx="36"
+       cy="24"
+       r="2"
+       id="circle52" />
+    <circle
+       cx="11"
+       cy="24"
+       r="2"
+       id="circle54" />
+    <circle
+       cx="11"
+       cy="29"
+       r="2"
+       id="circle56" />
+    <circle
+       cx="16"
+       cy="29"
+       r="2"
+       id="circle58" />
+    <circle
+       cx="36"
+       cy="29"
+       r="2"
+       id="circle60" />
+    <circle
+       cx="31"
+       cy="29"
+       r="2"
+       id="circle62" />
+  </g>
+  <path
+     style="fill:#ffffff;opacity:0.2"
+     d="M 24 4 C 12.92 4 4 12.92 4 24 C 4 24.168 4.0076 24.333 4.0117 24.5 C 4.2764 13.654 13.088 5 24 5 C 34.912 5 43.724 13.654 43.988 24.5 C 43.992 24.333 44 24.168 44 24 C 44 12.92 35.08 4 24 4 z"
+     id="path66" />
+</svg>

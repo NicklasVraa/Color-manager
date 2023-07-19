@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   version="1.1"
+   style="enable-background:new"
+   id="svg7384"
+   height="16"
+   sodipodi:docname="mintupdate-updates-available-symbolic.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="783"
+     inkscape:window-height="480"
+     id="namedview22"
+     showgrid="false"
+     inkscape:zoom="14.75"
+     inkscape:cx="8"
+     inkscape:cy="8"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg7384" />
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Moka Symbolic Icon Theme</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title
+     id="title8473">Moka Symbolic Icon Theme</title>
+  <defs
+     id="defs7386">
+    <linearGradient
+       osb:paint="solid"
+       id="linearGradient5606">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5608" />
+    </linearGradient>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter7554">
+      <feBlend
+         mode="darken"
+         in2="BackgroundImage"
+         id="feBlend7556" />
+    </filter>
+  </defs>
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline;filter:url(#filter7554)"
+     id="layer10" />
+  <g
+     transform="translate(-278.00001,-248.98966)"
+     style="display:inline"
+     id="layer1" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="layer14" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="layer15" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="g71291" />
+  <g
+     transform="translate(-278.00001,-98.98966)"
+     style="display:inline"
+     id="layer2" />
+  <g
+     transform="translate(-278.00001,-98.98966)"
+     style="display:inline"
+     id="g6058" />
+  <g
+     transform="translate(-519.00021,368.01034)"
+     style="display:inline"
+     id="layer12" />
+  <path
+     style="display:block;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.00000012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+     d="M 7.84375 0 C 4.787452 2.1762286 -5.9211895e-16 3.5117187 0 3.5117188 C 1.238882 13.560496 8 16 8 16 C 8 16 8.6676399 15.709019 9.5839844 15.078125 A 4 4 0 0 1 9.0039062 13.146484 C 8.4173276 13.534458 8 13.714844 8 13.714844 C 8 13.714844 3.1700703 11.972625 2.2851562 4.7949219 C 2.2851562 4.7949219 5.707555 3.839602 7.890625 2.2851562 C 9.586705 3.2607677 13.714844 4.6894531 13.714844 4.6894531 C 13.481649 6.443911 13.022414 7.8740165 12.462891 9.0410156 A 4 4 0 0 1 14.34375 9.2363281 C 15.081191 7.6418962 15.68759 5.7156681 16 3.3652344 C 16 3.3652344 10.218259 1.3658515 7.84375 0 z "
+     id="path15651-4" />
+  <path
+     class="warning"
+     id="path4-7-9"
+     style="color:#bebebe;overflow:visible;isolation:auto;mix-blend-mode:normal;fill:#ebcb8b;fill-opacity:1;stroke-width:1.19999981;marker:none"
+     overflow="visible"
+     d="m 16,13.001732 a 3,3 0 0 1 -5.999999,0 3,3 0 1 1 5.999999,0 z" />
+  <path
+     style="display:block;overflow:visible;visibility:visible;opacity:0.35;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.00000012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+     d="M 7.9121094 3.5 L 7.9121094 12.457031 C 7.9217123 12.46075 8 12.5 8 12.5 C 8 12.5 8.5131347 12.301035 9.1953125 11.769531 A 4 4 0 0 1 11.189453 9.4335938 C 11.773848 8.4179641 12.273085 7.1000149 12.5 5.3925781 C 12.5 5.3925781 9.2475915 4.2682914 7.9121094 3.5 z M 5.3710938 10.361328 C 5.4724455 10.493646 5.5735199 10.622489 5.6757812 10.740234 C 5.5736985 10.623033 5.4724421 10.493547 5.3710938 10.361328 z M 7.3652344 12.177734 C 7.4084934 12.203574 7.4114979 12.202259 7.4511719 12.224609 C 7.4227079 12.208939 7.3958304 12.195344 7.3652344 12.177734 z "
+     id="path15651-4-7" />
+  <path
+     style="display:block;overflow:visible;visibility:visible;opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.00000012;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:new"
+     d="M 7.912109,3.4995234 C 6.1931764,4.7236521 3.5,5.4760859 3.5,5.4760859 4.171602,10.924305 7.6559176,12.357343 7.912109,12.456555 Z"
+     id="path15651-4-7-3" />
+</svg>
