@@ -12,7 +12,7 @@ This repository contains multiple collections of vector/svg icon sets. For now, 
 
 ## Requests <a name="requests"></a>
 Simply submit a feature request containing the following:
-- The name of an open-source base icon set.
+- The name of an open-source icon pack.
 - A hue value.
 - A saturation value.
 - An intensity/lightness offset.
