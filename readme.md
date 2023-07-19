@@ -10,6 +10,8 @@ Simply submit a feature request containing the following:
 
 Use [this tool](https://https://www.w3schools.com/colors/colors_hsl.asp) as a reference and then scale the values appropriately.
 
-| Name  | Firefox                          | Chrome |
-| ----- | -------------------------------- | ------ |
-| North | ![Firefox](north/preview/firefox.svg) |  |
+| Name       | Examples Icons |
+| ---------- | -------------- |
+| Galactic   |                |
+| Strawberry | ![](preview/strawberry.png)             |
+|            |
