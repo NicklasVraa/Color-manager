@@ -10,8 +10,8 @@ Simply submit a feature request containing the following:
 
 Use [this tool](https://https://www.w3schools.com/colors/colors_hsl.asp) as a reference and then scale the values appropriately.
 
-| Name       | Examples Icons |
-| ---------- | -------------- |
-| Galactic   |                |
-| Strawberry | ![](preview/strawberry.png)             |
-|            |
+| Name       | Examples Icons                                                        |
+| ---------- | --------------------------------------------------------------------- |
+| Galactic   |                                                                       |
+| Strawberry | <img src="packs/strawberry/preview/account.png" width="50"/>  <img src="packs/strawberry/preview/firefox.png" width="50"/> <img src="packs/strawberry/preview/vscode.png" width="50"/> |
+|            |                                                                       |
