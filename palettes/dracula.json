@@ -1,0 +1,14 @@
+{
+    "name": "dracula",
+    "desc": "Dark purple background with vibrant colors.",
+    "colors": [
+        "#282A36",
+        "#FF5555",
+        "#50FA7B",
+        "#F1FA8C",
+        "#BD93F9",
+        "#FF79C6",
+        "#8BE9FD",
+        "#F8F8F2"
+    ]
+}
