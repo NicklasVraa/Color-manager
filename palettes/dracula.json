@@ -1,14 +1,17 @@
 {
     "name": "dracula",
-    "desc": "Dark purple background with vibrant colors.",
+    "desc": "Dark mode color scheme known for its vibrant and contrasting colors. Vivid purples, pinks, and blues create an eye-catching and modern look.",
     "colors": [
-        "#282A36",
-        "#FF5555",
-        "#50FA7B",
-        "#F1FA8C",
-        "#BD93F9",
-        "#FF79C6",
-        "#8BE9FD",
-        "#F8F8F2"
+        "#44475a",
+        "#f8f8f2",
+        "#6272a4",
+        "#6272a4",
+        "#8be9fd",
+        "#50fa7b",
+        "#ffb86c",
+        "#ff79c6",
+        "#bd93f9",
+        "#ff5555",
+        "#f1fa8c"
     ]
 }

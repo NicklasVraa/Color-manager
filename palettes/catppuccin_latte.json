@@ -1,0 +1,24 @@
+{
+    "name": "catppuccin_latte",
+    "desc": "Pastel theme that aims to be the middle ground between low and high contrast themes. It consists of 4 soothing warm flavors with 26 eye-candy colors each.",
+    "colors": [
+        "dc8a78",
+        "#dd7878",
+        "#ea76cb",
+        "#8839ef",
+        "#d20f39",
+        "#e64553",
+        "#df8e1d",
+        "#40a02b",
+        "#179299",
+        "#04a5e5",
+        "#209fb5",
+        "#1e66f5",
+        "#7287fd",
+        "#4c4f69",
+        "#5c5f77",
+        "#eff1f5",
+        "#e6e9ef",
+        "#dce0e8"
+    ]
+}

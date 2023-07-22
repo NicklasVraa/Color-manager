@@ -1,14 +1,19 @@
 {
     "name": "nord",
-    "desc": "Dark blue background with muted colors.",
+    "desc": "An arctic, north-bluish color palette. Created for the clean and uncluttered design pattern to achieve a optimal focus and readability for code syntax highlighting and UI components.",
     "colors": [
-        "#4C566A",
-        "#BF616A",
-        "#A3BE8C",
-        "#EBCB8B",
-        "#81A1C1",
-        "#B48EAD",
-        "#88C0D0",
-        "#E5E9F0"
+        "#434c5e",
+        "#4c566a",
+        "#d8dee9",
+        "#e5e9f0",
+        "#eceff4",
+        "#8fbcbb",
+        "#81a1c1",
+        "#5e81ac",
+        "#bf616a",
+        "#d08770",
+        "#ebcb8b",
+        "#a3be8c",
+        "#b48ead"
     ]
 }
