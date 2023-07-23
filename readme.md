@@ -27,6 +27,7 @@ Currently, three types of recoloring operations are supported:
 Speeds were recorded with an Intel i7-4770K CPU. Any svg-based icon pack can serve as the base for any color palette or monotone. For the best result when doing monochromatic recoloring, a pack where all icons have the same average saturation and lightness is recommended.
 
 ## Pack Previews <a name="packs"></a>
+Click sections to expand.
 <details>
 <summary><b>Papirus-Mini Mono- and Multichromatic Variants</b></summary>
 The original papirus set is massive (>100MB), so this version has been simplified, e.g. icons no longer have multiple versions for slightly different icon sizes. As a result, it only takes up ~10MB when zipped.
