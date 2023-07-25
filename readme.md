@@ -1,4 +1,4 @@
-# Color Manager <img src="icon.svg" width="50"/>
+# Color Manager <img src="resources/icon.svg" width="50"/>
 
 [Roadmap](#roadmap) | [Features](#features) | [Packs](#packs) | [Requests](#requests)
 
@@ -10,7 +10,7 @@ In the meantime, this repository will act as a preview and be home to recoloring
 - [x] Basic framework for manipulating icon packs.
 - [x] Grayscale, monochromatic and multichromatic recoloring functions.
 - [x] Command-line interface.
-- [ ] Graphical user interface based on the GTK framework.
+- [x] Graphical user interface based on the GTK framework.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion function.
 - [ ] Python pip package.
@@ -25,6 +25,10 @@ Currently, three types of recoloring operations are supported:
 | Multichrome | pack, palette-file | ~50 icons/sec    |
 
 Speeds were recorded with an Intel i7-4770K CPU. Any svg-based icon pack can serve as the base for any color palette or monotone. For the best result when doing monochromatic recoloring, a pack where all icons have the same average saturation and lightness is recommended.
+
+A simple GUI is included with the program, but it is also possible to interact with it from a command line. The GUI will adopt your active theme.
+
+![GUI](resources/gui.png)
 
 ## Pack Previews <a name="packs"></a>
 Click sections to expand.
