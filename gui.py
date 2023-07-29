@@ -1,105 +1,122 @@
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
-import os, subprocess
+from gi.repository import Gtk, Gdk
+import os
+import color_manager as cm
 
-class ColorManagerGUI(Gtk.Window):
+TITLE = "Color Manager"
+PAD = 10
+DIMS = (300, 200)
+
+class Window(Gtk.Window):
     def __init__(self):
-        super().__init__(title="Color Manager")
-
-        # Window setup.
-        self.set_default_size(300, 200)
+        super().__init__(title=TITLE)
+        self.set_default_size(DIMS[0], DIMS[1])
         self.set_position(Gtk.WindowPosition.CENTER)
+        content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.add(content)
+        self.pages = Gtk.Notebook()
+        content.pack_start(self.pages, True, True, 0)
 
-        # Top container setup.
-        container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.add(container)
-        pages = Gtk.Notebook()
-        container.add(pages)
+        mono  = Page(self.pages, "Monochromatic")
+        mono.add(Label("Choose a single color that will serve as the base color for your monochromatic icon pack or theme variant."))
 
-        # Monochromatic page.
-        mono_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        pages.append_page(mono_page, Gtk.Label(label="Monochromatic", hexpand=True))
-        mono_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        mono_container.set_border_width(10)
-        mono_page.add(mono_container)
-        label = Gtk.Label(label="Choose a single color that will serve as the base color for your monochromatic icon pack variant.")
-        label.set_alignment(0,0)
-        label.set_line_wrap(True)
-        mono_container.add(label)
+        self.color = None
+        color_btn = Gtk.ColorButton()
+        color_btn.connect("color-set", self.on_color_chosen)
+        mono.add(color_btn)
 
-        mono_color = Gtk.ColorButton()
-        mono_container.add(mono_color)
+        multi = Page(self.pages, "Multichromatic")
+        multi.add(Label("Choose a palette file containing a list of colors. Only these will occur in the new icon pack or theme."))
 
-        # Multichromatic page.
-        multi_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        pages.append_page(multi_page, Gtk.Label(label="Multichromatic", hexpand=True))
+        self.palette = None
+        palette_btn = Gtk.FileChooserButton(title="Choose palette file")
+        palette_btn.connect("file-set", self.on_palette_chosen)
+        multi.add(palette_btn)
 
-        multi_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        multi_container.set_border_width(10)
-        multi_page.add(multi_container)
-        label = Gtk.Label(label="Choose a palette file containing a list of colors. Only these will occur in the new pack.")
-        label.set_alignment(0,0)
-        label.set_line_wrap(True)
-        multi_container.add(label)
+        about = Page(self.pages, "About")
+        about.add(Label("Color Manager is a program for recoloring existing svg-based icon packs as well as themes. The program is designed for <a href='https://github.com/NicklasVraa/NovaOS'>NovaOS</a>.\n\nCheck for updates on the project's <a href='https://github.com/NicklasVraa/Color-manager'>repository</a>."))
 
-        palette_button = Gtk.FileChooserButton()
-        palette_button.set_title("Choose palette file")
-        multi_container.add(palette_button)
-
-        # About page.
-        about_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        pages.append_page(about_page, Gtk.Label(label="About", hexpand=True))
-        about_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        about_container.set_border_width(10)
-        about_page.add(about_container)
-        label = Gtk.Label()
-        label.set_markup("Color Manager is a program for recoloring existing svg-based icon packs as well as themes. The program is designed for <a href='https://github.com/NicklasVraa/NovaOS'>NovaOS</a>.\n\nCheck for updates on the project's <a href='https://github.com/NicklasVraa/Color-manager'>repository</a>.")
-        label.set_alignment(0,0)
-        label.set_line_wrap(True)
-        about_container.add(label)
-
-        # Shared container setup.
-        shared = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        shared.set_border_width(10)
-        container.add(shared)
-
-        # Input-output area.
-        io_area = Gtk.Box(spacing=10)
-        io_area.set_homogeneous(True)
-
-        dest_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        label = Gtk.Label(label="Name your pack:")
-        label.set_alignment(0,0)
-        dest_area.add(label)
-        dest_entry = Gtk.Entry()
-        dest_area.add(dest_entry)
-        io_area.add(dest_area)
-
-        src_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        label = Gtk.Label(label="Choose source pack:")
-        label.set_alignment(0,0)
-        src_area.add(label)
-        src_button = Gtk.FileChooserButton()
-        src_button.set_title("Choose source pack")
-        src_area.add(src_button)
-        io_area.add(src_area)
+        # Shared widget.
+        shared = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=PAD)
+        shared.set_border_width(PAD)
+        content.add(shared)
+        io_area = Gtk.Box(spacing=PAD, homogeneous=True)
         shared.add(io_area)
 
-        # Progress bar.
+        self.source = None
+        src_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=PAD)
+        src_area.add(Label("Choose source pack:"))
+        src_btn = Gtk.FileChooserButton(title="Choose source pack", action=Gtk.FileChooserAction.SELECT_FOLDER)
+        src_btn.connect("file-set", self.on_source_chosen)
+        src_area.add(src_btn)
+        io_area.add(src_area)
+
+        self.name = None
+        name_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=PAD)
+        name_area.add(Label("Name your pack:"))
+        self.dest_entry = Gtk.Entry()
+        name_area.add(self.dest_entry)
+        io_area.add(name_area)
+
         progress_bar = Gtk.ProgressBar()
         shared.add(progress_bar)
 
-        gen_area = Gtk.Box(spacing=10)
-        button = Gtk.Button(label="Generate")
-        gen_area.add(button)
-        status = Gtk.Label(label="Status:")
-        status.set_alignment(0,0)
-        status.set_line_wrap(True)
-        gen_area.add(status)
+        gen_area = Gtk.Box(spacing=PAD)
+        gen_btn = Gtk.Button(label="Generate")
+        gen_btn.connect("clicked", self.on_generate)
+        gen_area.add(gen_btn)
+        self.status = Label("Status:")
+        gen_area.add(self.status)
         shared.add(gen_area)
 
-win = ColorManagerGUI()
+    def on_color_chosen(self, btn):
+        rgba = btn.get_rgba()
+        r = int(rgba.red * 255)
+        g = int(rgba.green * 255)
+        b = int(rgba.blue * 255)
+        self.color = "#{:02x}{:02x}{:02x}".format(r,g,b)
+
+    def on_palette_chosen(self, btn):
+        self.palette = btn.get_filename()
+
+    def on_source_chosen(self, btn):
+        self.source = btn.get_filename()
+
+    def on_generate(self, btn):
+        current_page = self.pages.get_current_page()
+        if current_page == 0:
+            if self.color is None:
+                self.status.set_text("Choose a base color...")
+                return
+        elif current_page == 1:
+            if self.palette is None:
+                self.status.set_text("Choose a color palette file...")
+                return
+
+        if self.source is None:
+            self.status.set_text("Choose a source folder first...")
+        else:
+            self.name = self.dest_entry.get_text().strip()
+            if self.name == "":
+                self.status.set_text("Enter a name first...")
+            else:
+                self.status.set_text("Status: Generating " + self.name + " variant from " + os.path.basename(self.source) + " and " + str(self.color) + "...")
+
+class Page(Gtk.Box):
+    def __init__(self, notebook, header):
+        super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=PAD)
+        self.set_border_width(PAD)
+        notebook.append_page(self, Gtk.Label(label=header, hexpand=True))
+
+class Label(Gtk.Label):
+    def __init__(self, text):
+        super().__init__()
+        self.set_markup(text)
+        self.set_alignment(0,0)
+        self.set_line_wrap(True)
+
+win = Window()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()

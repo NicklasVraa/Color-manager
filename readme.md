@@ -13,8 +13,9 @@ In the meantime, this repository will act as a preview and be home to recoloring
 - [x] Graphical user interface based on the GTK framework.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion function.
-- [ ] Python pip package.
 - [ ] Function for adding basic geometry to the backgrounds of icons.
+- [ ] Python pip package.
+- [ ] GNU/Linux AppImage.
 
 ## Features <a name="features"></a>
 Currently, three types of recoloring operations are supported:
