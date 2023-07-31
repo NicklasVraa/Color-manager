@@ -43,7 +43,6 @@ class Window(Gtk.Window):
         content.add(shared)
         io_area = Gtk.Box(spacing=PAD, homogeneous=True)
         shared.add(io_area)
-
         self.source = None
         src_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=PAD)
         src_area.add(Label("Choose source pack:"))
@@ -51,17 +50,14 @@ class Window(Gtk.Window):
         src_btn.connect("file-set", self.on_source_chosen)
         src_area.add(src_btn)
         io_area.add(src_area)
-
         self.name = None
         name_area = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=PAD)
         name_area.add(Label("Name your pack:"))
         self.dest_entry = Gtk.Entry()
         name_area.add(self.dest_entry)
         io_area.add(name_area)
-
         progress_bar = Gtk.ProgressBar()
         shared.add(progress_bar)
-
         gen_area = Gtk.Box(spacing=PAD)
         gen_btn = Gtk.Button(label="Generate")
         gen_btn.connect("clicked", self.on_generate)
@@ -84,24 +80,35 @@ class Window(Gtk.Window):
         self.source = btn.get_filename()
 
     def on_generate(self, btn):
+        if self.source is None:
+            self.status.set_text("Choose a source folder first")
+            return
+
+        self.name = self.dest_entry.get_text().strip()
+        if self.name == "":
+            self.status.set_text("Enter a name first")
+            return
+
         current_page = self.pages.get_current_page()
         if current_page == 0:
             if self.color is None:
-                self.status.set_text("Choose a base color...")
+                self.status.set_text("Choose a base color")
                 return
+            else:
+                self.status.set_text("Status: Generating " + self.name + " variant from " + os.path.basename(self.source) + " and " + self.color)
+
+                h,s,l = cm.hex_to_hsl(self.color)
+                h,s,l = cm.normalize_hsl(h,s,l)
+                cm.monotone_pack(self.source, self.name, h, s, l)
+
         elif current_page == 1:
             if self.palette is None:
-                self.status.set_text("Choose a color palette file...")
+                self.status.set_text("Choose a color palette file")
                 return
-
-        if self.source is None:
-            self.status.set_text("Choose a source folder first...")
-        else:
-            self.name = self.dest_entry.get_text().strip()
-            if self.name == "":
-                self.status.set_text("Enter a name first...")
             else:
-                self.status.set_text("Status: Generating " + self.name + " variant from " + os.path.basename(self.source) + " and " + str(self.color) + "...")
+                self.status.set_text("Status: Generating " + self.name + " variant from " + os.path.basename(self.source) + " and " + os.path.basename(self.palette))
+
+                #cm.recolor_pack(self.source, self.name, self.palette)
 
 class Page(Gtk.Box):
     def __init__(self, notebook, header):
