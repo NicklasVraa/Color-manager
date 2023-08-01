@@ -27,7 +27,7 @@ Currently, three types of recoloring operations are supported:
 
 Speeds were recorded with an Intel i7-4770K CPU. Any svg-based icon pack can serve as the base for any color palette or monotone. For the best result when doing monochromatic recoloring, a pack where all icons have the same average saturation and lightness is recommended.
 
-A simple GUI is included with the program, but it is also possible to interact with it from a command line. The GUI will adopt your active theme.
+A GUI is included with the program, but it is also possible to interact with it from a command line. The GUI will adopt your active theme.
 
 ![GUI](resources/gui.png)
 
