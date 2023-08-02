@@ -1,6 +1,6 @@
 {
-    "name": "nord",
-    "desc": "An arctic, north-bluish color palette. Created for the clean and uncluttered design pattern to achieve a optimal focus and readability for code syntax highlighting and UI components.",
+    "name": "Nord",
+    "desc": "An arctic, north-bluish color palette.",
     "colors": [
         "#434c5e",
         "#4c566a",
