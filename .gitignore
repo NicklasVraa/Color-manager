@@ -2,4 +2,6 @@ color_manager.py
 ngtk.py
 make.ipynb
 packs/
+dist/
+build/
 __pycache__/
