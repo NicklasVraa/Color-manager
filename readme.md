@@ -6,6 +6,8 @@ Color Manager is a program for recoloring existing svg-based icon packs as well 
 
 ![GUI](res/gui.png)
 
+![Demo](res/demo.gif)
+
 **Note**: If you publish an icon- or theme pack variant that was generated using this program, make sure to credit the original creator and this repository.
 
 
