@@ -8,7 +8,6 @@ from tqdm import tqdm
 from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
 from colormath.color_diff import delta_e_cie2000
-from gi.repository import Gtk
 import os, re, shutil, subprocess, json
 
 # Color space conversion -------------------------------------------------------
@@ -199,7 +198,7 @@ def clamp(value:float, a:float, b:float) -> float:
 
 def normalize_hsl(h:int, s:int, l:int):
     """Converts from conventional HSL format to normalized."""
-    return h/360, s/100, 2*(l/100)-1
+    return h/360, s/100, l/100
 
 def get_fill_colors(svg:str) -> Set[str]:
     """Return a list of all unique fill colors within a given string
@@ -274,7 +273,7 @@ def monochrome_icon(svg:str, colors:Set[str], hsl) -> str:
 
     return monochrome_svg, monochromes
 
-def monochrome_pack(src_path:str, dest_path:str, name:str, hsl, progress_bar = None) -> None:
+def monochrome_pack(src_path:str, dest_path:str, name:str, hsl) -> None:
     """Recursively copies and converts a source folder of svg icons into
     a monochrome set at a destination, given a hue, saturation and lightness
     offset."""
@@ -287,7 +286,6 @@ def monochrome_pack(src_path:str, dest_path:str, name:str, hsl, progress_bar = N
     rename_pack(dest_path, name)
     paths = get_paths(dest_path, ".svg")
 
-    n = len(paths); i = 0
     for path in tqdm(paths, desc="Processing SVGs", unit=" file"):
         with open(path, 'r') as file:
             svg = file.read()
@@ -300,11 +298,6 @@ def monochrome_pack(src_path:str, dest_path:str, name:str, hsl, progress_bar = N
 
         with open(path, 'w') as file:
             file.write(svg)
-
-        i = i+1
-        progress_bar.set_fraction(i/n)
-        while Gtk.events_pending():
-            Gtk.main_iteration()
 
 # Multichrome ------------------------------------------------------------------
 
@@ -319,7 +312,7 @@ def multichrome_icon(svg:str, colors:Set[str], new_colors:List[str]) -> str:
 
     return multichrome_svg
 
-def multichrome_pack(src_path:str, dest_path:str, name:str, palette, progress_bar = None) -> None:
+def multichrome_pack(src_path:str, dest_path:str, name:str, palette) -> None:
     """Recursively copies and converts a source folder of svg icons into
     a multichrome set at a destination, given a color palette file."""
     src_path = expand_path(src_path)
@@ -334,7 +327,6 @@ def multichrome_pack(src_path:str, dest_path:str, name:str, palette, progress_ba
     else:
         new_colors = palette["colors"]
 
-    n = len(paths); i = 0
     for path in tqdm(paths, desc="Processing SVGs", unit=" file"):
         with open(path, 'r') as file:
             svg = file.read()
@@ -344,8 +336,3 @@ def multichrome_pack(src_path:str, dest_path:str, name:str, palette, progress_ba
 
         with open(path, 'w') as file:
             file.write(svg)
-
-        i = i+1
-        progress_bar.set_fraction(i/n)
-        while Gtk.events_pending():
-            Gtk.main_iteration()
