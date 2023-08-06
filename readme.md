@@ -36,7 +36,7 @@ Speeds were recorded with an Intel i7-4770K CPU. Any svg-based icon pack can ser
 ## Using the Program<a name="use"></a>
 Either import `recolor` into your own script and call the recoloring functions, e.g.:
 ```python
-import recolor as rc
+from color_manager import recolor as rc
 ```
 ```python
 src     = "packs/papirus-mini_mono"
@@ -47,7 +47,7 @@ hsl     = (0.5, 0.5, 0.5) # = rc.normalize_hsl(180, 50, 50)
 rc.monochrome_pack(src, dest, name, hsl)
 ```
 ```python
-src     = "packs/papirus-multi_mono"
+src     = "packs/papirus-mini_multi"
 name    = "my_multi_pack"
 dest    = "~/Downloads"
 palette = "palettes/dracula.json"
@@ -55,7 +55,7 @@ palette = "palettes/dracula.json"
 rc.multichrome_pack(src, dest, name, palette)
 ```
 
-Or launch the GUI by running `python3 color_manager.py`. The GUI will adopt your active theme. Dependencies: `colormath`, `tqdm`, `json`. With GUI `PyGObject` must also be installed.
+Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath` and `tqdm`. For the GUI, `pygobject` (GTK bindings) must also be installed.
 
 
 ## Requests <a name="requests"></a>
