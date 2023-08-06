@@ -1,3 +1,4 @@
 res/demo.mp4
 packs/
+*.egg-info/
 __pycache__/
