@@ -4,28 +4,26 @@
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-import os, ngtk
-import recolor as rc
+from PIL import Image
+import os, ngtk, utils
 
-def recolor(src_path, dest_path, name, replacement, progress_bar):
+def recolor(src_path, dest_path, name, replacement, progress_bar, status):
     """Recursively copies and converts a source folder into a destination, given a either a color or a palette."""
 
-    is_mono, new_colors = rc.get_input_colors(replacement)
-    dest_path = rc.copy_pack(src_path, dest_path, name)
-    vector_paths = rc.get_paths(dest_path, [".svg"])
-    raster_paths = rc.get_paths(dest_path, [".png", ".jpeg"])
+    is_mono, new_colors = utils.get_input_colors(replacement)
+    dest_path = utils.copy_pack(src_path, dest_path, name)
+    svg_paths = utils.get_paths(dest_path, [".svg"])
+    img_paths = utils.get_paths(dest_path, [".png", ".jpg", ".jpeg"])
 
-    n = len(vector_paths); i = 0
-    for path in vector_paths:
+    n = len(svg_paths); i = 0
+    for path in svg_paths:
         with open(path, 'r') as file:
             svg = file.read()
 
-        colors = rc.get_svg_colors(svg)
+        colors = utils.get_svg_colors(svg)
 
-        if is_mono:
-            svg = rc.monochrome_svg(svg, colors, new_colors)
-        else:
-            svg = rc.multichrome_svg(svg, colors, new_colors)
+        if is_mono: svg = utils.monochrome_svg(svg, colors, new_colors)
+        else: svg = utils.multichrome_svg(svg, colors, new_colors)
 
         with open(path, 'w') as file:
             file.write(svg)
@@ -34,6 +32,24 @@ def recolor(src_path, dest_path, name, replacement, progress_bar):
         progress_bar.set_fraction(i/n)
         while Gtk.events_pending():
             Gtk.main_iteration()
+
+    status.set_text("SVGs completed! Continuing...")
+
+    n = len(img_paths); i = 0
+    for path in img_paths:
+        img = Image.open(path)
+
+        if is_mono: img = utils.monochrome_img(img, new_colors)
+        # else: multichrome_img(img, new_colors) # too slow.
+
+        img.save(path)
+
+        i = i + 1
+        progress_bar.set_fraction(i/n)
+        while Gtk.events_pending():
+            Gtk.main_iteration()
+
+    status.set_text("Finished!")
 
 class Window(Gtk.Window):
     def __init__(self):
@@ -83,14 +99,15 @@ class Window(Gtk.Window):
         shared.add(gen_area)
 
     def on_custom_palette_set(self, btn, palette_desc):
-        self.palette = rc.load_palette_file(btn.get_filename())
+        self.palette = utils.load_palette_file(btn.get_filename())
         palette_desc.set_text(self.palette["name"] + ": " + self.palette["desc"])
 
     def on_palette_set(self, palette_picker, palette_desc):
-        self.palette = rc.load_palette_file(palette_picker.choice)
+        self.palette = utils.load_palette_file(palette_picker.choice)
         palette_desc.set_text(self.palette["name"] + ": " + self.palette["desc"])
 
     def on_generate(self, btn):
+
         if self.files.source is None:
             self.status.set_text("Choose a source folder first")
             return
@@ -109,22 +126,22 @@ class Window(Gtk.Window):
                 self.status.set_text("Choose a base color")
                 return
             else:
+                btn.set_sensitive(False)
                 self.status.set_text("Generating " + self.files.name + " variant from " + os.path.basename(self.files.source) + "...")
 
-                recolor(self.files.source, self.files.destination, self.files.name, self.color_picker.color, self.progress_bar)
-
-                self.status.set_text("Success!")
+                recolor(self.files.source, self.files.destination, self.files.name, self.color_picker.color, self.progress_bar, self.status)
 
         elif current_page == 1:
             if self.palette is None:
                 self.status.set_text("Choose a color palette file")
                 return
             else:
+                btn.set_sensitive(False)
                 self.status.set_text("Generating " + self.files.name + " variant from " + os.path.basename(self.files.source) + " and " + os.path.basename(self.palette["name"]) + "...")
 
-                recolor(self.files.source, self.files.destination, self.files.name, self.palette, self.progress_bar)
+                recolor(self.files.source, self.files.destination, self.files.name, self.palette, self.progress_bar, self.status)
 
-                self.status.set_text("Success!")
+        btn.set_sensitive(True)
 
 win = Window()
 win.connect("destroy", Gtk.main_quit)

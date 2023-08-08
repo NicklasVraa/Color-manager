@@ -6,7 +6,7 @@ setup(
     version="0.1.0",
     author="Nicklas Vraa",
     author_email="nicklasvraa@proton.me",
-    description="A package for recoloring existing svg-based icon packs and themes",
+    description="A package for recoloring icon and wallpaper packs and desktop themes",
     url="https://github.com/nicklasvraa/color-manager",
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -22,6 +22,7 @@ setup(
     exclude=["tests", "packs"],
     install_requires=[
         "colormath",
-        "tqdm"
+        "tqdm",
+        "pillow"
     ],
 )

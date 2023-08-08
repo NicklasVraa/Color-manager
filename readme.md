@@ -2,13 +2,15 @@
 
 [Roadmap](#roadmap) | [Features](#features) | [Use](#use) | [Requests](#requests) | [Contribute](#contribute)
 
-Color Manager is a program for recoloring existing svg-based icon packs as well as themes. The program is designed for [NovaOS](https://github.com/NicklasVraa/NovaOS) and is currently in **early development**. The first release will be late August 2023. In the meantime, this repository will act as a preview.
+Color Manager is a program for recoloring and manipulating existing icon packs, wallpapers and themes. The program is designed for [NovaOS](https://github.com/NicklasVraa/NovaOS) and is currently in **early development**. The first release will be late August 2023. In the meantime, this repository will act as a preview.
 
-![GUI](res/gui.png)
+![gui](res/gui.png)
 
-![Demo](res/demo.gif)
+![demo](res/demo.gif)
 
-**Note**: If you publish an icon- or theme pack variant that was generated using this program, make sure to credit the original creator and this repository.
+![png_jpg_example](res/png_jpg_example.png)
+
+**Note**: If you publish anything that was generated using this program, make sure to credit the original creator and this repository.
 
 
 ## Roadmap <a name="roadmap"></a>
@@ -16,46 +18,41 @@ Color Manager is a program for recoloring existing svg-based icon packs as well 
 - [x] Grayscale, monochromatic and multichromatic recoloring functions.
 - [x] Command-line interface.
 - [x] Graphical user interface based on the GTK framework.
+- [x] Python pip package.
+- [x] Support pngs and jpgs.
+- [ ] Speed up multichrome recoloring for pngs and jpgs.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion function.
 - [ ] Function for adding basic geometry to the backgrounds of icons.
-- [ ] Python pip package.
 - [ ] GNU/Linux binary.
 
 
 ## Features <a name="features"></a>
 Currently, two types of recoloring operations are supported:
-| Type        | Result | Speed            |
-| ----------- | ------ | ---------------- |
-| Monochrome  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 icons/sec |
-| Multichrome | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~70 icons/sec |
+| Type        | Result | Speed            | Supports |
+| ----------- | ------ | ---------------- | -------- |
+| Monochrome  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 svgs/sec | svg, png, jpg |
+| Multichrome | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~70 svgs/sec | svg |
 
-Speeds were recorded with an Intel i7-4770K CPU. Any svg-based icon pack can serve as the base for any color palette or base color. For the best result when doing monochromatic recoloring, a pack where all icons have the same average saturation and lightness is recommended.
+Speeds were recorded with an Intel i7-4770K CPU. Any pack can serve as the base for any color palette or base color.
 
 
 ## Using the Program<a name="use"></a>
-Either import `recolor` into your own script and call the recoloring functions, e.g.:
+Either import `utils` into your own script and call the recoloring functions, e.g.:
 ```python
-from color_manager import recolor as rc
+from color_manager import utils
 ```
 ```python
-src     = "packs/papirus-mini_mono"
-name    = "my_mono_pack"
+src     = "packs/test_pack"
+name    = "my_pack"
 dest    = "~/Downloads"
-hsl     = (0.5, 0.5, 0.5) # = rc.normalize_hsl(180, 50, 50)
-
-rc.monochrome_pack(src, dest, name, hsl)
-```
-```python
-src     = "packs/papirus-mini_multi"
-name    = "my_multi_pack"
-dest    = "~/Downloads"
+hsl     = (0.5, 0.5, 0.5) # = rc.norm_hsl(180, 50, 50)
 palette = "palettes/dracula.json"
 
-rc.multichrome_pack(src, dest, name, palette)
+utils.recolor(src, dest, name, hsl) # hsl or palette.
 ```
 
-Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath` and `tqdm`. For the GUI, `pygobject` (GTK bindings) must also be installed.
+Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath`, `tqdm` and `pillow`. For the GUI, `pygobject` (GTK bindings) must also be installed.
 
 
 ## Requests <a name="requests"></a>
