@@ -233,7 +233,8 @@ def monochrome_svg(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> st
 
         for color in colors:
             graytone = hex_to_gray(color)
-            _, _, l = rgb_to_hsl(hex_to_rgb(graytone))
+            r, g, b = hex_to_rgb(graytone)
+            l = (0.21*r + 0.72*g + 0.07*b)/255
             l = max(-1, min(l+l_offset, 1))
             monochrome = rgb_to_hex(hsl_to_rgb((h, s, l)))
             svg = re.sub(color, monochrome, svg)
@@ -244,15 +245,13 @@ def multichrome_svg(svg:str, colors:Set[str], new_colors:List[str]) -> str:
     """Replace colors in a given svg with the closest match within a given
     color palette."""
 
-    multichrome_svg = svg
-
     for color in colors:
         new_color = closest_match(color, new_colors)
-        multichrome_svg = re.sub(color, new_color, multichrome_svg)
+        svg = re.sub(color, new_color, svg)
 
-    return multichrome_svg
+    return svg
 
-def monochrome_png(img:Image, hsl:Tuple[float,float,float]):
+def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
     h, s, l_offset = hsl
 
     if s != 0:
@@ -261,11 +260,20 @@ def monochrome_png(img:Image, hsl:Tuple[float,float,float]):
 
         for x in range(width):
             for y in range(height):
-                r, g, b, a = img.getpixel((x, y))
+                if img.mode == "RGBA":
+                    r, g, b, a = img.getpixel((x, y))
+                else:
+                    r, g, b = img.getpixel((x, y))
+
                 l = (0.21*r + 0.72*g + 0.07*b)/255
                 l = max(-1, min(l+l_offset, 1))
-                new_pixel = hsl_to_rgb((h, s, l)) + (a,)
-                img.putpixel((x,y), new_pixel)
+
+                if img.mode == "RGBA":
+                    pixel = hsl_to_rgb((h, s, l)) + (a,)
+                else:
+                    pixel = hsl_to_rgb((h, s, l))
+
+                img.putpixel((x,y), pixel)
 
     return img
 
@@ -275,7 +283,7 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     is_mono, new_colors = get_input_colors(replacement)
     dest_path = copy_pack(src_path, dest_path, name)
     svg_paths = get_paths(dest_path, [".svg"])
-    png_paths = get_paths(dest_path, [".png"])
+    img_paths = get_paths(dest_path, [".png", ".jpg", ".jpeg"])
     #jpg_paths = get_paths(dest_path, [".jpg", ".jpeg"])
 
     for path in tqdm(svg_paths, desc="Processing svgs", unit=" file"):
@@ -292,12 +300,12 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         with open(path, 'w') as file:
             file.write(svg)
 
-    for path in tqdm(png_paths, desc="Processing pngs", unit=" file"):
-        png = Image.open(path)
+    for path in tqdm(img_paths, desc="Processing imgs", unit=" file"):
+        img = Image.open(path)
 
         if is_mono:
-            png = monochrome_png(png, new_colors)
+            img = monochrome_img(img, new_colors)
         else:
             pass
 
-        png.save(path)
+        img.save(path)
