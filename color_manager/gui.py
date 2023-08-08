@@ -4,62 +4,28 @@
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-import os, ngtk, recolor
+import os, ngtk
+import recolor as rc
 
-def monochrome_pack(src_path, dest_path, name, hsl, progress_bar):
-    """Recursively copies and converts a source folder of svg icons into
-    a monochrome set at a destination, given a hue, saturation and lightness
-    offset."""
-    h, s, l_offset = hsl
+def recolor(src_path, dest_path, name, replacement, progress_bar):
+    """Recursively copies and converts a source folder into a destination, given a either a color or a palette."""
 
-    src_path = recolor.expand_path(src_path)
-    dest_path = os.path.join(recolor.expand_path(dest_path), name)
+    is_mono, new_colors = rc.get_input_colors(replacement)
+    dest_path = rc.copy_pack(src_path, dest_path, name)
+    vector_paths = rc.get_paths(dest_path, [".svg"])
+    raster_paths = rc.get_paths(dest_path, [".png", ".jpeg"])
 
-    recolor.copy_file_structure(src_path, dest_path)
-    recolor.rename_pack(dest_path, name)
-    paths = recolor.get_paths(dest_path, ".svg")
-
-    n = len(paths); i = 0
-    for path in paths:
+    n = len(vector_paths); i = 0
+    for path in vector_paths:
         with open(path, 'r') as file:
             svg = file.read()
-        colors = recolor.get_fill_colors(svg)
 
-        if s == 0:
-            svg, _ = recolor.to_grayscale(svg, colors) # Faster.
+        colors = rc.get_svg_colors(svg)
+
+        if is_mono:
+            svg = rc.monochrome_svg(svg, colors, new_colors)
         else:
-            svg, _ = recolor.monochrome_icon(svg, colors, (h, s, l_offset))
-
-        with open(path, 'w') as file:
-            file.write(svg)
-
-        i = i + 1
-        progress_bar.set_fraction(i/n)
-        while Gtk.events_pending():
-            Gtk.main_iteration()
-
-def multichrome_pack(src_path, dest_path, name, palette, progress_bar):
-    """Recursively copies and converts a source folder of svg icons into
-    a multichrome set at a destination, given a color palette file."""
-    src_path = recolor.expand_path(src_path)
-    dest_path = os.path.join(recolor.expand_path(dest_path), name)
-
-    recolor.copy_file_structure(src_path, dest_path)
-    recolor.rename_pack(dest_path, name)
-    paths = recolor.get_paths(dest_path, ".svg")
-
-    if type(palette) is str: # If path is given instead of list of colors.
-        new_colors = recolor.load_palette(palette)["colors"]
-    else:
-        new_colors = palette["colors"]
-
-    n = len(paths); i = 0
-    for path in paths:
-        with open(path, 'r') as file:
-            svg = file.read()
-        colors = recolor.get_fill_colors(svg)
-
-        svg = recolor.multichrome_icon(svg, colors, new_colors)
+            svg = rc.multichrome_svg(svg, colors, new_colors)
 
         with open(path, 'w') as file:
             file.write(svg)
@@ -117,11 +83,11 @@ class Window(Gtk.Window):
         shared.add(gen_area)
 
     def on_custom_palette_set(self, btn, palette_desc):
-        self.palette = recolor.load_palette(btn.get_filename())
+        self.palette = rc.load_palette_file(btn.get_filename())
         palette_desc.set_text(self.palette["name"] + ": " + self.palette["desc"])
 
     def on_palette_set(self, palette_picker, palette_desc):
-        self.palette = recolor.load_palette(palette_picker.choice)
+        self.palette = rc.load_palette_file(palette_picker.choice)
         palette_desc.set_text(self.palette["name"] + ": " + self.palette["desc"])
 
     def on_generate(self, btn):
@@ -145,7 +111,7 @@ class Window(Gtk.Window):
             else:
                 self.status.set_text("Generating " + self.files.name + " variant from " + os.path.basename(self.files.source) + "...")
 
-                monochrome_pack(self.files.source, self.files.destination, self.files.name, self.color_picker.color, self.progress_bar)
+                recolor(self.files.source, self.files.destination, self.files.name, self.color_picker.color, self.progress_bar)
 
                 self.status.set_text("Success!")
 
@@ -156,7 +122,7 @@ class Window(Gtk.Window):
             else:
                 self.status.set_text("Generating " + self.files.name + " variant from " + os.path.basename(self.files.source) + " and " + os.path.basename(self.palette["name"]) + "...")
 
-                multichrome_pack(self.files.source, self.files.destination, self.files.name, self.palette, self.progress_bar)
+                recolor(self.files.source, self.files.destination, self.files.name, self.palette, self.progress_bar)
 
                 self.status.set_text("Success!")
 
