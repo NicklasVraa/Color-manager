@@ -6,6 +6,7 @@ from tqdm import tqdm
 from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
 from colormath.color_diff import delta_e_cie2000
+from PIL import Image
 import os, re, shutil, json
 
 # Color conversion -------------------------------------------------------------
@@ -43,6 +44,11 @@ def rgb_to_hsl(rgb:Tuple[int,int,int]) -> Tuple[float,float,float]:
         h /= 6.0
 
     return h, s, l
+
+def rgb_to_gray(rgb:Tuple[int,int,int]) -> Tuple[int,int,int]:
+    r, g, b = rgb
+    weighed_avg = int(0.21*r + 0.72*g + 0.07*b)
+    return weighed_avg, weighed_avg, weighed_avg
 
 def hsl_to_rgb(hsl:Tuple[float,float,float]) -> Tuple[int,int,int]:
     h, s, l = hsl
@@ -211,7 +217,7 @@ def copy_pack(src_path:str, dest_path:str, name:str) -> str:
 
 # Recolor ----------------------------------------------------------------------
 
-def monochrome_svg(svg:str, colors:Set[str], hsl) -> str:
+def monochrome_svg(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
     """Replace every instance of color within the given list with their
     monochrome equivalent in the given string representing an svg-file,
     determined by the given hue, saturation and lightness offset."""
@@ -246,15 +252,33 @@ def multichrome_svg(svg:str, colors:Set[str], new_colors:List[str]) -> str:
 
     return multichrome_svg
 
+def monochrome_png(img:Image, hsl:Tuple[float,float,float]):
+    h, s, l_offset = hsl
+
+    if s != 0:
+        width, height = img.size
+        l_offset = (l_offset - 0.5) * 2 # Remapping.
+
+        for x in range(width):
+            for y in range(height):
+                r, g, b, a = img.getpixel((x, y))
+                l = (0.21*r + 0.72*g + 0.07*b)/255
+                l = max(-1, min(l+l_offset, 1))
+                new_pixel = hsl_to_rgb((h, s, l)) + (a,)
+                img.putpixel((x,y), new_pixel)
+
+    return img
+
 def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     """Recursively copies and converts a source folder into a destination, given a either a color or a palette."""
 
     is_mono, new_colors = get_input_colors(replacement)
     dest_path = copy_pack(src_path, dest_path, name)
-    vector_paths = get_paths(dest_path, [".svg"])
-    raster_paths = get_paths(dest_path, [".png", ".jpeg"])
+    svg_paths = get_paths(dest_path, [".svg"])
+    png_paths = get_paths(dest_path, [".png"])
+    #jpg_paths = get_paths(dest_path, [".jpg", ".jpeg"])
 
-    for path in tqdm(vector_paths, desc="Processing SVGs", unit=" svg"):
+    for path in tqdm(svg_paths, desc="Processing svgs", unit=" file"):
         with open(path, 'r') as file:
             svg = file.read()
 
@@ -267,3 +291,13 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
 
         with open(path, 'w') as file:
             file.write(svg)
+
+    for path in tqdm(png_paths, desc="Processing pngs", unit=" file"):
+        png = Image.open(path)
+
+        if is_mono:
+            png = monochrome_png(png, new_colors)
+        else:
+            pass
+
+        png.save(path)
