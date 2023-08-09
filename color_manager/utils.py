@@ -9,11 +9,18 @@ from colormath.color_diff import delta_e_cie2000
 from PIL import Image
 import os, re, shutil, json
 
+# Global constants -------------------------------------------------------------
+
+# A dynamic dictionary to avoid multiple color conversions.
+hex_to_lab_dict = {
+    "#ffffff": LabColor(9341.568974319263, -0.037058350415009045, -0.6906417562959177), # White.
+    "#000000": LabColor(0,0,0) # Black.
+}
+
 # Color conversion -------------------------------------------------------------
 
 def hex_to_rgb(hex:str) -> Tuple[int,int,int]:
-    hex = hex.lstrip('#')
-    return int(hex[0:2], 16), int(hex[2:4], 16), int(hex[4:6], 16)
+    return int(hex[1:3], 16), int(hex[3:5], 16), int(hex[5:7], 16)
 
 def hex_to_hsl(hex:str) -> Tuple[float,float,float]:
     return rgb_to_hsl(hex_to_rgb(hex))
@@ -78,7 +85,16 @@ def norm_hsl(h:int, s:int, l:int) -> Tuple[float,float,float]:
 
 # Color comparision ------------------------------------------------------------
 
-def load_palette_file(path:str) -> Dict:
+def generate_palette_dict(colors:List[str]) -> Dict[str,LabColor]:
+    palette_dict = {}
+
+    for color in colors:
+        r, g, b = hex_to_rgb(color)
+        palette_dict[color] = convert_color(sRGBColor(r,g,b), LabColor)
+
+    return palette_dict
+
+def load_palette_file(path:str) -> Dict[str,LabColor]:
     with open(path, 'r') as file:
         palette = json.load(file)
     return palette
@@ -90,10 +106,11 @@ def get_input_colors(resource) -> List[str]:
         return True, resource
 
     elif type(resource) is str:
-        return False, load_palette_file(resource)["colors"]
+        colors = load_palette_file(resource)["colors"]
+        return False, generate_palette_dict(colors)
 
     else:
-        return False, resource["colors"]
+        return False, generate_palette_dict(resource["colors"])
 
 def get_svg_colors(svg:str) -> Set[str]:
     """Return a list of all unique colors within a given string
@@ -107,17 +124,7 @@ def get_svg_colors(svg:str) -> Set[str]:
 
     return colors
 
-def delta_e(color1:str, color2:str) -> float:
-    """Returns the distance between two colors in the CIELAB color-space."""
-
-    r1,g1,b1 = hex_to_rgb(color1)
-    r2,g2,b2 = hex_to_rgb(color2)
-    color1 = convert_color(sRGBColor(r1,g1,b1), LabColor)
-    color2 = convert_color(sRGBColor(r2,g2,b2), LabColor)
-
-    return delta_e_cie2000(color1, color2)
-
-def closest_match(color:str, palette:List[str]) -> str:
+def closest_match(color:str, palette:Dict[str,LabColor]) -> str:
     """Compare the similarity of colors in the CIELAB colorspace. Return the
     closest match, i.e. the palette entry with the smallest euclidian distance
     to the given color."""
@@ -126,7 +133,16 @@ def closest_match(color:str, palette:List[str]) -> str:
     min_distance = float('inf')
 
     for entry in palette:
-        distance = delta_e(color, entry)
+
+        # Prior dictionary lookup and update.
+        lab_color = hex_to_lab_dict.get(color)
+
+        if lab_color is None:
+            r, g, b = hex_to_rgb(color)
+            lab_color = convert_color(sRGBColor(r,g,b), LabColor)
+            hex_to_lab_dict[color] = lab_color
+
+        distance = delta_e_cie2000(lab_color, palette[entry])
 
         if distance < min_distance:
             min_distance = distance
@@ -241,7 +257,7 @@ def monochrome_svg(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> st
 
     return svg
 
-def multichrome_svg(svg:str, colors:Set[str], new_colors:List[str]) -> str:
+def multichrome_svg(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
     """Replace colors in a given svg with the closest match within a given
     color palette."""
 
@@ -284,7 +300,7 @@ def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
 
     return img
 
-def multichrome_img(img:str, new_colors:List[str]) -> Image:
+def multichrome_img(img:str, new_colors:Dict[str,LabColor]) -> Image:
     """Replace colors in a given image with the closest match within a given
     color palette."""
 
@@ -331,6 +347,6 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         img = Image.open(path)
 
         if is_mono: img = monochrome_img(img, new_colors)
-        # else: multichrome_img(img, new_colors) # too slow.
+        else: multichrome_img(img, new_colors)
 
         img.save(path)

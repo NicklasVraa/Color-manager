@@ -1,4 +1,4 @@
 res/demo.mp4
-packs/papirus-mini_*
 *.egg-info/
 __pycache__/
+packs/
