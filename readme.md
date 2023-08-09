@@ -9,7 +9,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 ![demo](res/demo.gif)
 
 ![png_jpg_example](res/png_jpg_example.png)
-Note that multichromatic recoloring of large pngs/jpgs is still slow as of now. However, monochromatic recoloring is near-instant.
+Multichromatic recoloring of large pngs/jpgs is still slow. Monochromatic recoloring is near-instant.
 
 **Note**: If you publish anything that was generated using this program, make sure to credit the original creator and this repository.
 
