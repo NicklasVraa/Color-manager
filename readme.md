@@ -51,7 +51,7 @@ Either import `utils` into your own script and call the recoloring functions, e.
 from color_manager import utils
 ```
 ```python
-src     = "packs/test_pack"
+src     = "test_pack"
 name    = "my_pack"
 dest    = "~/Downloads"
 hsl     = (0.5, 0.5, 0.5) # = rc.norm_hsl(180, 50, 50)
