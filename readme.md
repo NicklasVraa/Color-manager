@@ -13,8 +13,6 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | Monochrome: (0.6, 0.54, 0.5) | ![2](resources/mono.png) |
 | Multichrome: dracula.json | ![3](resources/multi.png) |
 
-To increase the perceived quality of multichromatic recolorings of pngs/jpgs, simply increase the number of colors in the palette you provide, e.g. populate it with slight variations of the existing colors, or alternatively decrease the number of colors in your original image. Svg recolorings will always be perfect.
-
 **GUI Demo**:
 ![demo](resources/demo.gif)
 
@@ -42,8 +40,13 @@ Currently, two types of recoloring operations are supported:
 | Monochrome  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 svgs/sec | svg, png, jpg |
 | Multichrome | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100 svgs/sec | svg, png, jpg |
 
-Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base for any color palette or base color.
+Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base for any color palette or base color. Svg recolorings will always be perfect, but png/jpgs may require experimentation.
 
+**Tip**: To increase the quality, i.e. decrease the perceived noise of multichromatic recolorings of pngs/jpgs, either...
+- Increase the number of colors in the palette you provide to the program, e.g. populate it with slight variations of the existing colors
+- Decrease the number of colors in your original image, e.g. using a function like `Image.quantize()` from `pillow`.
+
+Both will be implemented as optional automatic adjustments in the future.
 
 ## Using the Program<a name="use"></a>
 Either import `utils` into your own script and call the recoloring functions, e.g.:
