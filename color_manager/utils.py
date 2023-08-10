@@ -300,27 +300,24 @@ def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
 
     return img
 
-def multichrome_img(img:str, new_colors:Dict[str,LabColor]) -> Image:
+def multichrome_img(img:Image, new_colors:Dict[str,LabColor]) -> Image:
     """Replace colors in a given image with the closest match within a given
     color palette."""
 
-    width, height = img.size
+    img = img.convert("P")
+    palette = img.getpalette()
 
-    for x in range(width):
-        for y in range(height):
-            if img.mode == "RGBA":
-                r, g, b, a = img.getpixel((x, y))
-            else:
-                r, g, b = img.getpixel((x, y))
+    rgb_palette = [(palette[i], palette[i+1], palette[i+2]) for i in range(0, len(palette), 3)]
 
-            color = rgb_to_hex((r,g,b))
-            new_color = hex_to_rgb(closest_match(color, new_colors))
+    hex_palette = ["#%02x%02x%02x" % rgb for rgb in rgb_palette]
+    new_palette = []
 
-            if img.mode == "RGBA":
-                img.putpixel((x,y), new_color + (a,))
-            else:
-                img.putpixel((x,y), new_color)
+    for color in hex_palette:
+        new_color = hex_to_rgb(closest_match(color, new_colors))
+        new_palette.extend(new_color)
 
+    img.putpalette(new_palette)
+    img = img.convert("RGB")
     return img
 
 def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
@@ -347,6 +344,6 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         img = Image.open(path)
 
         if is_mono: img = monochrome_img(img, new_colors)
-        else: multichrome_img(img, new_colors)
+        else: img = multichrome_img(img, new_colors)
 
         img.save(path)

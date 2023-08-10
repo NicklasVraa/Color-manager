@@ -40,7 +40,7 @@ def recolor(src_path, dest_path, name, replacement, progress_bar, status):
         img = Image.open(path)
 
         if is_mono: img = utils.monochrome_img(img, new_colors)
-        # else: multichrome_img(img, new_colors) # too slow.
+        else: img = utils.multichrome_img(img, new_colors)
 
         img.save(path)
 

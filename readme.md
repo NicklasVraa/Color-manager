@@ -1,15 +1,20 @@
-# Color Manager <img src="res/icon.svg" width="50"/>
+# Color Manager <img src="resources/icon.svg" width="50"/>
 
 [Roadmap](#roadmap) | [Features](#features) | [Use](#use) | [Requests](#requests) | [Contribute](#contribute)
 
 Color Manager is a program for recoloring and manipulating existing icon packs, wallpapers and themes. The program is designed for [NovaOS](https://github.com/NicklasVraa/NovaOS) and is currently in **early development**. The first release will be late August 2023. In the meantime, this repository will act as a preview.
 
-![gui](res/gui.png)
+![gui](resources/gui.png)
 
-![demo](res/demo.gif)
+**Instanty recolor artwork such as wallpapers.**
+| Original image | Mono: HSL=(0.6, 0.54, 0.5) | Multi: dracula.json |
+| -------- | ------------ | ------------------- |
+| ![1](resources/original.png) | ![2](resources/mono.png) | ![3](resources/multi.png) |
+To decrease the perceived noise after multichromatic recoloring, simply increase the number of colors in the palette, e.g. populate it with slight variations of the existing colors.
 
-![png_jpg_example](res/png_jpg_example.png)
-Multichromatic recoloring of large pngs/jpgs is still slow. Monochromatic recoloring is near-instant.
+**GUI Demo**:
+![demo](resources/demo.gif)
+
 
 **Note**: If you publish anything that was generated using this program, make sure to credit the original creator and this repository.
 
@@ -20,8 +25,7 @@ Multichromatic recoloring of large pngs/jpgs is still slow. Monochromatic recolo
 - [x] Command-line interface.
 - [x] Graphical user interface based on the GTK framework.
 - [x] Python pip package.
-- [x] Support pngs and jpgs.
-- [ ] Speed up multichrome recoloring for pngs and jpgs.
+- [x] Full support for pngs and jpgs.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion function.
 - [ ] Function for adding basic geometry to the backgrounds of icons.
@@ -33,9 +37,9 @@ Currently, two types of recoloring operations are supported:
 | Type        | Result | Speed            | Supports |
 | ----------- | ------ | ---------------- | -------- |
 | Monochrome  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 svgs/sec | svg, png, jpg |
-| Multichrome | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~70 svgs/sec | svg |
+| Multichrome | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100 svgs/sec | svg, png, jpg |
 
-Speeds were recorded with an Intel i7-4770K CPU. Any pack can serve as the base for any color palette or base color.
+Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base for any color palette or base color.
 
 
 ## Using the Program<a name="use"></a>
@@ -62,30 +66,7 @@ Until the release of Color Manager, I will be taking requests for icon packs and
 - For a monochromatic variant, a single hexadecimal value representing a color.
 - For particular color palettes, a list of hexadecimal values or the name of a popular palette.
 
-Please star the repository or consider donating, and I will upload your requested variant. Also consider showing the creators of the original icon packs some love.
-
-Preview and download already fullfilled requests here:
-<details>
-<summary><b>Papirus-Mini Mono- and Multichromatic Variants</b></summary>
-The original papirus set is massive (>100MB), so this version has been simplified, e.g. icons no longer have multiple versions for slightly different icon sizes. As a result, it only takes up ~10MB when zipped.
-
-| Name  | Examples | Status |
-| ----- | -------- | -------|
-| Original | <img src="res/previews/papirus/original/colors.png" width="50"/>  <img src="res/previews/papirus/original/firefox.png" width="50"/> <img src="res/previews/papirus/original/vscode.png" width="50"/> <img src="res/previews/papirus/original/account.png" width="50"/>  <img src="res/previews/papirus/original/video.png" width="50"/> <img src="res/previews/papirus/original/git.png" width="50"/> | [Source](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) |
-| Nord | <img src="res/previews/papirus/nord/colors.png" width="50"/>  <img src="res/previews/papirus/nord/firefox.png" width="50"/> <img src="res/previews/papirus/nord/vscode.png" width="50"/> <img src="res/previews/papirus/nord/account.png" width="50"/>  <img src="res/previews/papirus/nord/video.png" width="50"/> <img src="res/previews/papirus/nord/git.png" width="50"/> | Finished |
-| Dracula | <img src="res/previews/papirus/dracula/colors.png" width="50"/>  <img src="res/previews/papirus/dracula/firefox.png" width="50"/> <img src="res/previews/papirus/dracula/vscode.png" width="50"/> <img src="res/previews/papirus/dracula/account.png" width="50"/>  <img src="res/previews/papirus/dracula/video.png" width="50"/> <img src="res/previews/papirus/dracula/git.png" width="50"/> | Released |
-| Catppuccin | <img src="res/previews/papirus/catppuccin/colors.png" width="50"/>  <img src="res/previews/papirus/catppuccin/firefox.png" width="50"/> <img src="res/previews/papirus/catppuccin/vscode.png" width="50"/> <img src="res/previews/papirus/catppuccin/account.png" width="50"/>  <img src="res/previews/papirus/catppuccin/video.png" width="50"/> <img src="res/previews/papirus/catppuccin/git.png" width="50"/> | Released |
-
-| Name  | Examples | Status |
-| ----- | -------- | -------|
-| Galactic | <img src="res/previews/papirus/galactic/colors.png" width="50"/>  <img src="res/previews/papirus/galactic/firefox.png" width="50"/> <img src="res/previews/papirus/galactic/vscode.png" width="50"/> <img src="res/previews/papirus/galactic/account.png" width="50"/>  <img src="res/previews/papirus/galactic/video.png" width="50"/> <img src="res/previews/papirus/galactic/git.png" width="50"/> | Released |
-| Strawberry | <img src="res/previews/papirus/strawberry/colors.png" width="50"/>  <img src="res/previews/papirus/strawberry/firefox.png" width="50"/> <img src="res/previews/papirus/strawberry/vscode.png" width="50"/> <img src="res/previews/papirus/strawberry/account.png" width="50"/>  <img src="res/previews/papirus/strawberry/video.png" width="50"/> <img src="res/previews/papirus/strawberry/git.png" width="50"/> | Released |
-| Amazon | <img src="res/previews/papirus/amazon/colors.png" width="50"/>  <img src="res/previews/papirus/amazon/firefox.png" width="50"/> <img src="res/previews/papirus/amazon/vscode.png" width="50"/> <img src="res/previews/papirus/amazon/account.png" width="50"/>  <img src="res/previews/papirus/amazon/video.png" width="50"/> <img src="res/previews/papirus/amazon/git.png" width="50"/> | Finished |
-| Pacific | <img src="res/previews/papirus/pacific/colors.png" width="50"/>  <img src="res/previews/papirus/pacific/firefox.png" width="50"/> <img src="res/previews/papirus/pacific/vscode.png" width="50"/> <img src="res/previews/papirus/pacific/account.png" width="50"/>  <img src="res/previews/papirus/pacific/video.png" width="50"/> <img src="res/previews/papirus/pacific/git.png" width="50"/> | Finished |
-| Cobalt | <img src="res/previews/papirus/cobalt/colors.png" width="50"/>  <img src="res/previews/papirus/cobalt/firefox.png" width="50"/> <img src="res/previews/papirus/cobalt/vscode.png" width="50"/> <img src="res/previews/papirus/cobalt/account.png" width="50"/>  <img src="res/previews/papirus/cobalt/video.png" width="50"/> <img src="res/previews/papirus/cobalt/git.png" width="50"/> | Finished |
-| Bumblebee | <img src="res/previews/papirus/bumblebee/colors.png" width="50"/>  <img src="res/previews/papirus/bumblebee/firefox.png" width="50"/> <img src="res/previews/papirus/bumblebee/vscode.png" width="50"/> <img src="res/previews/papirus/bumblebee/account.png" width="50"/>  <img src="res/previews/papirus/bumblebee/video.png" width="50"/> <img src="res/previews/papirus/bumblebee/git.png" width="50"/> | Released |
-| Goldenrod | <img src="res/previews/papirus/goldenrod/colors.png" width="50"/>  <img src="res/previews/papirus/goldenrod/firefox.png" width="50"/> <img src="res/previews/papirus/goldenrod/vscode.png" width="50"/> <img src="res/previews/papirus/goldenrod/account.png" width="50"/>  <img src="res/previews/papirus/goldenrod/video.png" width="50"/> <img src="res/previews/papirus/goldenrod/git.png" width="50"/> | Released |
-</details>
+Please star the repository or consider donating, and I will upload your requested variant. Also consider showing the creators of the original artworks some love.
 
 
 ## Contribute <a name="contribute"></a>
