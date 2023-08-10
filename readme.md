@@ -6,12 +6,13 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 
 ![gui](resources/gui.png)
 
-**Instanty recolor artwork such as wallpapers.**
+**Instantly recolor artwork such as wallpapers.**
 | Operation | Result |
 | :---------: | ------ |
-| Original | ![1](resources/original.png) |
-| Monochrome: (0.6, 0.54, 0.5) | ![2](resources/mono.png) |
-| Multichrome: dracula.json | ![3](resources/multi.png) |
+| **Original** | ![1](resources/original.png) |
+| **Monochrome**:<br> (0.6, 0.54, 0.5) | ![2](resources/mono.png) |
+| **Multichrome**:<br> `nord.json`<br> `smooth=false` | ![3](resources/multi_accurate.png) |
+| **Multichrome**:<br> `nord.json`<br> `smooth=true` | ![3](resources/multi_smooth.png) |
 
 **GUI Demo**:
 ![demo](resources/demo.gif)
@@ -45,6 +46,7 @@ Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base
 **Tip**: To increase the quality, i.e. decrease the perceived noise of multichromatic recolorings of pngs/jpgs, either...
 - Increase the number of colors in the palette you provide to the program, e.g. populate it with slight variations of the existing colors
 - Decrease the number of colors in your original image, e.g. using a function like `Image.quantize()` from `pillow`.
+- Experiment with setting `smooth` to `true`/`false` in the palette json file.
 
 Both will be implemented as optional automatic adjustments in the future.
 

@@ -99,18 +99,18 @@ def load_palette_file(path:str) -> Dict[str,LabColor]:
         palette = json.load(file)
     return palette
 
-def get_input_colors(resource) -> List[str]:
-    """Returns an HSL tuple, or a list of colors, depending on the input, as well as a boolean indicating either."""
+def get_input_colors(resource) -> Tuple[List[str],bool,bool]:
+    """Returns an HSL tuple, or a list of colors, depending on the input, as well as a boolean indicating which one, as well as if the palettes specifies smoothing pngs/jpgs."""
 
     if isinstance(resource, tuple) and len(resource) == 3:
-        return True, resource
+        return resource, False, True
 
     elif type(resource) is str:
-        colors = load_palette_file(resource)["colors"]
-        return False, generate_palette_dict(colors)
+        palette_file = load_palette_file(resource)
+        return generate_palette_dict(palette_file["colors"]), palette_file["smooth"], False
 
     else:
-        return False, generate_palette_dict(resource["colors"])
+        return generate_palette_dict(resource["colors"]), palette_file["smooth"], False
 
 def get_svg_colors(svg:str) -> Set[str]:
     """Return a list of all unique colors within a given string
@@ -300,11 +300,13 @@ def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
 
     return img
 
-def multichrome_img(img:Image, new_colors:Dict[str,LabColor]) -> Image:
+def multichrome_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) -> Image:
     """Replace colors in a given image with the closest match within a given
     color palette."""
 
-    img = img.convert("P")
+    if smooth: img = img.convert("P", palette=Image.ADAPTIVE, colors=256)
+    else: img = img.convert("P")
+
     palette = img.getpalette()
 
     rgb_palette = [(palette[i], palette[i+1], palette[i+2]) for i in range(0, len(palette), 3)]
@@ -323,7 +325,7 @@ def multichrome_img(img:Image, new_colors:Dict[str,LabColor]) -> Image:
 def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     """Recursively copies and converts a source folder into a destination, given a either a color or a palette."""
 
-    is_mono, new_colors = get_input_colors(replacement)
+    new_colors, smooth, is_mono = get_input_colors(replacement)
     dest_path = copy_pack(src_path, dest_path, name)
     svg_paths = get_paths(dest_path, [".svg"])
     img_paths = get_paths(dest_path, [".png", ".jpg", ".jpeg"])
@@ -344,6 +346,6 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         img = Image.open(path)
 
         if is_mono: img = monochrome_img(img, new_colors)
-        else: img = multichrome_img(img, new_colors)
+        else: img = multichrome_img(img, new_colors, smooth)
 
         img.save(path)

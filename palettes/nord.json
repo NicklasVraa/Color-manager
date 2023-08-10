@@ -1,6 +1,7 @@
 {
     "name": "Nord",
     "desc": "An arctic, north-bluish color palette.",
+    "smooth": true,
     "colors": [
         "#434c5e",
         "#4c566a",

@@ -1,6 +1,7 @@
 {
     "name": "One Dark",
     "desc": "Dark grey background with vibrant colors.",
+    "smooth": true,
     "colors": [
         "#282C34",
         "#E06C75",

@@ -10,7 +10,7 @@ import os, ngtk, utils
 def recolor(src_path, dest_path, name, replacement, progress_bar, status):
     """Recursively copies and converts a source folder into a destination, given a either a color or a palette."""
 
-    is_mono, new_colors = utils.get_input_colors(replacement)
+    new_colors, smooth, is_mono = utils.get_input_colors(replacement)
     dest_path = utils.copy_pack(src_path, dest_path, name)
     svg_paths = utils.get_paths(dest_path, [".svg"])
     img_paths = utils.get_paths(dest_path, [".png", ".jpg", ".jpeg"])
@@ -40,7 +40,7 @@ def recolor(src_path, dest_path, name, replacement, progress_bar, status):
         img = Image.open(path)
 
         if is_mono: img = utils.monochrome_img(img, new_colors)
-        else: img = utils.multichrome_img(img, new_colors)
+        else: img = utils.multichrome_img(img, new_colors, smooth)
 
         img.save(path)
 

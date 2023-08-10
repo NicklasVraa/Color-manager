@@ -1,6 +1,7 @@
 {
     "name": "Dracula",
     "desc": "Dark mode color scheme with vibrant and contrasting colors.",
+    "smooth": false,
     "colors": [
         "#44475a",
         "#f8f8f2",
