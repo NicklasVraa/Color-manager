@@ -13,7 +13,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | Monochrome: (0.6, 0.54, 0.5) | ![2](resources/mono.png) |
 | Multichrome: dracula.json | ![3](resources/multi.png) |
 
-To decrease the perceived noise after multichromatic recoloring, simply increase the number of colors in the palette, e.g. populate it with slight variations of the existing colors.
+To increase the perceived quality of multichromatic recolorings of pngs/jpgs, simply increase the number of colors in the palette you provide, e.g. populate it with slight variations of the existing colors, or alternatively decrease the number of colors in your original image. Svg recolorings will always be perfect.
 
 **GUI Demo**:
 ![demo](resources/demo.gif)
