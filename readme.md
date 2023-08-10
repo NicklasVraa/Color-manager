@@ -10,6 +10,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | Original image | Mono: HSL=(0.6, 0.54, 0.5) | Multi: dracula.json |
 | -------- | ------------ | ------------------- |
 | ![1](resources/original.png) | ![2](resources/mono.png) | ![3](resources/multi.png) |
+
 To decrease the perceived noise after multichromatic recoloring, simply increase the number of colors in the palette, e.g. populate it with slight variations of the existing colors.
 
 **GUI Demo**:
