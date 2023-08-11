@@ -13,6 +13,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | **Monochrome**:<br> `(0.6,0.54,0.5)` | ![2](resources/mono.png) |
 | **Multichrome**:<br> `nord.json`<br> `smooth=false` | ![3](resources/multi_accurate.png) |
 | **Multichrome**:<br> `nord.json`<br> `smooth=true` | ![3](resources/multi_smooth.png) |
+| **Color Extraction**:<br> Original `num=10` | ![4](resources/palette.png) |
 
 **GUI Demo**:
 ![demo](resources/demo.gif)
@@ -37,11 +38,12 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 
 
 ## Features <a name="features"></a>
-Currently, two types of recoloring operations are supported:
-| Type        | Result | Speed            | Supports |
-| ----------- | ------ | ---------------- | -------- |
-| Monochrome  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 svgs/sec | svg, png, jpg |
-| Multichrome | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100 svgs/sec | svg, png, jpg |
+Currently, three operations are supported:
+| Type | Result | Speed | Supports |
+| ---- | ------ | ----- | -------- |
+| Monochrome recoloring  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 svgs/sec | svg, png, jpg |
+| Multichrome recoloring | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100 svgs/sec | svg, png, jpg |
+| Extract colors | Returns and optionally saves the color palette of an image, in specified detail. | ~100 colors/sec | png, jpg |
 
 Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base for any color palette or base color. Svg recolorings will always be perfect, but png/jpgs may require experimentation.
 
@@ -52,18 +54,27 @@ Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base
 
 
 ## Using the Program<a name="use"></a>
-Either import `utils` into your own script and call the recoloring functions, e.g.:
+Either import `utils` into your own script and call its functions, e.g.:
 ```python
 from color_manager import utils
 ```
+Recoloring:
 ```python
 src     = "test_pack"
 name    = "my_pack"
 dest    = "~/Downloads"
-hsl     = (0.5, 0.5, 0.5) # = rc.norm_hsl(180, 50, 50)
+hsl     = (0.5, 0.5, 0.5)           # = rc.norm_hsl(180, 50, 50)
 palette = "palettes/dracula.json"
 
-utils.recolor(src, dest, name, hsl) # hsl or palette.
+utils.recolor(src, dest, name, hsl) # Either hsl or palette.
+```
+Extracting:
+```python
+image      = "test_pack/imgs/lake_cabin.png"
+num_colors = 10
+output     = "resources/palette.png" # Optional - if given, saves colors as image.
+
+utils.extract_colors(image, num_colors, output)
 ```
 
 Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath`, `tqdm` and `pillow`. For the GUI, `pygobject` (GTK bindings) must also be installed.

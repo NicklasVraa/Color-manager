@@ -6,7 +6,7 @@ from tqdm import tqdm
 from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
 from colormath.color_diff import delta_e_cie2000
-from PIL import Image
+from PIL import Image, ImageDraw
 import os, re, shutil, json
 
 # Global constants -------------------------------------------------------------
@@ -349,3 +349,31 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         else: img = multichrome_img(img, new_colors, smooth)
 
         img.save(path)
+
+def extract_colors(img_path, num_colors=8, save_path=None, pixels=50, cols=10):
+    img = Image.open(img_path)
+
+    colors = img.convert('P', palette=Image.ADAPTIVE, colors=num_colors)
+    colors = colors.getpalette()[0:num_colors*3]
+
+    colors = ['#{:02X}{:02X}{:02X}'.format(colors[i], colors[i+1], colors[i+2]) for i in range(0, len(colors), 3)]
+
+    if save_path != None:
+        n = len(colors)
+        if n < cols: cols = n
+
+        rows = -(-len(colors) // cols)
+        width = cols * pixels; height = rows * pixels
+
+        img = Image.new("RGBA", (width, height))
+        draw = ImageDraw.Draw(img)
+
+        for i, hex_color in enumerate(colors):
+            row = i // cols; col = i % cols
+            x0 = col * pixels; y0 = row * pixels
+            x1 = x0 + pixels; y1 = y0 + pixels
+            draw.rectangle([x0, y0, x1, y1], fill=hex_color)
+
+        img.save(save_path, format="png")
+
+    return colors
