@@ -13,7 +13,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | **Monochrome**:<br> `(0.6,0.54,0.5)` | ![2](resources/mono.png) |
 | **Multichrome**:<br> `nord.json`<br> `smooth=false` | ![3](resources/multi_accurate.png) |
 | **Multichrome**:<br> `nord.json`<br> `smooth=true` | ![3](resources/multi_smooth.png) |
-| **Color Extraction**:<br> Original `num=10` | ![4](resources/palette.png) |
+| **Extraction**:<br> Original `num=10` | ![4](resources/palette.png) |
 
 **GUI Demo**:
 ![demo](resources/demo.gif)
@@ -29,7 +29,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 - [x] Graphical user interface based on the GTK framework.
 - [x] Python pip package.
 - [x] Full support for pngs and jpgs.
-- [ ] Generate palette from source image or svg.
+- [x] Generate palette from source image or svg.
 - [ ] Adding basic geometry to the backgrounds of icons.
 - [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
@@ -63,16 +63,16 @@ Recoloring:
 src     = "test_pack"
 name    = "my_pack"
 dest    = "~/Downloads"
-hsl     = (0.5, 0.5, 0.5)           # = rc.norm_hsl(180, 50, 50)
+hsl     = (0.5, 0.5, 0.5) # = rc.norm_hsl(180, 50, 50)
 palette = "palettes/dracula.json"
 
 utils.recolor(src, dest, name, hsl) # Either hsl or palette.
 ```
 Extracting:
 ```python
-image      = "test_pack/imgs/lake_cabin.png"
+image      = "test_pack/imgs/lake_cabin.png" # Also try an svg.
 num_colors = 10
-output     = "resources/palette.png" # Optional - if given, saves colors as image.
+output     = "resources/palette.png" # Optional - saves colors as image.
 
 utils.extract_colors(image, num_colors, output)
 ```

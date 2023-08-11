@@ -351,16 +351,26 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         img.save(path)
 
 def extract_colors(img_path, num_colors=8, save_path=None, pixels=50, cols=10):
-    img = Image.open(img_path)
 
-    colors = img.convert('P', palette=Image.ADAPTIVE, colors=num_colors)
-    colors = colors.getpalette()[0:num_colors*3]
+    _, ext = os.path.splitext(img_path)
 
-    colors = ['#{:02X}{:02X}{:02X}'.format(colors[i], colors[i+1], colors[i+2]) for i in range(0, len(colors), 3)]
+    if ext == ".svg":
+        with open(img_path, 'r') as file:
+            svg = file.read()
+
+        colors = list(get_svg_colors(svg))
+        num_colors = len(colors)
+
+    else:
+        img = Image.open(img_path)
+
+        colors = img.convert('P', palette=Image.ADAPTIVE, colors=num_colors)
+        colors = colors.getpalette()[0:num_colors*3]
+
+        colors = ['#{:02X}{:02X}{:02X}'.format(colors[i], colors[i+1], colors[i+2]) for i in range(0, len(colors), 3)]
 
     if save_path != None:
-        n = len(colors)
-        if n < cols: cols = n
+        if num_colors < cols: cols = num_colors
 
         rows = -(-len(colors) // cols)
         width = cols * pixels; height = rows * pixels
