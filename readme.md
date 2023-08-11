@@ -70,16 +70,11 @@ Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from t
 
 
 ## Requests <a name="requests"></a>
-Until the release of Color Manager, I will be taking requests for icon packs and recolorings. Simply submit a feature request here on the repository containing the following:
-- The name of an open-source icon pack that will serve as the base look.
-- For a monochromatic variant, a single hexadecimal value representing a color.
-- For particular color palettes, a list of hexadecimal values or the name of a popular palette.
-
-Please star the repository or consider donating, and I will upload your requested variant. Also consider showing the creators of the original artworks some love.
+Until the release official release of Color Manager, I will be taking requests for recolorings. Simply submit a feature request, specifying what you would like to see. Please star the repository or consider donating, and I will upload your requested variant. Also consider showing the creators of the original artworks some love.
 
 
 ## Contribute <a name="contribute"></a>
-If you are experienced with packaging projects such as this for easy distribution, please contact me.
+If you are experienced with packaging projects such as this for easy distribution, i.e. as deb, appimage or flatpaks, please contact me.
 
 ---
 **Legal Notice**: This repository, including any and all of its forks and derivatives, may NOT be used in the development or training of any machine learning model of any kind, without the explicit permission of the owner of the original repository.
