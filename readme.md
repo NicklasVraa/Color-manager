@@ -10,7 +10,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | Operation | Result |
 | :---------: | ------ |
 | **Original** | ![1](resources/original.png) |
-| **Monochrome**:<br> (0.6, 0.54, 0.5) | ![2](resources/mono.png) |
+| **Monochrome**:<br> `(0.6,0.54,0.5)` | ![2](resources/mono.png) |
 | **Multichrome**:<br> `nord.json`<br> `smooth=false` | ![3](resources/multi_accurate.png) |
 | **Multichrome**:<br> `nord.json`<br> `smooth=true` | ![3](resources/multi_smooth.png) |
 
@@ -28,10 +28,12 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 - [x] Graphical user interface based on the GTK framework.
 - [x] Python pip package.
 - [x] Full support for pngs and jpgs.
+- [ ] Generate palette from source image or svg.
+- [ ] Adding basic geometry to the backgrounds of icons.
+- [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
-- [ ] Intelligent color inversion function.
-- [ ] Function for adding basic geometry to the backgrounds of icons.
-- [ ] GNU/Linux binary.
+- [ ] Intelligent color inversion.
+- [ ] GNU/Linux binary (deb, flatpak, appimage).
 
 
 ## Features <a name="features"></a>
@@ -48,7 +50,6 @@ Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base
 - Decrease the number of colors in your original image, e.g. using a function like `Image.quantize()` from `pillow`.
 - Experiment with setting `smooth` to `true`/`false` in the palette json file.
 
-Both will be implemented as optional automatic adjustments in the future.
 
 ## Using the Program<a name="use"></a>
 Either import `utils` into your own script and call the recoloring functions, e.g.:
