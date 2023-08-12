@@ -6,14 +6,22 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 
 ![gui](resources/gui.png)
 
+**Add customizable backdrops to all your icons.**
+| Examples | `rounding=0.0` | `rounding=0.5` | `rounding=1.0` |
+| :------: | :------------: | :------------: | :------------: |
+| `padding=0`<br> `color="#000000"` | <img src="resources/backdrops/colors_r00_p0_black.svg" width="100"/> | <img src="resources/backdrops/colors_r05_p0_black.svg" width="100"/> | <img src="resources/backdrops/colors_r10_p0_black.svg" width="100"/> |
+| `padding=2`<br> `color="#112288"` | <img src="resources/backdrops/firefox_r00_p2_blue.svg" width="100"/> | <img src="resources/backdrops/firefox_r05_p2_blue.svg" width="100"/> | <img src="resources/backdrops/firefox_r10_p2_blue.svg" width="100"/> |
+| `padding=4`<br> `color="#551144"` | <img src="resources/backdrops/vscode_r00_p4_purple.svg" width="100"/> | <img src="resources/backdrops/vscode_r05_p4_purple.svg" width="100"/> | <img src="resources/backdrops/vscode_r10_p4_purple.svg" width="100"/> |
+
+
 **Instantly recolor artwork such as wallpapers.**
 | Operation | Result |
 | :---------: | ------ |
-| **Original** | ![1](resources/original.png) |
-| **Monochrome**:<br> `(0.6,0.54,0.5)` | ![2](resources/mono.png) |
-| **Multichrome**:<br> `nord.json`<br> `smooth=false` | ![3](resources/multi_accurate.png) |
-| **Multichrome**:<br> `nord.json`<br> `smooth=true` | ![3](resources/multi_smooth.png) |
-| **Extraction**:<br> Original `num=10` | ![4](resources/palette.png) |
+| **Original** | ![1](resources/wallpaper/original.png) |
+| **Monochrome**:<br>`(0.6,0.54,0.5)` | ![2](resources/wallpaper/mono.png) |
+| **Multichrome**:<br>`nord.json`<br>`smooth=false` | ![3](resources/wallpaper/multi_accurate.png) |
+| **Multichrome**:<br>`nord.json`<br>`smooth=true` | ![3](resources/wallpaper/multi_smooth.png) |
+| **Extraction**:<br>Original `num=10` | ![4](resources/wallpaper/palette.png) |
 
 **GUI Demo**:
 ![demo](resources/demo.gif)
@@ -30,7 +38,8 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 - [x] Python pip package.
 - [x] Full support for pngs and jpgs.
 - [x] Generate palette from source image or svg.
-- [ ] Adding basic geometry to the backgrounds of icons.
+- [x] Remove metadata from svgs.
+- [x] Adding basic geometry to the backgrounds of svg icons.
 - [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion.
@@ -43,7 +52,8 @@ Currently, three operations are supported:
 | ---- | ------ | ----- | -------- |
 | Monochrome recoloring  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 svgs/sec | svg, png, jpg |
 | Multichrome recoloring | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100 svgs/sec | svg, png, jpg |
-| Extract colors | Returns and optionally saves the color palette of an image, in specified detail. | ~100 colors/sec | png, jpg |
+| Extract colors | Returns and optionally saves the color palette of an image, in specified detail. | ~100 colors/sec | svg, png, jpg |
+| Add backdrop | Add a rectangular or elliptical background (and anything in between) to all svg icons. | ~5000 svgs/sec | svg |
 
 Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base for any color palette or base color. Svg recolorings will always be perfect, but png/jpgs may require experimentation.
 
@@ -58,7 +68,7 @@ Either import `utils` into your own script and call its functions, e.g.:
 ```python
 from color_manager import utils
 ```
-Recoloring:
+Recoloring collections:
 ```python
 src     = "test_pack"
 name    = "my_pack"
@@ -68,13 +78,24 @@ palette = "palettes/dracula.json"
 
 utils.recolor(src, dest, name, hsl) # Either hsl or palette.
 ```
-Extracting:
+Extracting color palette:
 ```python
 image      = "test_pack/imgs/lake_cabin.png" # Also try an svg.
 num_colors = 10
 output     = "resources/palette.png" # Optional - saves colors as image.
 
 utils.extract_colors(image, num_colors, output)
+```
+Adding backdrops to svg icons:
+```python
+src      = "test_pack"
+name     = "my_pack"
+dest     = "~/Downloads"
+color    = "#000000" # Optional - Defaults to black.
+padding  = 0   # Optional - Between backdrop and edge.
+rounding = 0.5 # Optional - Between 0 and 1, i.e. rectangle and ellipse.
+
+utils.add_backdrop(src, dest, name, color, padding, rounding)
 ```
 
 Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath`, `tqdm` and `pillow`. For the GUI, `pygobject` (GTK bindings) must also be installed.

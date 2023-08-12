@@ -231,7 +231,7 @@ def copy_pack(src_path:str, dest_path:str, name:str) -> str:
 
     return dest_path
 
-# Recolor ----------------------------------------------------------------------
+# Recoloring -------------------------------------------------------------------
 
 def monochrome_svg(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
     """Replace every instance of color within the given list with their
@@ -322,6 +322,8 @@ def multichrome_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) -> Im
     img = img.convert("RGB")
     return img
 
+# User interface functions -----------------------------------------------------
+
 def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     """Recursively copies and converts a source folder into a destination, given a either a color or a palette."""
 
@@ -330,7 +332,7 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     svg_paths = get_paths(dest_path, [".svg"])
     img_paths = get_paths(dest_path, [".png", ".jpg", ".jpeg"])
 
-    for path in tqdm(svg_paths, desc="Processing svgs", unit="file"):
+    for path in tqdm(svg_paths, desc="Recoloring svgs", unit="file"):
         with open(path, 'r') as file:
             svg = file.read()
 
@@ -342,7 +344,7 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         with open(path, 'w') as file:
             file.write(svg)
 
-    for path in tqdm(img_paths, desc="Processing imgs", unit="file"):
+    for path in tqdm(img_paths, desc="Recoloring imgs", unit="file"):
         img = Image.open(path)
 
         if is_mono: img = monochrome_img(img, new_colors)
@@ -350,7 +352,8 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
 
         img.save(path)
 
-def extract_colors(img_path, num_colors=8, save_path=None, pixels=50, cols=10):
+def extract_colors(img_path:str, num_colors:int=8, save_path:str=None, pixels:int=50, cols:int=10) -> List[str]:
+    """Returns and optionally saves the color palette of the given image, finding the specified number of colors."""
 
     _, ext = os.path.splitext(img_path)
 
@@ -387,3 +390,45 @@ def extract_colors(img_path, num_colors=8, save_path=None, pixels=50, cols=10):
         img.save(save_path, format="png")
 
     return colors
+
+def clean_svg(input_path:str, output_path:str=None) -> str:
+    """Removes needless metadata from svgs and optionally saves as copy, if output path is specified."""
+
+    with open(input_path, 'r') as f:
+        svg = f.read()
+
+    patterns = [
+        r".*xmlns:.*\n",
+        r"\s*<metadata[\s\S]*?<\/metadata.*",
+        r"\s*<sodipodi[\s\S]*?<\/sodipodi.*",
+    ]
+
+    for pattern in patterns:
+        svg = re.sub(pattern, '', svg)
+
+    if output_path is None:
+        output_path = input_path
+
+    with open(output_path, 'w') as f:
+        f.write(svg)
+
+def add_backdrop(src_path:str, dest_path:str, name:str, color:str="#000000", padding=0, rounding=0):
+
+    dest_path = copy_pack(src_path, dest_path, name)
+    svg_paths = get_paths(dest_path, [".svg"])
+
+    for path in tqdm(svg_paths, desc="Changing svgs  ", unit="file"):
+        with open(path, 'r') as file:
+            svg = file.read()
+
+        width = int(re.search(r'<svg.*width=\"(\d*)\"', svg).group(1))
+        height = int(re.search(r'<svg.*height=\"(\d*)\"', svg).group(1))
+        pos = re.search(r'<svg.*>\n', svg).end()
+
+        backdrop = '<rect fill="' + color + '" x="' + str(padding) + '" y="' + str(padding) + '" width="' + str(width-2*padding) + '" height="' + str(height-2*padding) + '" rx="' + str(rounding * (width / 2)) + '" ry="' + str(rounding * (height / 2)) + '"/>'
+
+        credit = "\n<!-- Inserted by Color Manager -->\n"
+        svg = svg[:pos] + credit + backdrop + credit + svg[pos:]
+
+        with open(path, 'w') as file:
+            file.write(svg)
