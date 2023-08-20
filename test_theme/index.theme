@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=NovaOS-nord
+Comment=Dark nord theme for Nova OS
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=NovaOS-nord
+MetacityTheme=NovaOS-nord
+IconTheme=NovaOS-nord
+ButtonLayout=:minimize,maximize,close

@@ -1,21 +1,13 @@
 # Desc: A program for recoloring icon packs, themes and wallpapers. For NovaOS.
 # Auth: Nicklas Vraa
 
-from typing import List, Set, Tuple, Dict
+from typing import List, Set, Tuple, Dict, Optional
 from tqdm import tqdm
 from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
 from colormath.color_diff import delta_e_cie2000
 from PIL import Image, ImageDraw
 import os, re, shutil, json
-
-# Global constants -------------------------------------------------------------
-
-# A dynamic dictionary to avoid multiple color conversions.
-hex_to_lab_dict = {
-    "#ffffff": LabColor(9341.568974319263, -0.037058350415009045, -0.6906417562959177), # White.
-    "#000000": LabColor(0,0,0) # Black.
-}
 
 # Color conversion -------------------------------------------------------------
 
@@ -32,6 +24,16 @@ def hex_to_gray(hex:str) -> str:
 def rgb_to_hex(rgb:Tuple[int,int,int]) -> str:
     r, g, b = rgb
     return "#{:02x}{:02x}{:02x}".format(r, g, b)
+
+def rgba_to_hex(rgba:Tuple[int,int,int,Optional[float]]) -> str:
+    r, g, b = rgba[:3]
+    hex = "#{:02X}{:02X}{:02X}".format(r, g, b)
+
+    if len(rgba) > 3:
+        if rgba[3] != 1.0:
+            hex += format(int(rgba[3] * 255), '02X')
+
+    return hex
 
 def rgb_to_hsl(rgb:Tuple[int,int,int]) -> Tuple[float,float,float]:
     r, g, b = rgb
@@ -83,6 +85,32 @@ def hue_to_rgb(p:float, q:float, t:float) -> float:
 def norm_hsl(h:int, s:int, l:int) -> Tuple[float,float,float]:
     return h/360, s/100, l/100
 
+# CSS handling -----------------------------------------------------------------
+
+def expand_css_rgba(match) -> None:
+    return rgba_to_hex((
+        int(match.group(1)), int(match.group(2)),
+        int(match.group(3)), float(match.group(4))
+    ))
+
+def css_to_hex(text:str):
+    text = re.sub(r"rgba\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\)",
+                  lambda match: expand_css_rgba(match), text)
+
+    for key in name_to_hex_dict:
+        text = re.sub(key + "([,;])", name_to_hex_dict[key] + "\\1", text)
+
+    return text
+
+def expand_hex(hex:str) -> str:
+    """Returns 6-digit version of any hexadecimal color code."""
+    hex = hex.lstrip('#')
+
+    if len(hex) == 3:
+        hex = ''.join([c * 2 for c in hex])
+
+    return '#' + hex.ljust(6, '0')
+
 # Color comparision ------------------------------------------------------------
 
 def generate_palette_dict(colors:List[str]) -> Dict[str,LabColor]:
@@ -94,7 +122,7 @@ def generate_palette_dict(colors:List[str]) -> Dict[str,LabColor]:
 
     return palette_dict
 
-def load_palette_file(path:str) -> Dict[str,LabColor]:
+def load_json_file(path:str) -> Dict:
     with open(path, 'r') as file:
         palette = json.load(file)
     return palette
@@ -106,18 +134,18 @@ def get_input_colors(resource) -> Tuple[List[str],bool,bool]:
         return resource, False, True
 
     elif type(resource) is str:
-        palette_file = load_palette_file(resource)
+        palette_file = load_json_file(resource)
         return generate_palette_dict(palette_file["colors"]), palette_file["smooth"], False
 
     else:
         return generate_palette_dict(resource["colors"]), palette_file["smooth"], False
 
-def get_svg_colors(svg:str) -> Set[str]:
-    """Return a list of all unique colors within a given string
+def get_file_colors(file:str) -> Set[str]:
+    """Return a set of all unique colors within a given string
     representing an svg-file."""
 
     colors = set()
-    matches = re.findall(r"#[A-Fa-f0-9]{6}", svg)
+    matches = re.findall(r"#[A-Fa-f0-9]{6}", file)
 
     for match in matches:
         colors.add(match)
@@ -205,20 +233,28 @@ def copy_file_structure(src_path:str, dest_path:str) -> None:
                 relative_target = relative_target.replace(src_path, dest_path, 1)
                 os.symlink(relative_target, file_path)
 
-def rename_pack(path:str, name:str) -> None:
+def rename_pack(src_path, dest_path:str, name:str) -> None:
     """If an index.theme file exists within the given folder, apply
     appropiate naming."""
 
-    path = os.path.join(path, name)
-    index_path = os.path.join(path, "index.theme")
+    print("rename called")
+    index_path = os.path.join(dest_path, "index.theme")
 
+    print(index_path)
     if os.path.exists(index_path):
+        print("index.theme found")
         with open(index_path, 'r') as file:
-            content = file.read()
-            contents = re.sub(r"Name=.*", "Name=" + name, content, count=1)
+            text = file.read()
+
+        text = re.sub(r"(Name=).*", "\\1" + name, text, count=1)
+        text = re.sub(r"(GtkTheme=).*", "\\1" + name, text, count=1)
+        text = re.sub(r"(MetacityTheme=).*", "\\1" + name, text, count=1)
+        text = re.sub(r"(IconTheme=).*", "\\1" + name, text, count=1)
+
+        text = re.sub(r"(Comment=).*", "\\1" + "A variant of " + os.path.basename(src_path) + " created by nicklasvraa/color-manager", text, count=1)
 
         with open(index_path, 'w') as file:
-            file.write(contents)
+            file.write(text)
 
 def copy_pack(src_path:str, dest_path:str, name:str) -> str:
     """Copy pack and return the resulting copy's directory path."""
@@ -227,13 +263,13 @@ def copy_pack(src_path:str, dest_path:str, name:str) -> str:
     dest_path = os.path.join(expand_path(dest_path), name)
 
     copy_file_structure(src_path, dest_path)
-    rename_pack(dest_path, name)
+    rename_pack(src_path, dest_path, name)
 
     return dest_path
 
-# Recoloring -------------------------------------------------------------------
+# SVG/CSS recoloring -----------------------------------------------------------
 
-def monochrome_svg(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
+def monochrome_vec(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
     """Replace every instance of color within the given list with their
     monochrome equivalent in the given string representing an svg-file,
     determined by the given hue, saturation and lightness offset."""
@@ -257,8 +293,8 @@ def monochrome_svg(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> st
 
     return svg
 
-def multichrome_svg(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
-    """Replace colors in a given svg with the closest match within a given
+def multichrome_vec(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
+    """Replace colors in a given svg/css with the closest match within a given
     color palette."""
 
     for color in colors:
@@ -267,24 +303,25 @@ def multichrome_svg(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> 
 
     return svg
 
+# PNG/JPG recoloring -----------------------------------------------------------
+
 def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
     """Replace every instance of color within the given list with their
     monochrome equivalent in the given image, determined by the given hue, saturation and lightness offset."""
 
+    mode = img.mode
     h, s, l_offset = hsl
 
     if s == 0:
-        if img.mode == "RGBA":
-            img = img.convert("LA")
-        else:
-            img = img.convert("L")
+        if mode == "RGBA": img = img.convert("LA")
+        else: img = img.convert("L")
     else:
         width, height = img.size
         l_offset = (l_offset - 0.5) * 2 # Remapping.
 
         for x in range(width):
             for y in range(height):
-                if img.mode == "RGBA":
+                if mode == "RGBA":
                     r, g, b, a = img.getpixel((x, y))
                 else:
                     r, g, b = img.getpixel((x, y))
@@ -293,7 +330,7 @@ def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
                 l = max(-1, min(l+l_offset, 1))
                 new_color = hsl_to_rgb((h, s, l))
 
-                if img.mode == "RGBA":
+                if mode == "RGBA":
                     img.putpixel((x,y), new_color + (a,))
                 else:
                     img.putpixel((x,y), new_color)
@@ -330,27 +367,48 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     new_colors, smooth, is_mono = get_input_colors(replacement)
     dest_path = copy_pack(src_path, dest_path, name)
     svg_paths = get_paths(dest_path, [".svg"])
-    img_paths = get_paths(dest_path, [".png", ".jpg", ".jpeg"])
+    png_paths = get_paths(dest_path, [".png"])
+    jpg_paths = get_paths(dest_path, [".jpg", ".jpeg"])
+    css_paths = get_paths(dest_path, [".css"])
 
-    for path in tqdm(svg_paths, desc="Recoloring svgs", unit="file"):
-        with open(path, 'r') as file:
-            svg = file.read()
+    for path in tqdm(svg_paths, desc="svg", unit="file"):
+        with open(path, 'r') as file: x = file.read()
 
-        colors = get_svg_colors(svg)
+        colors = get_file_colors(x)
 
-        if is_mono: svg = monochrome_svg(svg, colors, new_colors)
-        else: svg = multichrome_svg(svg, colors, new_colors)
+        if is_mono: x = monochrome_vec(x, colors, new_colors)
+        else: x = multichrome_vec(x, colors, new_colors)
 
-        with open(path, 'w') as file:
-            file.write(svg)
+        with open(path, 'w') as file: file.write(x)
 
-    for path in tqdm(img_paths, desc="Recoloring imgs", unit="file"):
-        img = Image.open(path)
+    for path in tqdm(png_paths, desc="png", unit="file"):
+        x = Image.open(path)
+        x = x.convert("RGBA")
 
-        if is_mono: img = monochrome_img(img, new_colors)
-        else: img = multichrome_img(img, new_colors, smooth)
+        if is_mono: x = monochrome_img(x, new_colors)
+        else: x = multichrome_img(x, new_colors, smooth)
 
-        img.save(path)
+        x.save(path)
+
+    for path in tqdm(jpg_paths, desc="jpg", unit="file"):
+        x = Image.open(path)
+        x = x.convert("RGB")
+
+        if is_mono: x = monochrome_img(x, new_colors)
+        else: x = multichrome_img(x, new_colors, smooth)
+
+        x.save(path)
+
+    for path in tqdm(css_paths, desc="css", unit="file"):
+        with open(path, 'r') as file: x = file.read()
+
+        x = css_to_hex(x)
+        colors = get_file_colors(x)
+
+        if is_mono: x = monochrome_vec(x, colors, new_colors)
+        else: x = multichrome_vec(x, colors, new_colors)
+
+        with open(path, 'w') as file: file.write(x)
 
 def extract_colors(img_path:str, num_colors:int=8, save_path:str=None, pixels:int=50, cols:int=10) -> List[str]:
     """Returns and optionally saves the color palette of the given image, finding the specified number of colors."""
@@ -361,7 +419,7 @@ def extract_colors(img_path:str, num_colors:int=8, save_path:str=None, pixels:in
         with open(img_path, 'r') as file:
             svg = file.read()
 
-        colors = list(get_svg_colors(svg))
+        colors = list(get_file_colors(svg))
         num_colors = len(colors)
 
     else:
@@ -432,3 +490,16 @@ def add_backdrop(src_path:str, dest_path:str, name:str, color:str="#000000", pad
 
         with open(path, 'w') as file:
             file.write(svg)
+
+# Global constants -------------------------------------------------------------
+
+this_path = os.path.dirname(os.path.abspath(__file__))
+
+# A dynamic dictionary to avoid multiple color conversions.
+hex_to_lab_dict = {
+    "#ffffff": LabColor(9341.568974319263, -0.037058350415009045, -0.6906417562959177), # White.
+    "#000000": LabColor(0,0,0) # Black.
+}
+
+# A static dictionary of named colors from the css standard.
+name_to_hex_dict = load_json_file(os.path.join(this_path, "named_colors.json"))
