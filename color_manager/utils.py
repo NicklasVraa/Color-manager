@@ -7,7 +7,7 @@ from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
 from colormath.color_diff import delta_e_cie2000
 from PIL import Image, ImageDraw
-import os, re, shutil, json
+import os, re, shutil, json, subprocess
 
 # Color conversion -------------------------------------------------------------
 
@@ -84,6 +84,29 @@ def hue_to_rgb(p:float, q:float, t:float) -> float:
 
 def norm_hsl(h:int, s:int, l:int) -> Tuple[float,float,float]:
     return h/360, s/100, l/100
+
+# File conversion --------------------------------------------------------------
+
+def svg_to_png(src_path:str, dest_path:str, width:int = 300) -> None:
+    """Generate pngs from svgs with a given width."""
+
+    src_path = os.path.abspath(os.path.expanduser(src_path))
+    dest_path = os.path.abspath(os.path.expanduser(dest_path))
+
+    try:
+        subprocess.run(['inkscape', '--version'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except FileNotFoundError:
+        raise RuntimeError("Inkscape is not installed.")
+
+    os.makedirs(dest_path, exist_ok=True)
+    svgs = [file for file in os.listdir(src_path) if file.endswith('.svg')]
+
+    for svg in svgs:
+        svg_path = os.path.join(src_path, svg)
+        png = os.path.splitext(svg)[0] + '.png'
+        png_path = os.path.join(dest_path, png)
+        command = ['inkscape', svg_path, '-o', png_path, '-w', str(width)]
+        subprocess.run(command)
 
 # CSS handling -----------------------------------------------------------------
 
@@ -237,12 +260,10 @@ def rename_pack(src_path, dest_path:str, name:str) -> None:
     """If an index.theme file exists within the given folder, apply
     appropiate naming."""
 
-    print("rename called")
     index_path = os.path.join(dest_path, "index.theme")
 
     print(index_path)
     if os.path.exists(index_path):
-        print("index.theme found")
         with open(index_path, 'r') as file:
             text = file.read()
 
@@ -356,7 +377,6 @@ def multichrome_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) -> Im
         new_palette.extend(new_color)
 
     img.putpalette(new_palette)
-    img = img.convert("RGB")
     return img
 
 # User interface functions -----------------------------------------------------
@@ -369,7 +389,7 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     svg_paths = get_paths(dest_path, [".svg"])
     png_paths = get_paths(dest_path, [".png"])
     jpg_paths = get_paths(dest_path, [".jpg", ".jpeg"])
-    css_paths = get_paths(dest_path, [".css"])
+    css_paths = get_paths(dest_path, [".css", "rc"])
 
     for path in tqdm(svg_paths, desc="svg", unit="file"):
         with open(path, 'r') as file: x = file.read()
@@ -384,10 +404,14 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     for path in tqdm(png_paths, desc="png", unit="file"):
         x = Image.open(path)
         x = x.convert("RGBA")
+        a = x.split()[3] # Save original alpha channel.
 
         if is_mono: x = monochrome_img(x, new_colors)
         else: x = multichrome_img(x, new_colors, smooth)
 
+        x = x.convert("RGBA")
+        r,g,b,_ = x.split()
+        x = Image.merge("RGBA",(r,g,b,a)) # Restore original alpha channel.
         x.save(path)
 
     for path in tqdm(jpg_paths, desc="jpg", unit="file"):
@@ -397,6 +421,7 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         if is_mono: x = monochrome_img(x, new_colors)
         else: x = multichrome_img(x, new_colors, smooth)
 
+        x = x.convert("RGB")
         x.save(path)
 
     for path in tqdm(css_paths, desc="css", unit="file"):
