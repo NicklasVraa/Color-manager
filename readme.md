@@ -41,6 +41,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 - [x] Remove metadata from svgs.
 - [x] Adding basic geometry to the backgrounds of svg icons.
 - [x] Preserve transparency in pngs after multichrome recoloring.
+- [ ] Add an option to map colors directly using a json dictionary.
 - [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion.
