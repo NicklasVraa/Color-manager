@@ -1,6 +1,7 @@
 {
+    "type": "palette",
     "name": "Dracula",
-    "desc": "Dark mode color scheme with vibrant and contrasting colors.",
+    "desc": "Dark mode scheme with vibrant and contrasting colors.",
     "smooth": false,
     "colors": [
         "#44475a",

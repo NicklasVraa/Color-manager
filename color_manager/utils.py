@@ -177,18 +177,23 @@ def generate_palette_dict(colors:List[str]) -> Dict[str,LabColor]:
 
     return palette_dict
 
-def get_input_colors(resource) -> Tuple[List[str],bool,bool]:
-    """ Returns an HSL tuple, or a list of colors, depending on the input, as well as a boolean indicating which one, as well as if the palettes specifies smoothing pngs/jpgs. """
+def get_input_colors(resource):
+    """ Returns an HSL tuple, or a palette of colors, or a color mapping, depending on the input, as well as a string indicating which one, and if smoothing should be applied to pngs/jpgs. """
 
     # If resource is an hsl color.
     if isinstance(resource, tuple) and len(resource) == 3:
-        return resource, False, True
+        return resource, False, "color"
 
     else:
-        # If resource is a path to a palette.
-        if type(resource) is str: resource = load_json_file(resource)
+        # If resource is a path to a resource, first unpack.
+        if type(resource) is str:
+            resource = load_json_file(resource)
 
-        return generate_palette_dict(resource["colors"]), resource["smooth"], False
+        if resource["type"] == "palette":
+            return generate_palette_dict(resource["colors"]), resource["smooth"], "palette"
+
+        elif resource["type"] == "mapping":
+            return resource["map"], resource["smooth"], "mapping"
 
 def get_file_colors(text:str) -> Set[str]:
     """ Return a set of all unique colors within a given string representing an svg-file. """
@@ -307,7 +312,7 @@ def copy_pack(src_path:str, dest_path:str, name:str) -> str:
 
 # Vector-based recoloring ------------------------------------------------------
 
-def apply_monotones_to_vec(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
+def apply_monotones_to_vec(text:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
     """ Replace every instance of color within the given list with their monochrome equivalent in the given string representing an svg-file, determined by the given hue, saturation and lightness offset. """
 
     h, s, l_offset = hsl
@@ -315,7 +320,7 @@ def apply_monotones_to_vec(svg:str, colors:Set[str], hsl:Tuple[float,float,float
     if s == 0:
         for color in colors:
             graytone = hex_to_gray(color)
-            svg = re.sub(color, graytone, svg)
+            text = re.sub(color, graytone, text)
     else:
         l_offset = (l_offset - 0.5) * 2 # Remapping.
 
@@ -325,18 +330,27 @@ def apply_monotones_to_vec(svg:str, colors:Set[str], hsl:Tuple[float,float,float
             l = (0.21*r + 0.72*g + 0.07*b)/255
             l = max(-1, min(l+l_offset, 1))
             monochrome = rgb_to_hex(hsl_to_rgb((h, s, l)))
-            svg = re.sub(color, monochrome, svg)
+            text = re.sub(color, monochrome, text)
 
-    return svg
+    return text
 
-def apply_palette_to_vec(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
-    """ Replace colors in a given svg/css with the closest match within a given color palette. """
+def apply_palette_to_vec(text:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
+    """ Replace hexadecimal color codes in a given svg/xml/css string with their closest matches within the given color palette. """
 
     for color in colors:
         new_color = closest_match(color, new_colors)
-        svg = re.sub(color, new_color, svg)
+        text = re.sub(color, new_color, text)
 
-    return svg
+    return text
+
+def apply_mapping_to_vec(text:str, colors:Set[str], map:Dict[str,str]) -> str:
+    """ Replace hexadecimal color codes in a given svg/xml/css string according to a given color mapping. """
+
+    for color in colors:
+        if color in map:
+            text = re.sub(color, map[color], text)
+
+    return text
 
 # Pixel-based recoloring -------------------------------------------------------
 
@@ -382,11 +396,35 @@ def apply_palette_to_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) 
     rgb_palette = [(palette[i], palette[i+1], palette[i+2]) for i in range(0, len(palette), 3)]
 
     hex_palette = ["#%02x%02x%02x" % rgb for rgb in rgb_palette]
-    new_palette = []
 
+    new_palette = []
     for color in hex_palette:
         new_color = hex_to_rgb(closest_match(color, new_colors))
         new_palette.extend(new_color)
+
+    img.putpalette(new_palette)
+    return img
+
+def apply_mapping_to_img(img:Image, map:Dict[str,str], smooth:bool) -> Image:
+    """ Replace colors in a given image according to a given mapping. """
+
+    #raise Exception("Function not yet implemented.")
+
+    if smooth: img = img.convert("P", palette=Image.ADAPTIVE, colors=256)
+    else: img = img.convert("P")
+
+    palette = img.getpalette()
+
+    rgb_palette = [(palette[i], palette[i+1], palette[i+2]) for i in range(0, len(palette), 3)]
+
+    hex_palette = ["#%02x%02x%02x" % rgb for rgb in rgb_palette]
+
+    new_palette = []
+    for color in hex_palette:
+        if color in map:
+            new_palette.extend(hex_to_rgb(map[color]))
+        else:
+            new_palette.extend(hex_to_rgb(color))
 
     img.putpalette(new_palette)
     return img
@@ -399,7 +437,7 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     check_path(src_path)
     check_path(dest_path)
 
-    new_colors, smooth, is_mono = get_input_colors(replacement)
+    new_colors, smooth, op = get_input_colors(replacement)
     dest_path = copy_pack(src_path, dest_path, name)
 
     # Recolor vector graphics.
@@ -410,8 +448,12 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         x = expand_all_hex(x)
         colors = get_file_colors(x)
 
-        if is_mono: x = apply_monotones_to_vec(x, colors, new_colors)
-        else: x = apply_palette_to_vec(x, colors, new_colors)
+        if op == "color":
+            x = apply_monotones_to_vec(x, colors, new_colors)
+        elif op == "palette":
+            x = apply_palette_to_vec(x, colors, new_colors)
+        elif op == "mapping":
+            x = apply_mapping_to_vec(x, colors, new_colors)
 
         with open(path, 'w') as file: file.write(x)
 
@@ -424,8 +466,12 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         x = expand_all_hex(x)
         colors = get_file_colors(x)
 
-        if is_mono: x = apply_monotones_to_vec(x, colors, new_colors)
-        else: x = apply_palette_to_vec(x, colors, new_colors)
+        if op == "color":
+            x = apply_monotones_to_vec(x, colors, new_colors)
+        elif op == "palette":
+            x = apply_palette_to_vec(x, colors, new_colors)
+        elif op == "mapping":
+            x = apply_mapping_to_vec(x, colors, new_colors)
 
         with open(path, 'w') as file: file.write(x)
 
@@ -436,8 +482,12 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         x = x.convert("RGBA")
         a = x.split()[3] # Save original alpha channel.
 
-        if is_mono: x = apply_monotones_to_img(x, new_colors)
-        else: x = apply_palette_to_img(x, new_colors, smooth)
+        if op == "color":
+            x = apply_monotones_to_img(x, new_colors)
+        elif op == "palette":
+            x = apply_palette_to_img(x, new_colors, smooth)
+        elif op == "mapping":
+            x = apply_mapping_to_img(x, new_colors, smooth)
 
         x = x.convert("RGBA")
         r,g,b,_ = x.split()
@@ -450,8 +500,12 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         x = Image.open(path)
         x = x.convert("RGB")
 
-        if is_mono: x = apply_monotones_to_img(x, new_colors)
-        else: x = apply_palette_to_img(x, new_colors, smooth)
+        if op == "color":
+            x = apply_monotones_to_img(x, new_colors)
+        elif op == "palette":
+            x = apply_palette_to_img(x, new_colors, smooth)
+        elif op == "mapping":
+            x = apply_mapping_to_img(x, new_colors, smooth)
 
         x = x.convert("RGB")
         x.save(path)

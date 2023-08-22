@@ -1,0 +1,14 @@
+{
+    "type": "mapping",
+    "name": "Re-Nord",
+    "desc": "Maps nord colors to different nord colors. Only meant for testing the color remapping function.",
+    "smooth": true,
+    "map": {
+        "#434c5e": "#2e3440",
+        "#4c566a": "#3b4252",
+        "#b48ead": "#8fbcbb",
+        "#ebcb8b": "#eceff4",
+        "#d08770": "#e5e9f0",
+        "#bf616a": "#d8dee9"
+    }
+}

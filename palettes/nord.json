@@ -1,4 +1,5 @@
 {
+    "type": "palette",
     "name": "Nord",
     "desc": "An arctic, north-bluish color palette.",
     "smooth": true,

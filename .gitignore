@@ -1,4 +1,4 @@
 resources/demo.mp4
-test_pack/theme/
+test/theme/
 *.egg-info/
 __pycache__/

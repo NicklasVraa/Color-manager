@@ -20,8 +20,11 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | **Original** | ![1](resources/wallpaper/original.png) |
 | **Monochrome**:<br>`(0.6,0.54,0.5)` | ![2](resources/wallpaper/mono.png) |
 | **Multichrome**:<br>`nord.json`<br>`smooth=false` | ![3](resources/wallpaper/multi_accurate.png) |
-| **Multichrome**:<br>`nord.json`<br>`smooth=true` | ![3](resources/wallpaper/multi_smooth.png) |
-| **Extraction**:<br>Original `num=10` | ![4](resources/wallpaper/palette.png) |
+| **Multichrome**:<br>`nord.json`<br>`smooth=true` | ![4](resources/wallpaper/multi_smooth.png) |
+| **Remapping**:<br>`renord.json`<br>Remapped<br>previous to<br>alterate nord <br>colors. | ![5](resources/wallpaper/remapped.png) |
+| **Extraction**:<br>Original `num=10` | ![6](resources/wallpaper/palette.png) |
+
+With these tools, one can build a pipeline to customize most assets to fit into a larger design.
 
 **GUI Demo**:
 ![demo](resources/demo.gif)
@@ -41,7 +44,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 - [x] Remove metadata from svgs.
 - [x] Adding basic geometry to the backgrounds of svg icons.
 - [x] Preserve transparency in pngs after multichrome recoloring.
-- [ ] Add an option to map colors directly using a json dictionary.
+- [x] Add function to remap colors directly using a json dictionary.
 - [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion.
@@ -73,25 +76,26 @@ from color_manager import utils
 ```
 Recoloring collections:
 ```python
-src     = "test_pack"
+src     = "test/graphics" # Also try "test/theme"
 name    = "my_pack"
 dest    = "~/Downloads"
-hsl     = (0.5, 0.5, 0.5) # = rc.norm_hsl(180, 50, 50)
-palette = "palettes/dracula.json"
+color     = (0.6, 0.54, 0.5) # = rc.normalize_hsl(180, 50, 50)
+palette = "palettes/nord.json"
+mapping = "mappings/renord.json"
 
-utils.recolor(src, dest, name, hsl) # Either hsl or palette.
+utils.recolor(src, dest, name, color) # Either color, palette, or mapping.
 ```
 Extracting color palette:
 ```python
-image      = "test_pack/imgs/lake_cabin.png" # Also try an svg.
-num_colors = 10
+image      = "test/graphics/imgs/lake_cabin.png" # Also try an svg.
+num_colors = 10 # May be any number.
 output     = "resources/palette.png" # Optional - saves colors as image.
 
 utils.extract_colors(image, num_colors, output)
 ```
 Adding backdrops to svg icons:
 ```python
-src      = "test_pack"
+src      = "test/graphics"
 name     = "my_pack"
 dest     = "~/Downloads"
 color    = "#000000" # Optional - Defaults to black.

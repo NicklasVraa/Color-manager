@@ -1,4 +1,5 @@
 {
+    "type": "palette",
     "name": "Catppuccin Latte",
     "desc": "Pastel theme that aims to be the middle ground between low and high contrast themes.",
     "smooth": false,
