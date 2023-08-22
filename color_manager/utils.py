@@ -9,7 +9,8 @@ from colormath.color_diff import delta_e_cie2000
 from PIL import Image, ImageDraw
 import os, re, shutil, json, subprocess
 
-# Utility ----------------------------------------------------------------------
+# Basic utility ----------------------------------------------------------------
+
 def expand_path(path:str) -> str:
     """ Returns the absolute version of the given path, and expands unix notation like tilde for home folder. """
     return os.path.abspath(os.path.expanduser(path))
@@ -23,6 +24,31 @@ def load_json_file(path:str) -> Dict:
     with open(path, 'r') as file:
         obj = json.load(file)
     return obj
+
+def check_path(path:str) -> None:
+    if not os.path.exists(expand_path(path)):
+        raise Exception("Invalid path: " + path)
+
+def svg_to_png(src_path:str, dest_path:str, width:int = 300) -> None:
+    """ Generate pngs at given destination path from a given source folder with a given width. """
+
+    src_path = expand_path(src_path)
+    dest_path = expand_path(dest_path)
+
+    try:
+        subprocess.run(['inkscape', '--version'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except FileNotFoundError:
+        raise RuntimeError("Inkscape is not installed.")
+
+    os.makedirs(dest_path, exist_ok=True)
+    svgs = [file for file in os.listdir(src_path) if file.endswith('.svg')]
+
+    for svg in svgs:
+        svg_path = os.path.join(src_path, svg)
+        png = os.path.splitext(svg)[0] + '.png'
+        png_path = os.path.join(dest_path, png)
+        command = ['inkscape', svg_path, '-o', png_path, '-w', str(width)]
+        subprocess.run(command)
 
 # Color conversion -------------------------------------------------------------
 
@@ -110,29 +136,6 @@ def norm_hsl(h:int, s:int, l:int) -> Tuple[float,float,float]:
     """ Normalize hsl color values. """
     return h/360, s/100, l/100
 
-# File conversion --------------------------------------------------------------
-
-def svg_to_png(src_path:str, dest_path:str, width:int = 300) -> None:
-    """ Generate pngs at given destination path from a given source folder with a given width. """
-
-    src_path = expand_path(src_path)
-    dest_path = expand_path(dest_path)
-
-    try:
-        subprocess.run(['inkscape', '--version'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    except FileNotFoundError:
-        raise RuntimeError("Inkscape is not installed.")
-
-    os.makedirs(dest_path, exist_ok=True)
-    svgs = [file for file in os.listdir(src_path) if file.endswith('.svg')]
-
-    for svg in svgs:
-        svg_path = os.path.join(src_path, svg)
-        png = os.path.splitext(svg)[0] + '.png'
-        png_path = os.path.join(dest_path, png)
-        command = ['inkscape', svg_path, '-o', png_path, '-w', str(width)]
-        subprocess.run(command)
-
 # Preprocessing ----------------------------------------------------------------
 
 def expand_css_rgba(match) -> str:
@@ -177,15 +180,15 @@ def generate_palette_dict(colors:List[str]) -> Dict[str,LabColor]:
 def get_input_colors(resource) -> Tuple[List[str],bool,bool]:
     """ Returns an HSL tuple, or a list of colors, depending on the input, as well as a boolean indicating which one, as well as if the palettes specifies smoothing pngs/jpgs. """
 
+    # If resource is an hsl color.
     if isinstance(resource, tuple) and len(resource) == 3:
         return resource, False, True
 
-    elif type(resource) is str:
-        palette_file = load_json_file(resource)
-        return generate_palette_dict(palette_file["colors"]), palette_file["smooth"], False
-
     else:
-        return generate_palette_dict(resource["colors"]), palette_file["smooth"], False
+        # If resource is a path to a palette.
+        if type(resource) is str: resource = load_json_file(resource)
+
+        return generate_palette_dict(resource["colors"]), resource["smooth"], False
 
 def get_file_colors(text:str) -> Set[str]:
     """ Return a set of all unique colors within a given string representing an svg-file. """
@@ -302,9 +305,9 @@ def copy_pack(src_path:str, dest_path:str, name:str) -> str:
 
     return dest_path
 
-# SVG/CSS recoloring -----------------------------------------------------------
+# Vector-based recoloring ------------------------------------------------------
 
-def monochrome_vec(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
+def apply_monotones_to_vec(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> str:
     """ Replace every instance of color within the given list with their monochrome equivalent in the given string representing an svg-file, determined by the given hue, saturation and lightness offset. """
 
     h, s, l_offset = hsl
@@ -326,7 +329,7 @@ def monochrome_vec(svg:str, colors:Set[str], hsl:Tuple[float,float,float]) -> st
 
     return svg
 
-def multichrome_vec(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
+def apply_palette_to_vec(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
     """ Replace colors in a given svg/css with the closest match within a given color palette. """
 
     for color in colors:
@@ -335,9 +338,9 @@ def multichrome_vec(svg:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> 
 
     return svg
 
-# PNG/JPG recoloring -----------------------------------------------------------
+# Pixel-based recoloring -------------------------------------------------------
 
-def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
+def apply_monotones_to_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
     """ Replace every instance of color within the given list with their monochrome equivalent in the given image, determined by the given hue, saturation and lightness offset. """
 
     mode = img.mode
@@ -368,7 +371,7 @@ def monochrome_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
 
     return img
 
-def multichrome_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) -> Image:
+def apply_palette_to_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) -> Image:
     """ Replace colors in a given image with the closest match within a given color palette. """
 
     if smooth: img = img.convert("P", palette=Image.ADAPTIVE, colors=256)
@@ -391,76 +394,83 @@ def multichrome_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) -> Im
 # User interface functions -----------------------------------------------------
 
 def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
-    """ Recursively copies and converts a source folder into a destination, given a either a color or a palette. """
+    """ Recursively copies and converts a source folder into a destination, given either an hsl color, a palette, or a color mapping. """
+
+    check_path(src_path)
+    check_path(dest_path)
 
     new_colors, smooth, is_mono = get_input_colors(replacement)
     dest_path = copy_pack(src_path, dest_path, name)
-    svg_paths = get_paths(dest_path, [".svg", ".xml"])
-    png_paths = get_paths(dest_path, [".png"])
-    jpg_paths = get_paths(dest_path, [".jpg", ".jpeg"])
-    css_paths = get_paths(dest_path, [".css", "rc"])
 
-    for path in tqdm(svg_paths, desc="svg", disable=is_empty(svg_paths)):
+    # Recolor vector graphics.
+    paths = get_paths(dest_path, [".svg", ".xml"])
+    for path in tqdm(paths, desc="svg", disable=is_empty(paths)):
         with open(path, 'r') as file: x = file.read()
 
         x = expand_all_hex(x)
         colors = get_file_colors(x)
 
-        if is_mono: x = monochrome_vec(x, colors, new_colors)
-        else: x = multichrome_vec(x, colors, new_colors)
+        if is_mono: x = apply_monotones_to_vec(x, colors, new_colors)
+        else: x = apply_palette_to_vec(x, colors, new_colors)
 
         with open(path, 'w') as file: file.write(x)
 
-    for path in tqdm(png_paths, desc="png", disable=is_empty(png_paths)):
+    # Recolor stylesheets.
+    paths = get_paths(dest_path, [".css", "rc"])
+    for path in tqdm(paths, desc="css", disable=is_empty(paths)):
+        with open(path, 'r') as file: x = file.read()
+
+        x = css_to_hex(x)
+        x = expand_all_hex(x)
+        colors = get_file_colors(x)
+
+        if is_mono: x = apply_monotones_to_vec(x, colors, new_colors)
+        else: x = apply_palette_to_vec(x, colors, new_colors)
+
+        with open(path, 'w') as file: file.write(x)
+
+    # Recolor pngs.
+    paths = get_paths(dest_path, [".png"])
+    for path in tqdm(paths, desc="png", disable=is_empty(paths)):
         x = Image.open(path)
         x = x.convert("RGBA")
         a = x.split()[3] # Save original alpha channel.
 
-        if is_mono: x = monochrome_img(x, new_colors)
-        else: x = multichrome_img(x, new_colors, smooth)
+        if is_mono: x = apply_monotones_to_img(x, new_colors)
+        else: x = apply_palette_to_img(x, new_colors, smooth)
 
         x = x.convert("RGBA")
         r,g,b,_ = x.split()
         x = Image.merge("RGBA",(r,g,b,a)) # Restore original alpha channel.
         x.save(path)
 
-    for path in tqdm(jpg_paths, desc="jpg", disable=is_empty(jpg_paths)):
+    # Recolor jpgs.
+    paths = get_paths(dest_path, [".jpg", ".jpeg"])
+    for path in tqdm(paths, desc="jpg", disable=is_empty(paths)):
         x = Image.open(path)
         x = x.convert("RGB")
 
-        if is_mono: x = monochrome_img(x, new_colors)
-        else: x = multichrome_img(x, new_colors, smooth)
+        if is_mono: x = apply_monotones_to_img(x, new_colors)
+        else: x = apply_palette_to_img(x, new_colors, smooth)
 
         x = x.convert("RGB")
         x.save(path)
 
-    for path in tqdm(css_paths, desc="css", disable=is_empty(css_paths)):
-        with open(path, 'r') as file: x = file.read()
+def extract_colors(src_path:str, num_colors:int=8, save_path:str=None, pixels:int=50, cols:int=10) -> List[str]:
+    """ Returns and optionally saves the color palette of the given image, as its own image. Optionally specify the number of unique colors you want to be found. """
 
-        x = css_to_hex(x)
-        x = expand_all_hex(x)
-
-        colors = get_file_colors(x)
-
-        if is_mono: x = monochrome_vec(x, colors, new_colors)
-        else: x = multichrome_vec(x, colors, new_colors)
-
-        with open(path, 'w') as file: file.write(x)
-
-def extract_colors(img_path:str, num_colors:int=8, save_path:str=None, pixels:int=50, cols:int=10) -> List[str]:
-    """ Returns and optionally saves the color palette of the given image, finding the specified number of colors. """
-
-    _, ext = os.path.splitext(img_path)
+    check_path(src_path)
+    _, ext = os.path.splitext(src_path)
 
     if ext == ".svg":
-        with open(img_path, 'r') as file:
+        with open(src_path, 'r') as file:
             svg = file.read()
 
         colors = list(get_file_colors(svg))
         num_colors = len(colors)
 
     else:
-        img = Image.open(img_path)
+        img = Image.open(src_path)
 
         colors = img.convert('P', palette=Image.ADAPTIVE, colors=num_colors)
         colors = colors.getpalette()[0:num_colors*3]
@@ -468,6 +478,8 @@ def extract_colors(img_path:str, num_colors:int=8, save_path:str=None, pixels:in
         colors = ['#{:02X}{:02X}{:02X}'.format(colors[i], colors[i+1], colors[i+2]) for i in range(0, len(colors), 3)]
 
     if save_path != None:
+        check_path(save_path)
+
         if num_colors < cols: cols = num_colors
 
         rows = -(-len(colors) // cols)
@@ -486,10 +498,11 @@ def extract_colors(img_path:str, num_colors:int=8, save_path:str=None, pixels:in
 
     return colors
 
-def clean_svg(input_path:str, output_path:str=None) -> str:
+def clean_svg(src_path:str, dest_path:str=None) -> str:
     """ Removes needless metadata from svgs and optionally saves as copy, if output path is specified. """
 
-    with open(input_path, 'r') as f:
+    check_path(src_path)
+    with open(src_path, 'r') as f:
         svg = f.read()
 
     patterns = [
@@ -501,15 +514,17 @@ def clean_svg(input_path:str, output_path:str=None) -> str:
     for pattern in patterns:
         svg = re.sub(pattern, '', svg)
 
-    if output_path is None:
-        output_path = input_path
+    if dest_path is None: dest_path = src_path
+    else: check_path(dest_path)
 
-    with open(output_path, 'w') as f:
+    with open(dest_path, 'w') as f:
         f.write(svg)
 
 def add_backdrop(src_path:str, dest_path:str, name:str, color:str="#000000", padding=0, rounding=0):
-    """ Add a customizable backdrop to all svg-based icons. """
+    """ Add a customizable backdrop to all svg-based icons. Optionally specify the backdrop color, the padding to the edge of the graphic, and the corner rounding factor. """
 
+    check_path(src_path)
+    check_path(dest_path)
     dest_path = copy_pack(src_path, dest_path, name)
     svg_paths = get_paths(dest_path, [".svg"])
 

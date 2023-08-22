@@ -45,19 +45,20 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 - [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion.
+- [ ] Update GUI to support new features.
 - [ ] GNU/Linux binary (deb, flatpak, appimage).
 
 
 ## Features <a name="features"></a>
 Currently, three operations are supported:
-| Type | Result | Speed | Supports |
-| ---- | ------ | ----- | -------- |
-| Monochrome recoloring  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000 svgs/sec | svg, png, jpg, css |
-| Multichrome recoloring | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100 svgs/sec | svg, png, jpg, css |
-| Extract colors | Returns and optionally saves the color palette of an image, in specified detail. | ~100 colors/sec | svg, png, jpg, css |
-| Add backdrop | Add a rectangular or elliptical background (and anything in between) to all svg icons. | ~5000 svgs/sec | svg |
+| Type | Result | Speed | Support |
+| :--: | ------ | ----- | ------- |
+| **Monochrome recoloring**  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000svg/s<br> ~500png/s | svg, xml, css, png, jpg |
+| **Palette recoloring** | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100svg/s<br> ~3png/s | svg, xml, css, png, jpg |
+| **Extract colors** | Returns and optionally saves the color palette of an image, in specified detail. | ~10colors/s | svg, xml, css, png, jpg |
+| **Add backdrop** | Add a rectangular or elliptical background (and anything in between) to all svg icons. | ~5000svg/s | svg |
 
-Speeds were recorded with an Intel i7-4770K CPU. Any asset can serve as the base for any color palette or base color. Svg recolorings will always be perfect, but png/jpgs may require experimentation.
+Speeds were recorded with an Intel i7-4770K CPU and is strongly dependent on file sizes. Any asset can serve as the base for any color palette or base color. Svg/css recolorings will always be perfect, but png/jpgs may require experimentation.
 
 **Tip**: To increase the quality, i.e. decrease the perceived noise of multichromatic recolorings of pngs/jpgs, either...
 - Increase the number of colors in the palette you provide to the program, e.g. populate it with slight variations of the existing colors
