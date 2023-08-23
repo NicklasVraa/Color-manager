@@ -46,6 +46,7 @@ With these tools, one can build a pipeline to customize most assets to fit into 
 - [x] Preserve transparency in pngs after multichrome recoloring.
 - [x] Add function to remap colors directly using a json dictionary.
 - [x] Update GUI to support new features.
+- [x] Support inline palette and mapping objects.
 - [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion.
@@ -108,13 +109,13 @@ utils.add_backdrop(src, dest, name, color, padding, rounding)
 
 Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath`, `tqdm` and `pillow`. For the GUI, `pygobject` (GTK bindings) must also be installed.
 
-**Defining a palette or mapping** is done in a json file, e.g.:
-```json
-{
+**Defining a palette or mapping** is either done as a dict-object or as an external json-file, e.g.:
+```python
+my_palette = {
     "type": "palette",
     "name": "...",
     "desc": "...",
-    "smooth": true/false,
+    "smooth": True,
     "colors": [
         "#ffffff",
         "#000000",
@@ -122,12 +123,12 @@ Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from t
     ]
 }
 ```
-```json
-{
+```python
+my_mapping = {
     "type": "mapping",
     "name": "...",
     "desc": "...",
-    "smooth": true/false,
+    "smooth": True,
     "map": {
         "#ffffff": "#000000",
         "#f0f0f0": "#0f0f0f",
@@ -135,6 +136,8 @@ Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from t
     }
 }
 ```
+Examples of both as json-files are available in this repository.
+
 
 ## Requests <a name="requests"></a>
 Until the release official release of Color Manager, I will be taking requests for recolorings. Simply submit a feature request, specifying what you would like to see. Please star the repository or consider donating, and I will upload your requested variant. Also consider showing the creators of the original artworks some love.
