@@ -21,7 +21,7 @@ Color Manager is a program for recoloring and manipulating existing icon packs, 
 | **Monochrome**:<br>`(0.6,0.54,0.5)` | ![2](resources/wallpaper/mono.png) |
 | **Multichrome**:<br>`nord.json`<br>`smooth=false` | ![3](resources/wallpaper/multi_accurate.png) |
 | **Multichrome**:<br>`nord.json`<br>`smooth=true` | ![4](resources/wallpaper/multi_smooth.png) |
-| **Remapping**:<br>`renord.json`<br>Remapped<br>previous to<br>alterate nord <br>colors. | ![5](resources/wallpaper/remapped.png) |
+| **Remapping**:<br>`renord.json`<br><small>Remap of previous<br>to alterate nord<br>colors</small>. | ![5](resources/wallpaper/remapped.png) |
 | **Extraction**:<br>Original `num=10` | ![6](resources/wallpaper/palette.png) |
 
 With these tools, one can build a pipeline to customize most assets to fit into a larger design.
@@ -45,10 +45,10 @@ With these tools, one can build a pipeline to customize most assets to fit into 
 - [x] Adding basic geometry to the backgrounds of svg icons.
 - [x] Preserve transparency in pngs after multichrome recoloring.
 - [x] Add function to remap colors directly using a json dictionary.
+- [x] Update GUI to support new features.
 - [ ] Optional automatic palette extending.
 - [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion.
-- [ ] Update GUI to support new features.
 - [ ] GNU/Linux binary (deb, flatpak, appimage).
 
 
@@ -56,8 +56,9 @@ With these tools, one can build a pipeline to customize most assets to fit into 
 Currently, three operations are supported:
 | Type | Result | Speed | Support |
 | :--: | ------ | ----- | ------- |
-| **Monochrome recoloring**  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5000svg/s<br> ~500png/s | svg, xml, css, png, jpg |
+| **Monochrome recoloring**  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5050svg/s<br> ~500png/s | svg, xml, css, png, jpg |
 | **Palette recoloring** | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100svg/s<br> ~3png/s | svg, xml, css, png, jpg |
+| **Color remapping** | A multichromatic variant, where all colors that are specified in a given map will be replaced as dictated by said map. | ~1000svg/s<br> ~10png/s | svg, xml, css, png, jpg |
 | **Extract colors** | Returns and optionally saves the color palette of an image, in specified detail. | ~10colors/s | svg, xml, css, png, jpg |
 | **Add backdrop** | Add a rectangular or elliptical background (and anything in between) to all svg icons. | ~5000svg/s | svg |
 
@@ -107,6 +108,33 @@ utils.add_backdrop(src, dest, name, color, padding, rounding)
 
 Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath`, `tqdm` and `pillow`. For the GUI, `pygobject` (GTK bindings) must also be installed.
 
+**Defining a palette or mapping** is done in a json file, e.g.:
+```json
+{
+    "type": "palette",
+    "name": "...",
+    "desc": "...",
+    "smooth": true/false,
+    "colors": [
+        "#ffffff",
+        "#000000",
+        ...
+    ]
+}
+```
+```json
+{
+    "type": "mapping",
+    "name": "...",
+    "desc": "...",
+    "smooth": true/false,
+    "map": {
+        "#ffffff": "#000000",
+        "#f0f0f0": "#0f0f0f",
+        ...
+    }
+}
+```
 
 ## Requests <a name="requests"></a>
 Until the release official release of Color Manager, I will be taking requests for recolorings. Simply submit a feature request, specifying what you would like to see. Please star the repository or consider donating, and I will upload your requested variant. Also consider showing the creators of the original artworks some love.

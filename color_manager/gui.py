@@ -10,23 +10,29 @@ import os, ngtk, utils
 def recolor(src_path, dest_path, name, replacement, progress_bar, status):
     """Recursively copies and converts a source folder into a destination, given a either a color or a palette."""
 
-    new_colors, smooth, is_mono = utils.get_input_colors(replacement)
+    utils.check_path(src_path)
+    utils.check_path(dest_path)
+
+    new_colors, smooth, op = utils.get_input_colors(replacement)
     dest_path = utils.copy_pack(src_path, dest_path, name)
-    svg_paths = utils.get_paths(dest_path, [".svg"])
-    img_paths = utils.get_paths(dest_path, [".png", ".jpg", ".jpeg"])
 
-    n = len(svg_paths); i = 0
-    for path in svg_paths:
-        with open(path, 'r') as file:
-            svg = file.read()
+    # Recolor vector graphics.
+    paths = utils.get_paths(dest_path, [".svg", ".xml"])
+    n = len(paths); i = 0
+    for path in paths:
+        with open(path, 'r') as file: x = file.read()
 
-        colors = utils.get_svg_colors(svg)
+        x = utils.expand_all_hex(x)
+        colors = utils.get_file_colors(x)
 
-        if is_mono: svg = utils.monochrome_svg(svg, colors, new_colors)
-        else: svg = utils.multichrome_svg(svg, colors, new_colors)
+        if op == "color":
+            x = utils.apply_monotones_to_vec(x, colors, new_colors)
+        elif op == "palette":
+            x = utils.apply_palette_to_vec(x, colors, new_colors)
+        elif op == "mapping":
+            x = utils.apply_mapping_to_vec(x, colors, new_colors)
 
-        with open(path, 'w') as file:
-            file.write(svg)
+        with open(path, 'w') as file: file.write(x)
 
         i = i + 1
         progress_bar.set_fraction(i/n)
@@ -35,14 +41,72 @@ def recolor(src_path, dest_path, name, replacement, progress_bar, status):
 
     status.set_text("SVGs completed! Continuing...")
 
-    n = len(img_paths); i = 0
-    for path in img_paths:
-        img = Image.open(path)
+    # Recolor stylesheets.
+    paths = utils.get_paths(dest_path, [".css", "rc"])
+    n = len(paths); i = 0
+    for path in paths:
+        with open(path, 'r') as file: x = file.read()
 
-        if is_mono: img = utils.monochrome_img(img, new_colors)
-        else: img = utils.multichrome_img(img, new_colors, smooth)
+        x = utils.css_to_hex(x)
+        x = utils.expand_all_hex(x)
+        colors = utils.get_file_colors(x)
 
-        img.save(path)
+        if op == "color":
+            x = utils.apply_monotones_to_vec(x, colors, new_colors)
+        elif op == "palette":
+            x = utils.apply_palette_to_vec(x, colors, new_colors)
+        elif op == "mapping":
+            x = utils.apply_mapping_to_vec(x, colors, new_colors)
+
+        with open(path, 'w') as file: file.write(x)
+
+        i = i + 1
+        progress_bar.set_fraction(i/n)
+        while Gtk.events_pending():
+            Gtk.main_iteration()
+
+    # Recolor pngs.
+    paths = utils.get_paths(dest_path, [".png"])
+    n = len(paths); i = 0
+    for path in paths:
+        x = Image.open(path)
+        x = x.convert("RGBA")
+        a = x.split()[3] # Save original alpha channel.
+
+        if op == "color":
+            x = utils.apply_monotones_to_img(x, new_colors)
+        elif op == "palette":
+            x = utils.apply_palette_to_img(x, new_colors, smooth)
+        elif op == "mapping":
+            x = utils.apply_mapping_to_img(x, new_colors, smooth)
+
+        x = x.convert("RGBA")
+        r,g,b,_ = x.split()
+        x = Image.merge("RGBA",(r,g,b,a)) # Restore original alpha channel.
+        x.save(path)
+
+        i = i + 1
+        progress_bar.set_fraction(i/n)
+        while Gtk.events_pending():
+            Gtk.main_iteration()
+
+
+    # Recolor jpgs.
+    paths = utils.get_paths(dest_path, [".jpg", ".jpeg"])
+    n = len(paths); i = 0
+    for path in paths:
+        x = Image.open(path)
+        x = x.convert("RGB")
+
+        if op == "color":
+            x = utils.apply_monotones_to_img(x, new_colors)
+        elif op == "palette":
+            x = utils.apply_palette_to_img(x, new_colors, smooth)
+        elif op == "mapping":
+            x = utils.apply_mapping_to_img(x, new_colors, smooth)
+
+        x = x.convert("RGB")
+        x.save(path)
 
         i = i + 1
         progress_bar.set_fraction(i/n)
