@@ -47,8 +47,8 @@ With these tools, one can build a pipeline to customize most assets to fit into 
 - [x] Add function to remap colors directly using a json dictionary.
 - [x] Update GUI to support new features.
 - [x] Support inline palette and mapping objects.
+- [x] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Optional automatic palette extending.
-- [ ] Basic framework for manipulating GTK, Cinnamon and Metacity themes.
 - [ ] Intelligent color inversion.
 - [ ] GNU/Linux binary (deb, flatpak, appimage).
 
@@ -58,7 +58,7 @@ Currently, three operations are supported:
 | Type | Result | Speed | Support |
 | :--: | ------ | ----- | ------- |
 | **Monochrome recoloring**  | A monochromatic variant, colored by appropriate shades of the provided base color. | ~5050svg/s<br> ~500png/s | svg, xml, css, png, jpg |
-| **Palette recoloring** | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~100svg/s<br> ~3png/s | svg, xml, css, png, jpg |
+| **Palette recoloring** | A multichromatic variant, where all colors are replaced by their nearest perceived equivalent that adheres to the provided color palette. | ~110svg/s<br> ~3png/s | svg, xml, css, png, jpg |
 | **Color remapping** | A multichromatic variant, where all colors that are specified in a given map will be replaced as dictated by said map. | ~1000svg/s<br> ~10png/s | svg, xml, css, png, jpg |
 | **Extract colors** | Returns and optionally saves the color palette of an image, in specified detail. | ~10colors/s | svg, xml, css, png, jpg |
 | **Add backdrop** | Add a rectangular or elliptical background (and anything in between) to all svg icons. | ~5000svg/s | svg |
@@ -81,7 +81,7 @@ Recoloring collections:
 src     = "test/graphics" # Also try "test/theme"
 name    = "my_pack"
 dest    = "~/Downloads"
-color     = (0.6, 0.54, 0.5) # = rc.normalize_hsl(180, 50, 50)
+color   = (0.5, 0.5, 0.5) # = rc.norm_hsl(180, 50, 50)
 palette = "palettes/nord.json"
 mapping = "mappings/renord.json"
 
