@@ -21,8 +21,8 @@ Below are examples of what can be done using this library. Using it in a simple 
 ### Theme-pack Recoloring
 | | |
 |-|-|
-| <img src="resources/themes/nordic.png" width="600"/> | <img src="resources/themes/forest.png" width="600"/> |
-| <img src="resources/themes/watermelon.png" width="600"/> | <img src="resources/themes/beach.png" width="600"/> |
+| ![1](resources/themes/nordic.png) | ![2](resources/themes/forest.png) |
+| ![3](resources/themes/watermelon.png) | ![4](resources/themes/beach.png) |
 These are simple monochromatic recolors of [my own theme](https://github.com/NicklasVraa/NovaOS-nord-Theme) and the papirus icon pack. Multichromatic recoloring based on a palette or mapping also works. Recoloring works on any svg/css/png/jpg/xml-based theme, which include GTK-, Cinnamon-, Gnome-shell- and metacity-themes.
 
 ### Wallpaper Recoloring
