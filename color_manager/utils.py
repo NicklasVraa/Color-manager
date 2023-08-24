@@ -145,7 +145,7 @@ def expand_css_rgba(match) -> str:
         int(match.group(3)), float(match.group(4))
     ))
 
-def css_to_hex(text:str):
+def css_to_hex(text:str) -> str:
     """ Returns the given string with css rgba functions and named colors substituted for their corresponding hexadecimal codes. """
 
     text = re.sub(r"rgba\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\)",
@@ -155,6 +155,19 @@ def css_to_hex(text:str):
         text = re.sub(key + r"\b", name_to_hex_dict[key], text)
 
     return text
+
+# Post-processing --------------------------------------------------------------
+
+def hex_to_rgba(match) -> str:
+    """ Converts 8-digit hexadecimal code to rgba function. """
+    hex = match.group(1)
+
+    return f"rgba({int(hex[1:3], 16)}, {int(hex[3:5], 16)}, {int(hex[5:7], 16)}, {int(hex[7:9], 16) / 255.0:.2f})"
+
+def hex_to_css(text:str) -> str:
+    """ Convert 8-digit hexadecimal color codes to css rgba color functions. Needed when a css interpreter does not recognize the alpha-channel when reading hexadecimal color codes. """
+
+    return re.sub(r"(#[0-9a-fA-F]{8})", hex_to_rgba, text)
 
 def expand_all_hex(text:str) -> str:
     """Expand all 3-digit hexadecimal codes in the input string to 6 digits."""
@@ -473,6 +486,7 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
         elif op == "mapping":
             x = apply_mapping_to_vec(x, colors, new_colors)
 
+        x = hex_to_css(x)
         with open(path, 'w') as file: file.write(x)
 
     # Recolor pngs.
