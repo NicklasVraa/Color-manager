@@ -19,10 +19,11 @@ Below are examples of what can be done using this library. Using it in a simple 
 | `padding=4`<br> `color="#551144"` | <img src="resources/backdrops/vscode_r00_p4_purple.svg" width="60"/> | <img src="resources/backdrops/vscode_r05_p4_purple.svg" width="60"/> | <img src="resources/backdrops/vscode_r10_p4_purple.svg" width="60"/> |
 
 ### Theme-pack Recoloring
-| | |
-|-|-|
+|     |     |
+| --- | --- |
 | ![1](resources/themes/nordic.png) | ![2](resources/themes/forest.png) |
 | ![3](resources/themes/watermelon.png) | ![4](resources/themes/beach.png) |
+
 These are simple monochromatic recolors of [my own theme](https://github.com/NicklasVraa/NovaOS-nord-Theme) and the papirus icon pack. Multichromatic recoloring based on a palette or mapping also works. Recoloring works on any svg/css/png/jpg/xml-based theme, which include GTK-, Cinnamon-, Gnome-shell- and metacity-themes.
 
 ### Wallpaper Recoloring
