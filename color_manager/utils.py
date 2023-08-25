@@ -341,7 +341,7 @@ def apply_monotones_to_vec(text:str, colors:Set[str], hsl:Tuple[float,float,floa
             graytone = hex_to_gray(color)
             r, g, b = hex_to_rgb(graytone)
             l = (0.21*r + 0.72*g + 0.07*b)/255
-            l = max(-1, min(l+l_offset, 1))
+            l = max(0, min(l+l_offset, 1))
             monochrome = rgb_to_hex(hsl_to_rgb((h, s, l)))
             text = re.sub(color, monochrome, text)
 
@@ -388,7 +388,7 @@ def apply_monotones_to_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
                     r, g, b = img.getpixel((x, y))
 
                 l = (0.21*r + 0.72*g + 0.07*b)/255
-                l = max(-1, min(l+l_offset, 1))
+                l = max(0, min(l+l_offset, 1))
                 new_color = hsl_to_rgb((h, s, l))
 
                 if mode == "RGBA":
