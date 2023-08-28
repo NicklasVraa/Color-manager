@@ -163,11 +163,11 @@ class Window(Gtk.Window):
         shared.add(gen_area)
 
     def on_custom_palette_set(self, btn, palette_desc):
-        self.palette = utils.load_palette_file(btn.get_filename())
+        self.palette = utils.load_json_file(btn.get_filename())
         palette_desc.set_text(self.palette["name"] + ": " + self.palette["desc"])
 
     def on_palette_set(self, palette_picker, palette_desc):
-        self.palette = utils.load_palette_file(palette_picker.choice)
+        self.palette = utils.load_json_file(palette_picker.choice)
         palette_desc.set_text(self.palette["name"] + ": " + self.palette["desc"])
 
     def on_generate(self, btn):
