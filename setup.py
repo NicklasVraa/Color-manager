@@ -3,10 +3,10 @@ from setuptools import setup, find_packages
 setup(
     setup_requires=['wheel'],
     name="color_manager_nv",
-    version="0.1.0",
+    version="1.0.0",
     author="Nicklas Vraa",
     author_email="nicklasvraa@proton.me",
-    description="A package for recoloring icon and wallpaper packs and desktop themes",
+    description="A package for recoloring icon- and wallpaper-packs and desktop themes",
     url="https://github.com/nicklasvraa/color-manager",
     classifiers=[
         "Programming Language :: Python :: 3",
