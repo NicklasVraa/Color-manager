@@ -19,9 +19,11 @@ Below are examples of what can be done using this library. Using it in a simple 
 | `padding=4`<br> `color="#551144"` | <img src="resources/backdrops/vscode_r00_p4_purple.svg" width="60"/> | <img src="resources/backdrops/vscode_r05_p4_purple.svg" width="60"/> | <img src="resources/backdrops/vscode_r10_p4_purple.svg" width="60"/> |
 
 ### Theme-pack Recoloring
-In this example, my own [theme](https://github.com/NicklasVraa/NovaOS-nord-Theme) and [icon-pack](https://github.com/NicklasVraa/NovaOS-nord-Icons) have been recolored in brown/green-ish colors. This is available for download under releases.
+In these examples, my own [theme](https://github.com/NicklasVraa/NovaOS-nord-Theme) and [icon-pack](https://github.com/NicklasVraa/NovaOS-nord-Icons) have been recolored for inspiration. These are available for download under releases.
 
-![NovaOS-woodland](resources/packs/NovaOS-woodland.png)
+|   |   |   |
+|:-:|:-:|:-:|
+| ![NovaOS-nord](resources/packs/NovaOS-nord.png) Nord | ![NovaOS-woodland](resources/packs/NovaOS-woodland.png) Woodland | ![NovaOS-beach](resources/packs/NovaOS-beach.png) Beach |
 
 <details><summary>More theme recoloring examples</summary>
 
