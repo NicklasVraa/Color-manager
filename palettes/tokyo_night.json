@@ -1,6 +1,6 @@
 {
     "type": "palette",
-    "name": "Tokyo-Night",
+    "name": "Tokyo Night",
     "desc": "A clean theme that celebrates the lights of Downtown Tokyo at night.",
     "smooth": true,
     "colors": [
@@ -16,8 +16,8 @@
         "#e0af68",
         "#ff9e64",
         "#449dab",
-	"#0db9d7",
-	"#ad8ee6",
-	"#bb9af7"
+        "#0db9d7",
+        "#ad8ee6",
+        "#bb9af7"
     ]
 }

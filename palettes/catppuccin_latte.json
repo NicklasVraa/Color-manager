@@ -4,7 +4,7 @@
     "desc": "Pastel theme that aims to be the middle ground between low and high contrast themes.",
     "smooth": false,
     "colors": [
-        "dc8a78",
+        "#dc8a78",
         "#dd7878",
         "#ea76cb",
         "#8839ef",
