@@ -155,10 +155,6 @@ Speeds were recorded with an Intel i7-4770K CPU and is strongly dependent on fil
 - [ ] Intelligent color inversion.
 - [ ] GNU/Linux binary (deb, flatpak, appimage).
 
-## Requests <a name="requests"></a>
-Until the release official release of Color Manager, I will be taking requests for recolorings. Simply submit a feature request, specifying what you would like to see. Please star the repository or consider donating, and I will upload your requested variant. Also consider showing the creators of the original artworks some love.
-
-
 ## Contribute <a name="contribute"></a>
 If you are experienced with packaging projects such as this for easy distribution, i.e. as deb, appimage or flatpaks, please contact me.
 
