@@ -2,7 +2,7 @@
 
 [Showcase](#showcase) | [Examples](#examples) | [Performance](#performance) | [Roadmap](#roadmap) | [Requests](#requests) | [Contribute](#contribute)
 
-Color Manager is a program for recoloring and manipulating existing icon packs, themes and wallpapers. The program is designed for [NovaOS](https://github.com/NicklasVraa/NovaOS) (or any Linux distribution) and is written in python, but is expected to work on anything that runs python. If you publish anything that was generated using this program, make sure to credit the original creator and this repository.
+Color Manager is a program for recoloring and manipulating existing icon packs, themes and wallpapers. The program is designed for [NovaOS](https://github.com/NicklasVraa/NovaOS) (or any Linux distribution), but is expected to work on anything that runs python. If you publish anything that was generated using this program, make sure to credit the original creator and this repository.
 
 
 ## Showcase <a name="showcase"></a>
