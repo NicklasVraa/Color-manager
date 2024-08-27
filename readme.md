@@ -86,7 +86,7 @@ rounding = 0.5 # Optional - Between 0 and 1, i.e. rectangle and ellipse.
 utils.add_backdrop(src, dest, name, color, padding, rounding)
 ```
 
-Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `colormath`, `tqdm` and `pillow`. For the GUI, `pygobject` (GTK bindings) must also be installed.
+Or launch the GUI by running `python3 color_manager/gui.py` in a terminal from the project's root directory. The GUI will adopt your active theme. Dependencies: `basic_colormath`, `tqdm` and `pillow`. For the GUI, `pygobject` (GTK bindings) must also be installed.
 
 **Defining a palette or mapping** is either done as a dict-object or as an external json-file, e.g.:
 ```python

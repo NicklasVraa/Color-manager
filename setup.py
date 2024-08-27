@@ -21,7 +21,7 @@ setup(
     },
     exclude=["tests", "packs"],
     install_requires=[
-        "colormath",
+        "basic_colormath",
         "tqdm",
         "pillow"
     ],
