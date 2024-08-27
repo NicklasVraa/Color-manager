@@ -186,7 +186,7 @@ def generate_palette_dict(colors:List[str]) -> Dict[str,Lab]:
 
     for color in colors:
         r, g, b = hex_to_rgb(color)
-        palette_dict[color] = rgbs_to_lab(RGB(r,g,b), Lab)
+        palette_dict[color] = rgbs_to_lab(Annotated[RGB,(r,g,b)], Lab)
 
     return palette_dict
 
@@ -232,7 +232,7 @@ def closest_match(color:str, palette:Dict[str,Lab]) -> str:
 
         if lab_color is None:
             r, g, b = hex_to_rgb(color)
-            lab_color = rgbs_to_lab(RGB(r,g,b), Lab)
+            lab_color = rgbs_to_lab(Annotated[RGB,(r,g,b)], Lab)
             hex_to_lab_dict[color] = lab_color
 
         distance = get_delta_e_lab(lab_color, palette[entry])
