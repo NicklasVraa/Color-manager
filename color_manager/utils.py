@@ -3,11 +3,22 @@
 
 from typing import Annotated, List, Set, Tuple, Dict, Optional
 from tqdm import tqdm
-from basic_colormath.type_hints import RGB, Lab
-from basic_colormath.vec_distance import rgbs_to_lab
-from basic_colormath.distance import get_delta_e_lab
+# from basic_colormath.type_hints import RGB, Lab
+from basic_colormath.distance import rgb_to_lab, get_delta_e_lab
 from PIL import Image, ImageDraw
 import os, re, shutil, json, subprocess
+
+
+# Using custom type hints as the default ones in basic_colormath.type_hits arent compatible past python 3.8
+
+RGB = Annotated[tuple[float, float, float], ([0, 255], [0, 255], [0, 255])]
+Lab = Annotated[tuple[float, float, float], ([0, 100], [-128, 127], [-128, 127])]
+
+def LabColor(L:float, a:float, b:float) -> Lab:
+    return L, a, b
+
+def sRGBColor(r:float, g:float, b:float) -> RGB:
+    return r,g,b
 
 # Basic utility ----------------------------------------------------------------
 
@@ -186,7 +197,7 @@ def generate_palette_dict(colors:List[str]) -> Dict[str,Lab]:
 
     for color in colors:
         r, g, b = hex_to_rgb(color)
-        palette_dict[color] = rgbs_to_lab(Annotated[RGB,(r,g,b)], Lab)
+        palette_dict[color] = rgb_to_lab(sRGBColor(r,g,b))
 
     return palette_dict
 
@@ -232,7 +243,7 @@ def closest_match(color:str, palette:Dict[str,Lab]) -> str:
 
         if lab_color is None:
             r, g, b = hex_to_rgb(color)
-            lab_color = rgbs_to_lab(Annotated[RGB,(r,g,b)], Lab)
+            lab_color = rgb_to_lab(sRGBColor(r,g,b))
             hex_to_lab_dict[color] = lab_color
 
         distance = get_delta_e_lab(lab_color, palette[entry])
@@ -616,8 +627,8 @@ def add_backdrop(src_path:str, dest_path:str, name:str, color:str="#000000", pad
 
 # A dynamic dictionary to avoid multiple color conversions.
 hex_to_lab_dict = {
-    "#ffffff": Annotated[Lab,(9341.568974319263, -0.037058350415009045, -0.6906417562959177)], # White.
-    "#000000": Annotated[Lab,(0,0,0)] # Black.
+    "#ffffff": LabColor(9341.568974319263, -0.037058350415009045, -0.6906417562959177), # White.
+    "#000000": LabColor(0,0,0) # Black.
 }
 
 # A static dictionary of named colors from the css standard.
