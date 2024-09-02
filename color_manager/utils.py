@@ -1,13 +1,24 @@
 # Desc: A program for recoloring icon packs, themes and wallpapers. For NovaOS.
 # Auth: Nicklas Vraa
 
-from typing import List, Set, Tuple, Dict, Optional
+from typing import Annotated, List, Set, Tuple, Dict, Optional
 from tqdm import tqdm
-from colormath.color_objects import sRGBColor, LabColor
-from colormath.color_conversions import convert_color
-from colormath.color_diff import delta_e_cie2000
+# from basic_colormath.type_hints import RGB, Lab
+from basic_colormath.distance import rgb_to_lab, get_delta_e_lab
 from PIL import Image, ImageDraw
 import os, re, shutil, json, subprocess
+
+
+# Using custom type hints as the default ones in basic_colormath.type_hits arent compatible past python 3.8
+
+RGB = Annotated[tuple[float, float, float], ([0, 255], [0, 255], [0, 255])]
+Lab = Annotated[tuple[float, float, float], ([0, 100], [-128, 127], [-128, 127])]
+
+def LabColor(L:float, a:float, b:float) -> Lab:
+    return L, a, b
+
+def sRGBColor(r:float, g:float, b:float) -> RGB:
+    return r,g,b
 
 # Basic utility ----------------------------------------------------------------
 
@@ -180,13 +191,13 @@ def expand_all_hex(text:str) -> str:
 
 # Color comparision ------------------------------------------------------------
 
-def generate_palette_dict(colors:List[str]) -> Dict[str,LabColor]:
+def generate_palette_dict(colors:List[str]) -> Dict[str,Lab]:
     """ Returns a dictionary mapping hexadecimal colors to lab colors. """
     palette_dict = {}
 
     for color in colors:
         r, g, b = hex_to_rgb(color)
-        palette_dict[color] = convert_color(sRGBColor(r,g,b), LabColor)
+        palette_dict[color] = rgb_to_lab(sRGBColor(r,g,b))
 
     return palette_dict
 
@@ -219,7 +230,7 @@ def get_file_colors(text:str) -> Set[str]:
 
     return colors
 
-def closest_match(color:str, palette:Dict[str,LabColor]) -> str:
+def closest_match(color:str, palette:Dict[str,Lab]) -> str:
     """ Compare the similarity of colors in the CIELAB colorspace. Return the closest match, i.e. the palette entry with the smallest euclidian distance to the given color. """
 
     closest_color = None
@@ -232,10 +243,10 @@ def closest_match(color:str, palette:Dict[str,LabColor]) -> str:
 
         if lab_color is None:
             r, g, b = hex_to_rgb(color)
-            lab_color = convert_color(sRGBColor(r,g,b), LabColor)
+            lab_color = rgb_to_lab(sRGBColor(r,g,b))
             hex_to_lab_dict[color] = lab_color
 
-        distance = delta_e_cie2000(lab_color, palette[entry])
+        distance = get_delta_e_lab(lab_color, palette[entry])
 
         if distance < min_distance:
             min_distance = distance
@@ -347,7 +358,7 @@ def apply_monotones_to_vec(text:str, colors:Set[str], hsl:Tuple[float,float,floa
 
     return text
 
-def apply_palette_to_vec(text:str, colors:Set[str], new_colors:Dict[str,LabColor]) -> str:
+def apply_palette_to_vec(text:str, colors:Set[str], new_colors:Dict[str,Lab]) -> str:
     """ Replace hexadecimal color codes in a given svg/xml/css string with their closest matches within the given color palette. """
 
     for color in colors:
@@ -398,7 +409,7 @@ def apply_monotones_to_img(img:Image, hsl:Tuple[float,float,float]) -> Image:
 
     return img
 
-def apply_palette_to_img(img:Image, new_colors:Dict[str,LabColor], smooth:bool) -> Image:
+def apply_palette_to_img(img:Image, new_colors:Dict[str,Lab], smooth:bool) -> Image:
     """ Replace colors in a given image with the closest match within a given color palette. """
 
     if smooth: img = img.convert("P", palette=Image.ADAPTIVE, colors=256)
