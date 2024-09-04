@@ -11,6 +11,8 @@ Below are examples of what can be done using this library. Using it in a simple 
 ### Icon-pack Recoloring and Editing
 ![gui](resources/gui.png)
 
+Now also supports pngs and jpegs!
+
 **Add customizable backdrops to all your icons.**
 | Examples | `rounding=0.0` | `rounding=0.5` | `rounding=1.0` |
 | :------: | :------------: | :------------: | :------------: |
@@ -156,7 +158,11 @@ Speeds were recorded with an Intel i7-4770K CPU and is strongly dependent on fil
 - [ ] GNU/Linux binary (deb, flatpak, appimage).
 
 ## Contribute <a name="contribute"></a>
-If you are experienced with packaging projects such as this for easy distribution, i.e. as deb, appimage or flatpaks, please contact me.
+If you are experienced with packaging projects such as this for easy distribution, i.e. as deb, appimage or flatpaks, any contributions of your will be most welcome.
+
+**Thank you to**:
+- [BlownIntoSpace](https://github.com/BlownIntoSpace) for improving speed by substituting `colormath` with the `basic_colormath` module.
+- [ItsTerm1n4l](https://github.com/ItsTerm1n4l) for adding more color palettes.
 
 ---
 **Legal Notice**: This repository, including any and all of its forks and derivatives, may NOT be used in the development or training of any machine learning model of any kind, without the explicit permission of the owner of the original repository.
