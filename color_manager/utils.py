@@ -479,6 +479,8 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     for path in tqdm(paths, desc="svg", disable=is_empty(paths)):
         with open(path, 'r') as file: x = file.read()
 
+        # .svg files use similar color formats to css
+        x = css_to_hex(x)
         x = expand_all_hex(x)
         colors = get_file_colors(x)
 
