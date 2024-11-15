@@ -156,11 +156,21 @@ def expand_css_rgba(match) -> str:
         int(match.group(3)), float(match.group(4))
     ))
 
+def expand_css_rgb(match) -> str:
+    """ Used by the css_to_hex function. """
+    return rgb_to_hex((
+        int(match.group(1)), int(match.group(2)),
+        int(match.group(3)))
+    )
+
 def css_to_hex(text:str) -> str:
     """ Returns the given string with css rgba functions and named colors substituted for their corresponding hexadecimal codes. """
 
     text = re.sub(r"rgba\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\)",
                   expand_css_rgba, text)
+
+    text = re.sub(r"rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)",
+                  expand_css_rgb, text)
 
     for key in name_to_hex_dict:
         text = re.sub(key + r"\b", name_to_hex_dict[key], text)
@@ -469,6 +479,8 @@ def recolor(src_path:str, dest_path:str, name:str, replacement) -> None:
     for path in tqdm(paths, desc="svg", disable=is_empty(paths)):
         with open(path, 'r') as file: x = file.read()
 
+        # .svg files use similar color formats to css
+        x = css_to_hex(x)
         x = expand_all_hex(x)
         colors = get_file_colors(x)
 
