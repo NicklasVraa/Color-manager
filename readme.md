@@ -48,7 +48,7 @@ These are simple monochromatic recolors of [my own theme](https://github.com/Nic
 | **Extraction**:<br>Original `num=10` | ![6](resources/wallpaper/palette.png) |
 
 ### GUI
-The program is also available with a graphical frontend. Features for this may lack slightly behind.
+The program is also available with a graphical frontend. Features for this may lag slightly behind or lack features.
 ![demo](resources/demo.gif)
 
 
